@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -53,15 +54,17 @@ namespace DotnetApi.Controllers
         {
             var user = await _context.Users.SingleOrDefaultAsync(user => user.UserName == loginDto.Username);
 
-            if (user == null) return Unauthorized("Username not found!");
+            if (user == null) return Unauthorized(new { source = "login", type="username"});
 
             using var hmac = new HMACSHA512(user.PasswordSalt);
+
+            if (loginDto.Password == "" | loginDto.Password == null) return Unauthorized(new { source = "login", type = "password" });
 
             var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(loginDto.Password));
 
             for (int i = 0; i < computedHash.Length; i++)
             {
-                if (computedHash[i] != user.PasswordHash[i]) return Unauthorized("Invalid password.");
+                if (computedHash[i] != user.PasswordHash[i]) return Unauthorized(new { source = "login", type="password"});
             }
 
             return new UserDto { Username = user.UserName, Token = _tokenService.CreateToken(user) };
