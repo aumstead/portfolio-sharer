@@ -7,9 +7,9 @@ import { LoginComponent } from './views/login/login.component';
 import { NotFoundComponent } from './views/not-found/not-found.component';
 import { RegisterComponent } from './views/register/register.component';
 import { TestErrorsComponent } from './views/test-errors/test-errors.component';
-import { UsernameComponent } from './views/username/username.component';
 import { AuthGuard } from './_guards/auth.guard';
 import { ServerErrorComponent } from './views/server-error/server-error.component';
+import { PortfoliosComponent } from './views/user/username/portfolios/portfolios.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -27,7 +27,7 @@ const routes: Routes = [
       { path: 'browse', component: BrowseComponent },
     ],
   },
-  { path: ':username', component: UsernameComponent },
+  { path: 'user/:username/portfolios', component: PortfoliosComponent },
   { path: '**', component: NotFoundComponent, pathMatch: 'full' },
 ];
 

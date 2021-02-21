@@ -14,5 +14,7 @@ namespace API.Data
         }
 
         public DbSet<AppUser> Users { get; set; }
+        public DbSet<Portfolio> Portfolios { get; set; }
+        public DbSet<Position> Positions { get; set; }
     }
 }

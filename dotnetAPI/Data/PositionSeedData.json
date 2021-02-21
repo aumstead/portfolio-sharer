@@ -1,0 +1,51 @@
+[
+  {
+    "Ticker": "MSFT",
+    "Shares": 20,
+    "PricePerShare": 198.2,
+    "CommissionFee": 1.22,
+    "PortfolioId": 1
+  },
+  {
+    "Ticker": "AAPL",
+    "Shares": 23,
+    "PricePerShare": 212.11,
+    "CommissionFee": 0.3,
+    "PortfolioId": 1
+  },
+  {
+    "Ticker": "PFE",
+    "Shares": 100,
+    "PricePerShare": 32.2,
+    "CommissionFee": 1.22,
+    "PortfolioId": 1
+  },
+  {
+    "Ticker": "MARA",
+    "Shares": 120,
+    "PricePerShare": 29,
+    "CommissionFee": 1,
+    "PortfolioId": 1
+  },
+  {
+    "Ticker": "JMIA",
+    "Shares": 33,
+    "PricePerShare": 52.12,
+    "CommissionFee": 0.22,
+    "PortfolioId": 1
+  },
+  {
+    "Ticker": "GHVI",
+    "Shares": 2,
+    "PricePerShare": 14.1,
+    "CommissionFee": 1.22,
+    "PortfolioId": 1
+  },
+  {
+    "Ticker": "CLOV",
+    "Shares": 2,
+    "PricePerShare": 10.27,
+    "CommissionFee": 0.55,
+    "PortfolioId": 1
+  }
+]

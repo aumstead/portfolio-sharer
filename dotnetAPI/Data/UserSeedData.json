@@ -1,0 +1,58 @@
+[
+  {
+    "UserName": "Joan",
+    "Email": "joan@gmail.com",
+    "DateOfBirth": "1988-05-28",
+    "Created": "2019-12-02",
+    "LastActive": "2020-05-27",
+    "City": "Bancroft",
+    "Country": "Mexico",
+    "Photo": {
+      "Url": "/assets/joan.jpg",
+      "PublicId": "xxx",
+      "AppUserId": 1
+    }
+  },
+  {
+    "UserName": "Lane",
+    "Email": "lane@gmail.com",
+    "DateOfBirth": "1965-05-28",
+    "Created": "2019-12-02",
+    "LastActive": "2020-05-27",
+    "City": "London",
+    "Country": "England",
+    "Photo": {
+      "Url": "/assets/lane.jpg",
+      "PublicId": "xxx",
+      "AppUserId": 2
+    }
+  },
+  {
+    "UserName": "Don",
+    "Email": "don@gmail.com",
+    "DateOfBirth": "1984-05-28",
+    "Created": "2019-12-02",
+    "LastActive": "2020-05-27",
+    "City": "Scranton",
+    "Country": "USA",
+    "Photo": {
+      "Url": "/assets/don.jpg",
+      "PublicId": "xxx",
+      "AppUserId": 3
+    }
+  },
+  {
+    "UserName": "Roger",
+    "Email": "roger@gmail.com",
+    "DateOfBirth": "1958-05-28",
+    "Created": "2019-12-02",
+    "LastActive": "2020-05-27",
+    "City": "New York",
+    "Country": "USA",
+    "Photo": {
+      "Url": "/assets/roger.jpg",
+      "PublicId": "xxx",
+      "AppUserId": 4
+    }
+  }
+]

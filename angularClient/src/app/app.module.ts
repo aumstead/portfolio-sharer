@@ -12,12 +12,12 @@ import { RegisterComponent } from './views/register/register.component';
 import { FeedComponent } from './views/feed/feed.component';
 import { LoginComponent } from './views/login/login.component';
 import { BrowseComponent } from './views/browse/browse.component';
-import { UsernameComponent } from './views/username/username.component';
 import { SharedModule } from './_modules/shared/shared.module';
 import { TestErrorsComponent } from './views/test-errors/test-errors.component';
 import { ErrorInterceptor } from './_interceptors/error.interceptor';
 import { NotFoundComponent } from './views/not-found/not-found.component';
 import { ServerErrorComponent } from './views/server-error/server-error.component';
+import { PortfoliosComponent } from './views/user/username/portfolios/portfolios.component';
 
 @NgModule({
   declarations: [
@@ -28,10 +28,10 @@ import { ServerErrorComponent } from './views/server-error/server-error.componen
     FeedComponent,
     LoginComponent,
     BrowseComponent,
-    UsernameComponent,
     TestErrorsComponent,
     NotFoundComponent,
     ServerErrorComponent,
+    PortfoliosComponent,
   ],
   imports: [
     BrowserModule,
