@@ -25,6 +25,8 @@ import { PortfolioTableComponent } from './views/user/username/portfolios/portfo
 import { ProfileBannerComponent } from './views/user/username/profile-banner/profile-banner.component';
 import { TableMenuHeaderComponent } from './views/user/username/portfolios/table-menu-header/table-menu-header.component';
 import { EditNameModalComponent } from './views/user/username/portfolios/edit-name-modal/edit-name-modal.component';
+import { EditProfileComponent } from './views/user/edit-profile/edit-profile.component';
+import { LoadingInterceptor } from './_interceptors/loading.interceptor';
 
 @NgModule({
   declarations: [
@@ -44,6 +46,7 @@ import { EditNameModalComponent } from './views/user/username/portfolios/edit-na
     ProfileBannerComponent,
     TableMenuHeaderComponent,
     EditNameModalComponent,
+    EditProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,6 +60,7 @@ import { EditNameModalComponent } from './views/user/username/portfolios/edit-na
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],
 })

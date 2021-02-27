@@ -1,0 +1,23 @@
+.banner {
+  position: fixed;
+  height: 100vh;
+  border-right: 1px solid rgb(228, 228, 228);
+  padding-left: 1rem;
+  padding-right: 1rem;
+  z-index: 2;
+}
+
+.main {
+  /* background: rebeccapurple; */
+  height: 200vh;
+  /* margin-left: 19rem; */
+}
+
+h1 {
+  margin-left: 1rem;
+  font-size: 2rem;
+}
+
+form {
+  margin-left: 1rem;
+}

@@ -1,0 +1,42 @@
+<app-navbar></app-navbar>
+<ngx-spinner></ngx-spinner>
+
+<div class="container-xl m-nav" *ngIf="pageUser">
+  <div class="row">
+    <div class="col-2 banner">
+      <app-profile-banner [pageUser]="pageUser"></app-profile-banner>
+    </div>
+
+    <div class="col-2"></div>
+
+    <div class="col-4 main">
+      <h1>Edit your profile</h1>
+
+      <form #editForm="ngForm" (ngSubmit)="updateProfile()">
+        <label for="city">City</label>
+        <input
+          [(ngModel)]="pageUser.city"
+          class="form-control"
+          type="text"
+          name="city"
+        />
+
+        <label for="country">Country</label>
+        <input
+          [(ngModel)]="pageUser.country"
+          class="form-control"
+          type="text"
+          name="country"
+        />
+
+        <button
+          [disabled]="!editForm.dirty"
+          type="submit"
+          class="btn btn-success btn-block mt-5"
+        >
+          Save changes
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

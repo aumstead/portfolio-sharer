@@ -10,6 +10,8 @@ import { TestErrorsComponent } from './views/test-errors/test-errors.component';
 import { AuthGuard } from './_guards/auth.guard';
 import { ServerErrorComponent } from './views/server-error/server-error.component';
 import { PortfoliosComponent } from './views/user/username/portfolios/portfolios.component';
+import { EditProfileComponent } from './views/user/edit-profile/edit-profile.component';
+import { PreventUnsavedChangesGuard } from './_guards/prevent-unsaved-changes.guard';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -25,6 +27,11 @@ const routes: Routes = [
     children: [
       { path: 'feed', component: FeedComponent },
       { path: 'browse', component: BrowseComponent },
+      {
+        path: 'user/edit-profile',
+        component: EditProfileComponent,
+        canDeactivate: [PreventUnsavedChangesGuard],
+      },
     ],
   },
   { path: 'user/:username/portfolios', component: PortfoliosComponent },

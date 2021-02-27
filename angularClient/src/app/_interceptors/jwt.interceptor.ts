@@ -8,7 +8,7 @@ import {
 import { Observable } from 'rxjs';
 import { AccountService } from '../_services/account.service';
 import { take } from 'rxjs/operators';
-import { User } from '../_models/user';
+import { LoggedInUser } from '../_models/loggedInUser';
 
 @Injectable()
 export class JwtInterceptor implements HttpInterceptor {
@@ -18,7 +18,7 @@ export class JwtInterceptor implements HttpInterceptor {
     request: HttpRequest<unknown>,
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
-    let currentUser: User;
+    let currentUser: LoggedInUser;
 
     this._accountService.currentUser$
       .pipe(take(1))

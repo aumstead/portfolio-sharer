@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
@@ -7,6 +7,7 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ToastrModule } from 'ngx-toastr';
 import { ChartsModule } from 'ng2-charts';
 import { AngularSvgIconModule } from 'angular-svg-icon';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [],
@@ -21,6 +22,7 @@ import { AngularSvgIconModule } from 'angular-svg-icon';
     CollapseModule.forRoot(),
     ModalModule.forRoot(),
     AngularSvgIconModule.forRoot(),
+    NgxSpinnerModule,
   ],
   exports: [
     BsDropdownModule,
@@ -30,6 +32,8 @@ import { AngularSvgIconModule } from 'angular-svg-icon';
     CollapseModule,
     ModalModule,
     AngularSvgIconModule,
+    NgxSpinnerModule,
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class SharedModule {}

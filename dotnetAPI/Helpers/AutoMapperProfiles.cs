@@ -18,6 +18,7 @@ namespace DotnetApi.Helpers
             CreateMap<Photo, PhotoDto>();
             CreateMap<Portfolio, PortfolioDto>();
             CreateMap<Position, PositionDto>();
+            CreateMap<AppUserUpdateDto, AppUser>();
         }
     }
 }

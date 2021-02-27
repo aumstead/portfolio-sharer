@@ -82,7 +82,9 @@
           user.username
         }}</a>
         <div class="mt-2 dropdown-menu dropdown-menu-right" *dropdownMenu>
-          <a class="dropdown-item">Edit profile</a>
+          <a class="dropdown-item" routerLink="/user/edit-profile"
+            >Edit profile</a
+          >
           <a class="dropdown-item" (click)="logout()">Logout</a>
         </div>
       </div>
