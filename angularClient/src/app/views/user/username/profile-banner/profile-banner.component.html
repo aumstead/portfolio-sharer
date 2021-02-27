@@ -1,0 +1,22 @@
+<div class="d-flex align-items-center mb-4">
+  <img
+    class="profile-image mr-3"
+    [src]="pageUser.photo.url || './assets/default-user.png'"
+    [alt]="pageUser.username + ' profile image'"
+  />
+  <h2 class="username">{{ pageUser.username }}</h2>
+</div>
+<ul class="user-info-ul">
+  <li><span class="text-muted">Age:</span> {{ pageUser.age }}</li>
+  <li *ngIf="pageUser.city">
+    <span class="text-muted">City:</span> {{ pageUser.city }}
+  </li>
+  <li *ngIf="pageUser.country">
+    <span class="text-muted">Country:</span> {{ pageUser.country }}
+  </li>
+  <li>
+    <span class="text-muted">Last active:</span>
+    {{ pageUser.lastActive | date }}
+  </li>
+</ul>
+<a href="#">experiment link</a>

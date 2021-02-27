@@ -1,0 +1,13 @@
+.table {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.table-hover tbody tr:hover {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+.table-sm td,
+.table-sm th {
+  padding: 0.45rem;
+}

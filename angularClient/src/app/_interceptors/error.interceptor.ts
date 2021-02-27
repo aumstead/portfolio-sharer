@@ -12,7 +12,7 @@ import { catchError } from 'rxjs/operators';
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
-  constructor(private router: Router, private toastr: ToastrService) {}
+  constructor(private _router: Router, private _toastr: ToastrService) {}
 
   intercept(
     request: HttpRequest<unknown>,
@@ -32,9 +32,9 @@ export class ErrorInterceptor implements HttpInterceptor {
                 }
                 throw modelStateErrors.flat();
               } else if (typeof error.error === 'object') {
-                this.toastr.error(error.statusText, error.status);
+                this._toastr.error(error.statusText, error.status);
               } else {
-                this.toastr.error(error.error, error.status);
+                this._toastr.error(error.error, error.status);
               }
               break;
 
@@ -43,23 +43,23 @@ export class ErrorInterceptor implements HttpInterceptor {
                 // handle error in login component
                 break;
               } else {
-                this.toastr.error('Unauthorized', error.status);
+                this._toastr.error('Unauthorized', error.status);
               }
               break;
 
             case 404:
-              this.router.navigateByUrl('/not-found');
+              this._router.navigateByUrl('/not-found');
               break;
 
             case 500:
               const navigationExtras: NavigationExtras = {
                 state: { error: error.error },
               };
-              this.router.navigateByUrl('/server-error', navigationExtras);
+              this._router.navigateByUrl('/server-error', navigationExtras);
               break;
 
             default:
-              this.toastr.error('Something unexpected went wrong');
+              this._toastr.error('Something unexpected went wrong');
               console.log(error);
               break;
           }

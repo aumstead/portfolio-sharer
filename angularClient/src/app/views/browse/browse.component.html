@@ -1,2 +1,9 @@
 <app-navbar></app-navbar>
-<p style="margin-top: 70px">browse works!</p>
+
+<div class="container-xl m-nav">
+  <div class="row">
+    <div *ngFor="let appUser of appUsers" class="col-3">
+      <app-user-card [appUser]="appUser"></app-user-card>
+    </div>
+  </div>
+</div>

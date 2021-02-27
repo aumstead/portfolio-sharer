@@ -1,0 +1,14 @@
+.username {
+  font-size: 1.4rem;
+}
+
+.profile-image {
+  object-fit: cover;
+  height: 60px;
+  width: 60px;
+  border-radius: 100%;
+}
+
+.user-info-ul {
+  list-style: none;
+}

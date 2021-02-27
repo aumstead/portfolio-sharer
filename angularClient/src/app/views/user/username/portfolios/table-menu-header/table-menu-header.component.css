@@ -1,0 +1,32 @@
+.positions-header {
+  margin-left: 1rem;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.positions-title {
+  margin-bottom: 0rem;
+  margin-right: 36rem;
+  font-size: 1.2rem;
+}
+
+.menu-button {
+  margin-right: 1rem;
+  align-items: center;
+  font-size: 0.8rem;
+  width: 118px;
+}
+
+.dropdown-toggle::after {
+  display: none;
+}
+
+.well.well-lg.card.card-block.card-header {
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+}
+
+.dropdown-item:hover {
+  cursor: pointer;
+}

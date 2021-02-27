@@ -1,0 +1,81 @@
+<div class="positions-header" *ngIf="tableData[currentTabIndex]">
+  <h3 class="positions-title">Positions</h3>
+  <button
+    type="button"
+    class="btn btn-primary menu-button"
+    (click)="isCollapsed = !isCollapsed"
+    [attr.aria-expanded]="!isCollapsed"
+    aria-controls="collapseBasic"
+  >
+    <div *ngIf="isCollapsed; else cancelAdd">
+      <svg-icon
+        src="assets/svg/plus.svg"
+        [svgStyle]="{
+          'width.px': 14,
+          'height.px': 14,
+          'margin-top.px': -2,
+          'margin-right.px': 2
+        }"
+      ></svg-icon>
+      Add Ticker
+    </div>
+
+    <ng-template #cancelAdd>
+      <svg-icon
+        src="assets/svg/x.svg"
+        [svgStyle]="{
+          'width.px': 14,
+          'height.px': 14,
+          'margin-top.px': -2,
+          'margin-right.px': 2
+        }"
+      ></svg-icon>
+      Cancel
+    </ng-template>
+  </button>
+  <div class="btn-group" dropdown>
+    <button
+      id="button-basic"
+      dropdownToggle
+      type="button"
+      class="btn btn-primary dropdown-toggle menu-button"
+      aria-controls="dropdown-basic"
+    >
+      <svg-icon
+        src="assets/svg/wrench.svg"
+        [svgStyle]="{
+          'width.px': 14,
+          'height.px': 14,
+          'margin-top.px': -2,
+          'margin-right.px': 2
+        }"
+      ></svg-icon>
+      Settings
+    </button>
+    <ul
+      id="dropdown-basic"
+      *dropdownMenu
+      class="dropdown-menu"
+      role="menu"
+      aria-labelledby="button-basic"
+    >
+      <li role="menuitem">
+        <a class="dropdown-item" (click)="openEditNameModal()"
+          >Edit portfolio name</a
+        >
+      </li>
+      <li role="menuitem">
+        <a class="dropdown-item" href="#">Delete portfolio</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div
+  *ngIf="tableData[currentTabIndex]"
+  id="collapseBasic"
+  [collapse]="isCollapsed"
+  [isAnimated]="true"
+>
+  <div class="well well-lg card card-block card-header">Some content</div>
+</div>

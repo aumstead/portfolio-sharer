@@ -31,12 +31,16 @@
 
       <div
         class="dropdown pl-2 mr-auto"
-        *ngIf="accountService.currentUser$ | async as user"
+        *ngIf="_accountService.currentUser$ | async as user"
         dropdown
       >
         <a class="dropdown-toggle text-light" dropdownToggle>My portfolios</a>
         <div class="mt-2 dropdown-menu dropdown-menu-left" *dropdownMenu>
-          <a class="dropdown-item">View portfolios</a>
+          <a
+            routerLink="/user/{{ user.username }}/portfolios"
+            class="dropdown-item"
+            >View portfolios</a
+          >
           <a class="dropdown-item">Trades</a>
           <a class="dropdown-item">Dividends</a>
         </div>
@@ -70,7 +74,7 @@
       </ul>
       <div
         class="dropdown"
-        *ngIf="accountService.currentUser$ | async as user"
+        *ngIf="_accountService.currentUser$ | async as user"
         dropdown
         placement="bottom left"
       >

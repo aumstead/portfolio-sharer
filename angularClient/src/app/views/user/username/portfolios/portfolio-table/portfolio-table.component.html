@@ -1,0 +1,18 @@
+<table *ngIf="tableData[currentTabIndex]" class="table table-hover table-sm">
+  <thead>
+    <tr>
+      <th>Ticker</th>
+      <th>Shares</th>
+      <th>Cost/share</th>
+      <th>Cost basis</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let position of tableData[currentTabIndex]">
+      <td>{{ position.ticker }}</td>
+      <td>{{ position.shares }}</td>
+      <td>{{ position.pricePerShare }}</td>
+      <td>{{ position.shares * position.pricePerShare }}</td>
+    </tr>
+  </tbody>
+</table>

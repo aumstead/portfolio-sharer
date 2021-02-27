@@ -8,12 +8,15 @@ import { AccountService } from '../_services/account.service';
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
-  constructor(public accountService: AccountService, private router: Router) {}
+  constructor(
+    public _accountService: AccountService,
+    private _router: Router
+  ) {}
 
   ngOnInit(): void {}
 
   logout() {
-    this.accountService.logout();
-    this.router.navigateByUrl('/');
+    this._accountService.logout();
+    this._router.navigateByUrl('/');
   }
 }

@@ -1,6 +1,60 @@
 <app-navbar></app-navbar>
 
-<div class="container-xl">
-  <p class="m-nav">portfolios works!</p>
+<div class="container-xl m-nav">
+  <div class="row" *ngIf="pageUser">
+    <div class="col-2 banner">
+      <app-profile-banner [pageUser]="pageUser"></app-profile-banner>
+    </div>
 
+    <div class="col-2"></div>
+
+    <div class="col-10 main">
+      <tabset>
+        <tab
+          *ngFor="let tab of tabs; let i = index"
+          [heading]="tab.title"
+          [active]="tab.active"
+          (selectTab)="onSelect(i)"
+          (deselect)="tab.active = false"
+          [disabled]="tab.disabled"
+        >
+          <div class="charts-container">
+            <div class="mt-4 col-6 d-flex flex-column align-items-center">
+              <h3
+                *ngIf="!(tab.title === 'Add portfolio +')"
+                class="text-center mb-2"
+              >
+                % of Portfolio Pie
+              </h3>
+              <ngx-charts-pie-chart
+                *ngIf="!(tab.title === 'Add portfolio +')"
+                [results]="results"
+                [view]="[400, 250]"
+                [labels]="showLabels"
+                [legend]="false"
+                [legendPosition]="legendPosition"
+                [arcWidth]="0.5"
+              >
+              </ngx-charts-pie-chart>
+            </div>
+
+            <h3 *ngIf="tab.title === 'Add portfolio +'">New Portfolio</h3>
+            <form *ngIf="tab.title === 'Add portfolio +'">
+              <input type="text" />
+            </form>
+          </div>
+        </tab>
+      </tabset>
+
+      <app-table-menu-header
+        [tableData]="tableData"
+        [currentTabIndex]="currentTabIndex"
+      ></app-table-menu-header>
+
+      <app-portfolio-table
+        [tableData]="tableData"
+        [currentTabIndex]="currentTabIndex"
+      ></app-portfolio-table>
+    </div>
+  </div>
 </div>

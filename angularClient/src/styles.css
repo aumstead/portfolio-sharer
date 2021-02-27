@@ -1,40 +1,41 @@
-/* You can add global styles to this file, and also import other style files */
 /* @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"); */
+
+:root {
+  --color-primary: #325d88;
+}
 
 *,
 *::before,
 *::after {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 html {
-  /* font-size: 62.5%; */
   box-sizing: inherit;
-  /* line-height: 1.5; */
 }
 
+body {
+  font-size: 1rem;
+}
+
+/* custom utility classes */
+.m-nav {
+  margin-top: 75px;
+}
+
+/* overwriting bootstrap and bootswatch */
 .container-xl {
   max-width: 1400px;
 }
 
-/* body {
-  font-family: "Lato";
-} */
-
-.m-nav {
-  margin-top: 70px;
-}
-
-/* overwriting bootstrap and bootswatch */
 .navbar .nav-link {
   font-size: 1rem;
   font-weight: 400;
   text-transform: unset;
 }
 
-body {
+.nav-tabs .nav-link {
   font-size: 1rem;
 }
 
@@ -42,4 +43,13 @@ body {
   font-size: 0.9rem;
   font-weight: 400;
   text-transform: unset;
+}
+
+/* overwriting ngx-bootstrap */
+ul.nav.nav-tabs {
+  margin-left: 1rem;
+}
+
+.tab-content {
+  margin-left: 1rem;
 }
