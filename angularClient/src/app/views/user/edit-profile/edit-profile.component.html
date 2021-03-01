@@ -9,34 +9,137 @@
 
     <div class="col-2"></div>
 
-    <div class="col-4 main">
-      <h1>Edit your profile</h1>
+    <div class="col-10">
+      <tabset>
+        <tab heading="Edit profile">
+          <div class="col-4 main">
+            <form #editForm="ngForm" (ngSubmit)="updateProfile()">
+              <label for="city">City</label>
+              <input
+                [(ngModel)]="pageUser.city"
+                class="form-control"
+                type="text"
+                name="city"
+              />
 
-      <form #editForm="ngForm" (ngSubmit)="updateProfile()">
-        <label for="city">City</label>
-        <input
-          [(ngModel)]="pageUser.city"
-          class="form-control"
-          type="text"
-          name="city"
-        />
+              <label for="country">Country</label>
+              <input
+                [(ngModel)]="pageUser.country"
+                class="form-control"
+                type="text"
+                name="country"
+              />
 
-        <label for="country">Country</label>
-        <input
-          [(ngModel)]="pageUser.country"
-          class="form-control"
-          type="text"
-          name="country"
-        />
+              <button
+                [disabled]="!editForm.dirty"
+                type="submit"
+                class="btn btn-success btn-block mt-5"
+              >
+                Save changes
+              </button>
+            </form>
+          </div>
+        </tab>
 
-        <button
-          [disabled]="!editForm.dirty"
-          type="submit"
-          class="btn btn-success btn-block mt-5"
-        >
-          Save changes
-        </button>
-      </form>
+        <tab heading="Change photo">
+          <div class="row mt-4">
+            <div class="col-md-8 d-flex align-items-center">
+              <div
+                ng2FileDrop
+                [ngClass]="{ 'nv-file-over': hasBaseDropZoneOver }"
+                (fileOver)="fileOverBase($event)"
+                [uploader]="uploader"
+                class="card p-3 text-center my-drop-zone"
+              >
+                Drag and drop here
+              </div>
+              <p class="or-text">or</p>
+              <input
+                type="file"
+                ng2FileSelect
+                [uploader]="uploader"
+                id="selectedFile"
+                style="display: none"
+              />
+              <input
+                type="button"
+                value="Choose File"
+                onclick="document.getElementById('selectedFile').click();"
+                style="padding: 0.2rem 0.5rem 0.2rem 0.5rem"
+              />
+            </div>
+          </div>
+
+          <div class="row mt-4">
+            <div class="col-8">
+              <table class="table table-sm" *ngIf="uploader.queue.length > 0">
+                <thead>
+                  <tr>
+                    <th width="50%">Name</th>
+                    <th>Size</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of uploader.queue">
+                    <td>
+                      <strong>{{ item?.file?.name }}</strong>
+                    </td>
+                    <td *ngIf="uploader.options.isHTML5" nowrap>
+                      {{ item?.file?.size / 1024 / 1024 | number: ".2" }} MB
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <button
+                type="button"
+                class="btn btn-success mr-2"
+                (click)="uploader.uploadAll()"
+                [disabled]="!uploader.getNotUploadedItems().length"
+              >
+                Upload
+              </button>
+
+              <button
+                type="button"
+                class="btn btn-secondary"
+                (click)="uploader.clearQueue()"
+                [disabled]="!uploader.queue.length"
+              >
+                Remove file
+              </button>
+            </div>
+          </div>
+
+          <div class="row mt-4" *ngIf="uploader.isUploading">
+            <div class="col-5 d-flex flex-column">
+              Queue progress:
+              <div class="progress">
+                <div
+                  class="progress-bar"
+                  role="progressbar"
+                  [ngStyle]="{ width: uploader.progress + '%' }"
+                ></div>
+              </div>
+
+              <button
+                type="button"
+                class="btn btn-outline-danger mt-3 my-cancel-btn"
+                (click)="uploader.cancelAll()"
+                [disabled]="!uploader.isUploading"
+              >
+                Cancel upload
+              </button>
+            </div>
+          </div>
+          <div class="row mt-2" *ngIf="uploadPhotoError">
+            <p class="text-danger" style="margin-left: 1rem">
+              There was an error uploading your photo. Refresh the page and try
+              again.
+            </p>
+          </div>
+        </tab>
+      </tabset>
     </div>
   </div>
 </div>

@@ -9,7 +9,6 @@ namespace API.Entities
         [Required]
         public string Url { get; set; }
 
-        [Required]
         public string PublicId { get; set; }
 
         public AppUser AppUser { get; set; }

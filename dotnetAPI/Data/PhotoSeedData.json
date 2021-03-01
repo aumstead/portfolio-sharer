@@ -1,22 +1,22 @@
 [
   {
     "Url": "/assets/joan.jpg",
-    "PublicId": "xxx",
+    "PublicId": null,
     "AppUserId": 1
   },
   {
     "Url": "/assets/lane.jpg",
-    "PublicId": "xxx",
+    "PublicId": null,
     "AppUserId": 2
   },
   {
     "Url": "/assets/don.jpg",
-    "PublicId": "xxx",
+    "PublicId": null,
     "AppUserId": 3
   },
   {
     "Url": "/assets/roger.jpg",
-    "PublicId": "xxx",
+    "PublicId": null,
     "AppUserId": 4
   }
 ]

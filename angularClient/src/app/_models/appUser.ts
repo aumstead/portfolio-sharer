@@ -10,6 +10,6 @@ export interface AppUser {
   lastActive: Date;
   city: string;
   country: string;
-  photo: Photo;
+  photo?: Photo;
   portfolios: Portfolio[];
 }

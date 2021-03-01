@@ -5,3 +5,10 @@ a.dropdown-toggle {
 a.dropdown-item {
   cursor: pointer;
 }
+
+img {
+  max-height: 40px;
+  border-radius: 100%;
+  border: 1px solid #fff;
+  margin-right: 1rem;
+}

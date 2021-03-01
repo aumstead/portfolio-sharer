@@ -34,12 +34,19 @@ namespace DotnetApi.Controllers
 
             using var hmac = new HMACSHA512();
 
+            var image = new Photo
+            {
+                Url = "/assets/orange.jpg",
+                PublicId = null
+            };
+
             var user = new AppUser
             {
                 Email = registerDto.Email.ToLower(),
                 UserName = registerDto.Username.ToLower(),
                 PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDto.Password)),
-                PasswordSalt = hmac.Key
+                PasswordSalt = hmac.Key,
+                Photo = image
             };
 
             _context.Users.Add(user);
@@ -52,7 +59,7 @@ namespace DotnetApi.Controllers
         [HttpPost("login")]
         public async Task<ActionResult<UserDto>> Login(LoginDto loginDto)
         {
-            var user = await _context.Users.SingleOrDefaultAsync(user => user.UserName == loginDto.Username);
+            var user = await _context.Users.Include(u => u.Photo).SingleOrDefaultAsync(user => user.UserName == loginDto.Username);
 
             if (user == null) return Unauthorized(new { source = "login", type="username"});
 
@@ -67,7 +74,7 @@ namespace DotnetApi.Controllers
                 if (computedHash[i] != user.PasswordHash[i]) return Unauthorized(new { source = "login", type="password"});
             }
 
-            return new UserDto { Username = user.UserName, Token = _tokenService.CreateToken(user) };
+            return new UserDto { Username = user.UserName, Token = _tokenService.CreateToken(user), PhotoUrl = user.Photo?.Url };
         }
 
         private async Task<bool> UsernameExists(string username)

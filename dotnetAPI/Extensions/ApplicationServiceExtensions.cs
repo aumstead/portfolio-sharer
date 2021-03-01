@@ -1,6 +1,7 @@
 ﻿using API.Data;
 using AutoMapper;
 using DotnetApi.Controllers;
+using DotnetApi.Data;
 using DotnetApi.Helpers;
 using DotnetApi.Interfaces;
 using DotnetApi.Services;
@@ -21,8 +22,11 @@ namespace DotnetApi.Extensions
             services.AddDbContext<DataContext>(
                 options => options.UseSqlServer(config.GetConnectionString("DefaultConnection")));
             services.AddScoped<ITokenService, TokenService>();
+            services.AddScoped<IPhotoService, PhotoService>();
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IPortfolioRepository, PortfolioRepository>();
             services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
+            services.Configure<CloudinarySettings>(config.GetSection("CloudinarySettings"));
 
             return services;
         }

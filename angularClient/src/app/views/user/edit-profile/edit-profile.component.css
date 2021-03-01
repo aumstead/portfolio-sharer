@@ -21,3 +21,33 @@ h1 {
 form {
   margin-left: 1rem;
 }
+
+/* photo tab styles */
+.card.p-3.text-center.my-drop-zone {
+  background-color: aliceblue;
+  height: 7rem;
+  width: 14rem;
+  justify-content: center;
+}
+
+input[type="file"] {
+  color: transparent;
+}
+
+.nv-file-over {
+  border: dotted 3px red;
+}
+
+.or-text {
+  font-size: 1.6rem;
+  margin: 0 2rem 0 2rem;
+}
+
+.my-cancel-btn {
+  width: max-content;
+}
+.my-cancel-btn:hover {
+  background-color: #d9534f;
+  border-color: #d9534f;
+  color: #fff;
+}

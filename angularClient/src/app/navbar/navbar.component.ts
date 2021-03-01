@@ -19,4 +19,8 @@ export class NavbarComponent implements OnInit {
     this._accountService.logout();
     this._router.navigateByUrl('/');
   }
+
+  getRandomPhoto() {
+    return '/assets/orange.jpg';
+  }
 }

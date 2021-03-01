@@ -3,8 +3,10 @@ using API.Entities;
 using AutoMapper;
 using DotnetApi.Controllers;
 using DotnetApi.DTOs;
+using DotnetApi.Extensions;
 using DotnetApi.Interfaces;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -20,11 +22,13 @@ namespace API.Controllers
     {
         private readonly IUserRepository _userRepository;
         private readonly IMapper _mapper;
+        private readonly IPhotoService _photoService;
 
-        public UsersController(IUserRepository userRepository, IMapper mapper)
+        public UsersController(IUserRepository userRepository, IMapper mapper, IPhotoService photoService)
         {
             _userRepository = userRepository;
             _mapper = mapper;
+            _photoService = photoService;
         }
 
         [HttpGet]
@@ -35,7 +39,7 @@ namespace API.Controllers
             return Ok(usersToReturn);
         }
 
-        [HttpGet("{username}")]
+        [HttpGet("{username}", Name = "GetUser")]
         public async Task<ActionResult<AppUserDto>>GetUser(string username)
         {
             var user = await _userRepository.GetUserByUsernameAsync(username);
@@ -45,13 +49,47 @@ namespace API.Controllers
         [HttpPut]
         public async Task<ActionResult> UpdateUser(AppUserUpdateDto appUserUpdateDto)
         {
-            var username = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-            var user = await _userRepository.GetUserByUsernameAsync(username);
+            var user = await _userRepository.GetUserByUsernameAsync(User.GetUsername());
             _mapper.Map(appUserUpdateDto, user);
             _userRepository.Update(user);
             if (await _userRepository.SaveAllAsync()) return NoContent();
 
             return BadRequest();
         }
+
+        [HttpPost("add-photo")]
+        public async Task<ActionResult<PhotoDto>> AddPhoto(IFormFile file)
+        {
+            var user = await _userRepository.GetUserByUsernameAsync(User.GetUsername());
+
+            if (user == null) return BadRequest("Could not get user from database.");
+
+            var result = await _photoService.AddPhotoAsync(file);
+
+            if (result.Error != null) return BadRequest(result.Error.Message);
+
+            if (user.Photo.PublicId != null)
+            {
+                // then delete the old photo from cloudinary
+                var cloudinaryResult = await _photoService.DeletePhotoAsync(user.Photo.PublicId);
+                if (cloudinaryResult.Error != null) return BadRequest(cloudinaryResult.Error.Message);
+            }
+
+            var photo = new Photo
+            {
+                Url = result.SecureUrl.AbsoluteUri,
+                PublicId = result.PublicId
+            };
+
+            user.Photo = photo;
+
+            if (await _userRepository.SaveAllAsync())
+            {
+                return CreatedAtRoute("GetUser", new { username = user.UserName }, _mapper.Map<PhotoDto>(photo));
+            }
+
+            return BadRequest("Problem adding photo");
+        }
+
     }
 }

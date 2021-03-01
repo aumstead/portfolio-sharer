@@ -72,6 +72,11 @@
           >
         </li>
       </ul>
+      <img
+        *ngIf="_accountService.currentUser$ | async as user"
+        src="{{ user.photoUrl || getRandomPhoto() }}"
+        alt="{{user.username}"
+      />
       <div
         class="dropdown"
         *ngIf="_accountService.currentUser$ | async as user"

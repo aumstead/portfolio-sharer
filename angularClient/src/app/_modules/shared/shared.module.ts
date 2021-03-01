@@ -8,6 +8,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { ChartsModule } from 'ng2-charts';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { FileUploadModule } from 'ng2-file-upload';
 
 @NgModule({
   declarations: [],
@@ -23,6 +24,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     ModalModule.forRoot(),
     AngularSvgIconModule.forRoot(),
     NgxSpinnerModule,
+    FileUploadModule,
   ],
   exports: [
     BsDropdownModule,
@@ -33,6 +35,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     ModalModule,
     AngularSvgIconModule,
     NgxSpinnerModule,
+    FileUploadModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
