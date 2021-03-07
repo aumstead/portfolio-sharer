@@ -1,0 +1,9 @@
+.row-custom-container {
+  min-height: 100vh;
+  width: 100vw;
+}
+
+.form-custom-container {
+  padding-left: 4rem;
+  padding-right: 4rem;
+}

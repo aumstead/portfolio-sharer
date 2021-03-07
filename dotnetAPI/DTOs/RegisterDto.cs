@@ -8,14 +8,14 @@ namespace DotnetApi.DTOs
 {
     public class RegisterDto
     {
-        [Required]
-        [EmailAddress]
+        [Required(ErrorMessage = "An email address is required.")]
+        [EmailAddress(ErrorMessage = "You seem to have entered an invalid email address.")]
         public string Email { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "A username is required.")]
         public string Username { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Your account needs a password!")]
         [StringLength(8, MinimumLength = 4)]
         public string Password { get; set; }
     }

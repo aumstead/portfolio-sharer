@@ -1,5 +1,6 @@
 ﻿using API.Data;
 using API.Entities;
+using DotnetApi.DTOs;
 using DotnetApi.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -17,6 +18,12 @@ namespace DotnetApi.Data
         {
             _context = context;
         }
+
+        public Task<PortfolioDto> CreatePortfolio(string name)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<Portfolio> GetPortfolioByIdAsync(int id)
         {
             return await _context.Portfolios.FindAsync(id);

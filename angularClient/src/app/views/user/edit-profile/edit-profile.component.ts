@@ -69,8 +69,6 @@ export class EditProfileComponent implements OnInit {
     this.uploader.onSuccessItem = (item, response, status, headers) => {
       if (response) {
         const photo = JSON.parse(response);
-        console.log('response', response);
-        console.log('photo', photo);
         this.pageUser.photo = photo;
         this.loggedInUser.photoUrl = photo.url;
         this.uploadPhotoError = false;

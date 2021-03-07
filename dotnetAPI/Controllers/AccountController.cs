@@ -1,5 +1,6 @@
 ﻿using API.Data;
 using API.Entities;
+using AutoMapper;
 using DotnetApi.DTOs;
 using DotnetApi.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -18,19 +19,23 @@ namespace DotnetApi.Controllers
     {
         private readonly DataContext _context;
         private readonly ITokenService _tokenService;
+        private readonly IMapper _mapper;
 
-        public AccountController(DataContext context, ITokenService tokenService)
+        public AccountController(DataContext context, ITokenService tokenService, IMapper mapper)
         {
             _context = context;
             _tokenService = tokenService;
+            _mapper = mapper;
         }
 
         [HttpPost("register")]
         public async Task<ActionResult<UserDto>> Register(RegisterDto registerDto)
         {
-            if (await EmailExists(registerDto.Email)) return BadRequest("That email address is already registered!");
+            if (await EmailExists(registerDto.Email)) return BadRequest(new { type = "email", message = "That email is already in use." });
 
-            if (await UsernameExists(registerDto.Username)) return BadRequest("That username is already in use!");
+            if (await UsernameExists(registerDto.Username)) return BadRequest(new { type = "username", message = "That username is already in use." });
+
+            var user = _mapper.Map<AppUser>(registerDto);
 
             using var hmac = new HMACSHA512();
 
@@ -40,14 +45,11 @@ namespace DotnetApi.Controllers
                 PublicId = null
             };
 
-            var user = new AppUser
-            {
-                Email = registerDto.Email.ToLower(),
-                UserName = registerDto.Username.ToLower(),
-                PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDto.Password)),
-                PasswordSalt = hmac.Key,
-                Photo = image
-            };
+            user.Email = registerDto.Email.ToLower();
+            user.UserName = registerDto.Username.ToLower();
+            user.PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDto.Password));
+            user.PasswordSalt = hmac.Key;
+            user.Photo = image;
 
             _context.Users.Add(user);
 
@@ -61,7 +63,7 @@ namespace DotnetApi.Controllers
         {
             var user = await _context.Users.Include(u => u.Photo).SingleOrDefaultAsync(user => user.UserName == loginDto.Username);
 
-            if (user == null) return Unauthorized(new { source = "login", type="username"});
+            if (user == null) return Unauthorized(new { source = "login", type = "username" });
 
             using var hmac = new HMACSHA512(user.PasswordSalt);
 
@@ -71,7 +73,7 @@ namespace DotnetApi.Controllers
 
             for (int i = 0; i < computedHash.Length; i++)
             {
-                if (computedHash[i] != user.PasswordHash[i]) return Unauthorized(new { source = "login", type="password"});
+                if (computedHash[i] != user.PasswordHash[i]) return Unauthorized(new { source = "login", type = "password" });
             }
 
             return new UserDto { Username = user.UserName, Token = _tokenService.CreateToken(user), PhotoUrl = user.Photo?.Url };

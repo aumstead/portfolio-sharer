@@ -11,6 +11,7 @@ export class TableMenuHeaderComponent implements OnInit {
   isCollapsed = true;
   @Input() tableData = [];
   @Input() currentTabIndex: number = 0;
+  @Input() isPageUserLoggedInUser: boolean;
   bsModalRef: BsModalRef;
   constructor(private _modalService: BsModalService) {}
 

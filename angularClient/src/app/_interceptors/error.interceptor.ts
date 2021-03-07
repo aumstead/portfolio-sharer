@@ -23,6 +23,7 @@ export class ErrorInterceptor implements HttpInterceptor {
         if (error) {
           switch (error.status) {
             case 400:
+              console.log('400 error. Error:', error);
               if (error.error.errors) {
                 const modelStateErrors = [];
                 for (const key in error.error.errors) {
@@ -31,6 +32,14 @@ export class ErrorInterceptor implements HttpInterceptor {
                   }
                 }
                 throw modelStateErrors.flat();
+              } else if (error.error.type === 'email') {
+                const errorArr = [];
+                errorArr.push(error.error.message);
+                throw errorArr;
+              } else if (error.error.type === 'username') {
+                const errorArr = [];
+                errorArr.push(error.error.message);
+                throw errorArr;
               } else if (typeof error.error === 'object') {
                 this._toastr.error(error.statusText, error.status);
               } else {

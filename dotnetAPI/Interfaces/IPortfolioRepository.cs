@@ -1,4 +1,5 @@
 ﻿using API.Entities;
+using DotnetApi.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,5 +12,6 @@ namespace DotnetApi.Interfaces
         Task<Portfolio> GetPortfolioByIdAsync(int id);
         void UpdateName(Portfolio portfolio);
         Task<bool> SaveAllAsync();
+        Task<PortfolioDto> CreatePortfolio(string name);
     }
 }

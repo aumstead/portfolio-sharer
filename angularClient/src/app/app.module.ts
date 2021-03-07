@@ -6,7 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './views/home/home.component';
 import { RegisterComponent } from './views/register/register.component';
 import { FeedComponent } from './views/feed/feed.component';
@@ -56,6 +56,7 @@ import { LoadingInterceptor } from './_interceptors/loading.interceptor';
     FormsModule,
     SharedModule,
     NgxChartsModule,
+    ReactiveFormsModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },

@@ -9,6 +9,7 @@ import { ChartsModule } from 'ng2-charts';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { FileUploadModule } from 'ng2-file-upload';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 @NgModule({
   declarations: [],
@@ -25,6 +26,7 @@ import { FileUploadModule } from 'ng2-file-upload';
     AngularSvgIconModule.forRoot(),
     NgxSpinnerModule,
     FileUploadModule,
+    BsDatepickerModule.forRoot(),
   ],
   exports: [
     BsDropdownModule,
@@ -36,6 +38,7 @@ import { FileUploadModule } from 'ng2-file-upload';
     AngularSvgIconModule,
     NgxSpinnerModule,
     FileUploadModule,
+    BsDatepickerModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

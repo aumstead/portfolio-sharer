@@ -19,6 +19,7 @@ namespace DotnetApi.Helpers
             CreateMap<Portfolio, PortfolioDto>();
             CreateMap<Position, PositionDto>();
             CreateMap<AppUserUpdateDto, AppUser>();
+            CreateMap<RegisterDto, AppUser>();
         }
     }
 }

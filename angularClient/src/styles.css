@@ -49,6 +49,14 @@ body {
   text-transform: unset;
 }
 
+label {
+  margin-bottom: 0.3rem;
+}
+
+/* .form-control {
+  height: 2.5rem;
+} */
+
 /* overwriting ngx-bootstrap */
 ul.nav.nav-tabs {
   margin-left: 1rem;

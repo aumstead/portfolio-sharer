@@ -50,7 +50,6 @@ export class PortfoliosComponent implements OnInit {
         this.tabs = [];
         if (this.pageUser.username === this.loggedInUser.username) {
           this.isPageUserLoggedInUser = true;
-          console.log('this is a personal profile page');
         }
         this.createTabs();
         this.organizeTabs();
@@ -83,6 +82,9 @@ export class PortfoliosComponent implements OnInit {
     });
     if (this.isPageUserLoggedInUser) {
       this.tabs.push({ title: 'Add portfolio +' });
+    }
+    if (this.tabs.length === 0) {
+      this.tabs.push({ title: 'Empty' });
     }
   }
 

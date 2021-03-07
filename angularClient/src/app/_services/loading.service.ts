@@ -13,7 +13,7 @@ export class LoadingService {
     this.loadingRequestCount++;
     this._spinnerService.show(undefined, {
       type: 'line-scale-pulse-out',
-      bdColor: 'rgba(255,255,255,0)',
+      bdColor: 'rgba(256,256,256,0)',
       color: '#c24c4c',
       size: 'default',
     });
@@ -21,6 +21,7 @@ export class LoadingService {
 
   idle() {
     this.loadingRequestCount--;
+    console.log('in idle, count:', this.loadingRequestCount);
     if (this.loadingRequestCount <= 0) {
       this.loadingRequestCount = 0;
       this._spinnerService.hide();
