@@ -4,6 +4,7 @@ using AutoMapper;
 using DotnetApi.Controllers;
 using DotnetApi.DTOs;
 using DotnetApi.Extensions;
+using DotnetApi.Helpers;
 using DotnetApi.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -32,10 +33,12 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<AppUserDto>>> GetUsers()
+        public async Task<ActionResult<IEnumerable<AppUserDto>>> GetUsers([FromQuery]UserParams userParams)
         {
-            var users = await _userRepository.GetUsersAsync();
+            userParams.CurrentUsername = User.GetUsername();
+            var users = await _userRepository.GetUsersAsync(userParams);
             var usersToReturn = _mapper.Map<IEnumerable<AppUserDto>>(users);
+            Response.AddPaginationHeader(users.CurrentPage, users.PageSize, users.TotalCount, users.TotalPages);
             return Ok(usersToReturn);
         }
 
@@ -49,6 +52,7 @@ namespace API.Controllers
         [HttpPut]
         public async Task<ActionResult> UpdateUser(AppUserUpdateDto appUserUpdateDto)
         {
+            
             var user = await _userRepository.GetUserByUsernameAsync(User.GetUsername());
             _mapper.Map(appUserUpdateDto, user);
             _userRepository.Update(user);

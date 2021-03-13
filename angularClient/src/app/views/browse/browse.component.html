@@ -3,8 +3,17 @@
 
 <div class="container-xl m-nav">
   <div class="row">
-    <div *ngFor="let appUser of appUsers$ | async" class="col-3">
+    <div *ngFor="let appUser of appUsers" class="col-3">
       <app-user-card [appUser]="appUser"></app-user-card>
     </div>
   </div>
+</div>
+
+<div class="d-flex justify-content-center" *ngIf="pagination">
+  <pagination
+    [totalItems]="pagination.totalItems"
+    [itemsPerPage]="pagination.itemsPerPage"
+    [(ngModel)]="pagination.currentPage"
+    (pageChanged)="pageChanged($event)"
+  ></pagination>
 </div>

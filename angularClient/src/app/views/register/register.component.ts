@@ -21,7 +21,7 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private _accountService: AccountService,
-    private fb: FormBuilder,
+    private _fb: FormBuilder,
     private _router: Router
   ) {}
 
@@ -35,13 +35,23 @@ export class RegisterComponent implements OnInit {
         this._router.navigateByUrl('/browse');
       },
       (error) => {
+        error.forEach((errorText, index) => {
+          if (
+            errorText.includes(
+              'The JSON value could not be converted to System.DateTime'
+            )
+          ) {
+            errorText = 'The date of birth format is invalid.';
+            error[index] = errorText;
+          }
+        });
         this.validationErrors = error;
       }
     );
   }
 
   initializeForm() {
-    this.registerForm = this.fb.group({
+    this.registerForm = this._fb.group({
       username: ['', Validators.required],
       password: [
         '',
@@ -52,6 +62,7 @@ export class RegisterComponent implements OnInit {
         [Validators.required, this.matchValues('password')],
       ],
       email: ['', [Validators.email, Validators.required]],
+      dateOfBirth: ['', Validators.required],
     });
     this.registerForm.controls.password.valueChanges.subscribe(() => {
       this.registerForm.controls.confirmPassword.updateValueAndValidity();

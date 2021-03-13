@@ -20,7 +20,6 @@ namespace API.Entities
         public byte[] PasswordHash { get; set; }
         public byte[] PasswordSalt { get; set; }
 
-        
         public DateTime DateOfBirth { get; set; }
         public DateTime Created { get; set; } = DateTime.Now;
         public DateTime LastActive { get; set; } = DateTime.Now;
@@ -34,12 +33,16 @@ namespace API.Entities
         public ICollection<Portfolio> Portfolios { get; set; }
 
 
+        [MaxLength(500, ErrorMessage = "There is a 500 character limit")]
+        public string InvestingStrategySummary { get; set; }
+
+
         //public ICollection<Trade> TradeHistory { get; set; }
-        //public string InvestingStrategySummary { get; set; }
         //public InvestingInterests InvestingInterests { get; set; }
         //public ICollection<Follow> Followers { get; set; }
         //public ICollection<Follow> Following { get; set; }
         //public ICollection<Dividend> Dividends { get; set; }
-
+        //public Vehicle VehicleTags { get; set; }
+        //public Interest InterestTags { get; set; }
     }
 }

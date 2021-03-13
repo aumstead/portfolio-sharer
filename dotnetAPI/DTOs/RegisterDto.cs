@@ -18,5 +18,7 @@ namespace DotnetApi.DTOs
         [Required(ErrorMessage = "Your account needs a password!")]
         [StringLength(8, MinimumLength = 4)]
         public string Password { get; set; }
+
+        public DateTime DateOfBirth { get; set; }
     }
 }

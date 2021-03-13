@@ -35,6 +35,8 @@ namespace DotnetApi.Controllers
 
             if (await UsernameExists(registerDto.Username)) return BadRequest(new { type = "username", message = "That username is already in use." });
 
+            if (registerDto.DateOfBirth == new DateTime()) return BadRequest(new { type = "birthday", message = "A date of birth is required." });
+
             var user = _mapper.Map<AppUser>(registerDto);
 
             using var hmac = new HMACSHA512();

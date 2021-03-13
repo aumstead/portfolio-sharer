@@ -22,13 +22,17 @@
           <div class="charts-container">
             <div class="mt-4 col-6 d-flex flex-column align-items-center">
               <h3
-                *ngIf="!(tab.title === 'Add portfolio +')"
+                *ngIf="
+                  !(tab.title === 'Add portfolio +') && !(tab.title === 'Empty')
+                "
                 class="text-center mb-2"
               >
                 % of Portfolio Pie
               </h3>
               <ngx-charts-pie-chart
-                *ngIf="!(tab.title === 'Add portfolio +')"
+                *ngIf="
+                  !(tab.title === 'Add portfolio +') && !(tab.title === 'Empty')
+                "
                 [results]="results"
                 [view]="[400, 250]"
                 [labels]="showLabels"
@@ -37,6 +41,8 @@
                 [arcWidth]="0.5"
               >
               </ngx-charts-pie-chart>
+
+              <h3 *ngIf="tab.title === 'Empty'">No portfolios!</h3>
             </div>
 
             <h3 *ngIf="tab.title === 'Add portfolio +'">New Portfolio</h3>

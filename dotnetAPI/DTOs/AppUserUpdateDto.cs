@@ -9,9 +9,9 @@ namespace DotnetApi.DTOs
     {
         public string City { get; set; }
         public string Country { get; set; }
+        public DateTime DateOfBirth { get; set; }
 
-        //public string Goals { get; set; }
-        //public string Strategy { get; set; }
+        public string InvestingStrategySummary { get; set; }
         //public Styles Style { get; set; }
     }
 }

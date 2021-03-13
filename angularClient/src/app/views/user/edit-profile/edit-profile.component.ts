@@ -1,6 +1,7 @@
 import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { FileUploader } from 'ng2-file-upload';
+import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 import { ToastrService } from 'ngx-toastr';
 import { take } from 'rxjs/operators';
 import { AppUser } from 'src/app/_models/appUser';
@@ -17,6 +18,8 @@ import { environment } from 'src/environments/environment';
 export class EditProfileComponent implements OnInit {
   pageUser: AppUser;
   loggedInUser: LoggedInUser;
+
+  // edit form properties
   @ViewChild('editForm') editForm: NgForm;
   @HostListener('window:beforeunload', ['$event']) unloadNotification(
     $event: any
@@ -25,6 +28,9 @@ export class EditProfileComponent implements OnInit {
       $event.returnValue = true;
     }
   }
+  bsConfig: Partial<BsDatepickerConfig>;
+  maxDate: Date = new Date();
+  validationErrors: string[] = [];
 
   // photo tab properties
   uploader: FileUploader;
@@ -37,13 +43,44 @@ export class EditProfileComponent implements OnInit {
     private _appUserService: AppUserService,
     private _toastrService: ToastrService
   ) {
-    this._accountService.currentUser$
-      .pipe(take(1))
-      .subscribe((user) => (this.loggedInUser = user));
+    this._accountService.currentUser$.pipe(take(1)).subscribe((user) => {
+      this.loggedInUser = user;
+    });
+    this.bsConfig = Object.assign(
+      {},
+      {
+        containerClass: 'theme-orange',
+        dateInputFormat: 'YYYY-MM-DD',
+        // dateInputFormat: 'MM/DD/YYYY',
+        useUtc: false,
+      }
+    );
   }
 
   ngOnInit(): void {
     this.loadPageUser();
+  }
+
+  updateProfile() {
+    this._appUserService.updateAppUser(this.pageUser).subscribe(
+      () => {
+        this._toastrService.success('Profile updated successfully');
+        this.editForm.reset(this.pageUser);
+      },
+      (error) => {
+        error.forEach((errorText, index) => {
+          if (
+            errorText.includes(
+              'The JSON value could not be converted to System.DateTime'
+            )
+          ) {
+            errorText = 'The date of birth format is invalid.';
+            error[index] = errorText;
+          }
+        });
+        this.validationErrors = error;
+      }
+    );
   }
 
   initializeUploader() {
@@ -88,12 +125,5 @@ export class EditProfileComponent implements OnInit {
         this.pageUser = user;
         this.initializeUploader();
       });
-  }
-
-  updateProfile() {
-    this._appUserService.updateAppUser(this.pageUser).subscribe(() => {
-      this._toastrService.success('Profile updated successfully');
-      this.editForm.reset(this.pageUser);
-    });
   }
 }

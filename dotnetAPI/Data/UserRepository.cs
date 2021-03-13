@@ -3,6 +3,7 @@ using API.Entities;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using DotnetApi.DTOs;
+using DotnetApi.Helpers;
 using DotnetApi.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -37,13 +38,23 @@ namespace DotnetApi.Controllers
                 .SingleOrDefaultAsync(u => u.UserName == username);
         }
 
-        public async Task<IEnumerable<AppUser>> GetUsersAsync()
+        public async Task<PagedList<AppUser>> GetUsersAsync(UserParams userParams)
         {
-            return await _context.Users
+            var query = _context.Users
                 .Include(u => u.Photo)
                 .Include(u => u.Portfolios)
-                    .ThenInclude(p => p.Positions)
-                .ToListAsync();
+                .ThenInclude(p => p.Positions)
+                .AsNoTracking()
+                .AsQueryable();
+            query = query.Where(u => u.UserName != userParams.CurrentUsername);
+            var minDob = DateTime.Today.AddYears(-userParams.MaxAge - 1);
+            var maxDob = DateTime.Today.AddYears(-userParams.MinAge);
+
+            if (userParams.MinAge != 13 || userParams.MaxAge != 150)
+            {
+                query = query.Where(u => u.DateOfBirth >= minDob && u.DateOfBirth <= maxDob);
+            }
+            return await PagedList<AppUser>.CreateAsync(query, userParams.PageNumber, userParams.PageSize);
         }
 
         public void Update(AppUser user)

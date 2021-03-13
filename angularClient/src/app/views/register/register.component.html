@@ -28,6 +28,31 @@
       </div>
 
       <div class="form-group">
+        <label for="email">Email address</label>
+        <input
+          [class.is-invalid]="
+            registerForm.get('email').errors &&
+            registerForm.get('email').touched
+          "
+          type="email"
+          class="form-control"
+          formControlName="email"
+        />
+        <div
+          class="invalid-feedback"
+          *ngIf="registerForm.get('email').hasError('required')"
+        >
+          Please enter your email address.
+        </div>
+        <div
+          class="invalid-feedback"
+          *ngIf="registerForm.get('email').hasError('email')"
+        >
+          Please enter a valid email address.
+        </div>
+      </div>
+
+      <div class="form-group">
         <label for="password">Password</label>
         <input
           [class.is-invalid]="
@@ -72,29 +97,27 @@
       </div>
 
       <div class="form-group">
-        <label for="email">Email address</label>
+        <label for="email">Date of Birth</label>
         <input
+          type="text"
           [class.is-invalid]="
-            registerForm.get('email').errors &&
-            registerForm.get('email').touched
+            registerForm.get('dateOfBirth').errors &&
+            registerForm.get('dateOfBirth').touched
           "
-          type="email"
           class="form-control"
-          formControlName="email"
+          placeholder="MM-DD-YYYY"
+          bsDatepicker
+          formControlName="dateOfBirth"
         />
         <div
           class="invalid-feedback"
-          *ngIf="registerForm.get('email').hasError('required')"
+          *ngIf="registerForm.get('confirmPassword').hasError('required')"
         >
-          Please enter your email address.
-        </div>
-        <div
-          class="invalid-feedback"
-          *ngIf="registerForm.get('email').hasError('email')"
-        >
-          Please enter a valid email address.
+          A date of birth is required.
         </div>
       </div>
+
+      <!-- Angular form model: {{ registerForm.value | json }} -->
 
       <div *ngIf="validationErrors.length > 0">
         <ul class="text-danger">
@@ -104,7 +127,7 @@
         </ul>
       </div>
 
-      <div class="form-group text-center">
+      <div class="form-group text-center mt-5">
         <button
           [disabled]="!registerForm.valid"
           class="btn btn-success btn-block"

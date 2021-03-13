@@ -12,23 +12,64 @@
     <div class="col-10">
       <tabset>
         <tab heading="Edit profile">
-          <div class="col-4 main">
+          <div class="col-4 main mt-4">
             <form #editForm="ngForm" (ngSubmit)="updateProfile()">
-              <label for="city">City</label>
-              <input
-                [(ngModel)]="pageUser.city"
-                class="form-control"
-                type="text"
-                name="city"
-              />
+              <h2>Your profile details</h2>
+              <div class="form-group mt-3">
+                <label for="city">City</label>
+                <input
+                  [(ngModel)]="pageUser.city"
+                  class="form-control"
+                  type="text"
+                  name="city"
+                />
+              </div>
 
-              <label for="country">Country</label>
-              <input
-                [(ngModel)]="pageUser.country"
-                class="form-control"
-                type="text"
-                name="country"
-              />
+              <div class="form-group">
+                <label for="country">Country</label>
+                <input
+                  [(ngModel)]="pageUser.country"
+                  class="form-control"
+                  type="text"
+                  name="country"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="dateOfBirth">Date of Birth</label>
+                <input
+                  [(ngModel)]="pageUser.dateOfBirth"
+                  class="form-control"
+                  type="text"
+                  name="dateOfBirth"
+                  bsDatepicker
+                  [maxDate]="maxDate"
+                  [bsConfig]="bsConfig"
+                  autocomplete="off"
+                  placeholder="yyyy-mm-dd"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="dateOfBirth">Strategy</label>
+                <textarea
+                  [(ngModel)]="pageUser.investingStrategySummary"
+                  class="form-control"
+                  type="text"
+                  name="investingStrategySummary"
+                  autocomplete="off"
+                ></textarea>
+              </div>
+
+              <div *ngIf="validationErrors.length > 0">
+                <ul class="text-danger">
+                  <li *ngFor="let error of validationErrors">
+                    <ng-container>{{ error }}</ng-container>
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Angular form model: {{ editForm.value | json }} -->
 
               <button
                 [disabled]="!editForm.dirty"
