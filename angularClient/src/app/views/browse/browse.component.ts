@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AppUser } from 'src/app/_models/appUser';
+import { AppUserParams } from 'src/app/_models/appUserParams';
 import { Pagination } from 'src/app/_models/pagination';
 import { AppUserService } from 'src/app/_services/app-user.service';
 
@@ -12,8 +13,7 @@ import { AppUserService } from 'src/app/_services/app-user.service';
 export class BrowseComponent implements OnInit {
   appUsers: AppUser[];
   pagination: Pagination;
-  pageNumber = 1;
-  pageSize = 5;
+  appUserParams: AppUserParams = new AppUserParams();
 
   constructor(private _appUserService: AppUserService) {}
 
@@ -22,8 +22,9 @@ export class BrowseComponent implements OnInit {
   }
 
   loadAppUsers() {
+    console.log('in load app users', this.appUserParams.minAge);
     this._appUserService
-      .getAppUsers(this.pageNumber, this.pageSize)
+      .getAppUsers(this.appUserParams)
       .subscribe((response) => {
         this.appUsers = response.result;
         this.pagination = response.pagination;
@@ -31,7 +32,13 @@ export class BrowseComponent implements OnInit {
   }
 
   pageChanged(event: any) {
-    this.pageNumber = event.page;
+    this.appUserParams.pageNumber = event.page;
+    this.loadAppUsers();
+  }
+
+  resetFilters(e) {
+    e.preventDefault();
+    this.appUserParams = new AppUserParams();
     this.loadAppUsers();
   }
 }
