@@ -36,6 +36,76 @@
     </form>
   </div>
 
+  <!-- <div class="btn-group mt-3">
+    Sort by:
+    <button
+      class="btn btn-primary"
+      (click)="loadAppUsers()"
+      btnRadio="lastActive"
+      type="button"
+      name="orderBy"
+      [(ngModel)]="appUserParams.orderBy"
+    >
+      Last active
+    </button>
+    <button
+      class="btn btn-primary"
+      (click)="loadAppUsers()"
+      btnRadio="created"
+      type="button"
+      name="orderBy"
+      [(ngModel)]="appUserParams.orderBy"
+    >
+      Newest members
+    </button>
+  </div> -->
+
+  <div class="btn-group mt-3 d-flex align-items-center" dropdown>
+    <span class="mr-2">Sort by:</span>
+    <a
+      id="button-basic"
+      dropdownToggle
+      type="button"
+      class="dropdown-toggle"
+      aria-controls="dropdown-basic"
+    >
+      {{ setOrderByDisplayName(appUserParams.orderBy) }}
+      <span class="caret"></span>
+    </a>
+    <ul
+      id="dropdown-basic"
+      *dropdownMenu
+      class="dropdown-menu"
+      role="menu"
+      aria-labelledby="button-basic"
+    >
+      <li role="menuitem">
+        <button
+          class="dropdown-item"
+          (click)="loadAppUsers()"
+          btnRadio="lastActive"
+          type="button"
+          name="orderBy"
+          [(ngModel)]="appUserParams.orderBy"
+        >
+          Last active
+        </button>
+      </li>
+      <li role="menuitem">
+        <button
+          class="dropdown-item"
+          (click)="loadAppUsers()"
+          btnRadio="created"
+          type="button"
+          name="orderBy"
+          [(ngModel)]="appUserParams.orderBy"
+        >
+          Newest members
+        </button>
+      </li>
+    </ul>
+  </div>
+
   <div class="row mt-3">
     <div *ngFor="let appUser of appUsers" class="col-3">
       <app-user-card [appUser]="appUser"></app-user-card>

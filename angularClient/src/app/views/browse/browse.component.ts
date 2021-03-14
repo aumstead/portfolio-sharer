@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { AppUser } from 'src/app/_models/appUser';
 import { AppUserParams } from 'src/app/_models/appUserParams';
 import { Pagination } from 'src/app/_models/pagination';
+import { AccountService } from 'src/app/_services/account.service';
 import { AppUserService } from 'src/app/_services/app-user.service';
 
 @Component({
@@ -13,16 +14,18 @@ import { AppUserService } from 'src/app/_services/app-user.service';
 export class BrowseComponent implements OnInit {
   appUsers: AppUser[];
   pagination: Pagination;
-  appUserParams: AppUserParams = new AppUserParams();
+  appUserParams: AppUserParams;
 
-  constructor(private _appUserService: AppUserService) {}
+  constructor(private _appUserService: AppUserService) {
+    this.appUserParams = _appUserService.appUserParams;
+  }
 
   ngOnInit(): void {
     this.loadAppUsers();
   }
 
   loadAppUsers() {
-    console.log('in load app users', this.appUserParams.minAge);
+    this._appUserService.setAppUserParams(this.appUserParams);
     this._appUserService
       .getAppUsers(this.appUserParams)
       .subscribe((response) => {
@@ -33,12 +36,25 @@ export class BrowseComponent implements OnInit {
 
   pageChanged(event: any) {
     this.appUserParams.pageNumber = event.page;
+    this._appUserService.setAppUserParams(this.appUserParams);
     this.loadAppUsers();
   }
 
   resetFilters(e) {
     e.preventDefault();
-    this.appUserParams = new AppUserParams();
+    this.appUserParams = this._appUserService.resetAppUserParams();
     this.loadAppUsers();
+  }
+
+  setOrderByDisplayName(propName: string) {
+    switch (propName) {
+      case 'created':
+        return 'Newest members';
+      case 'lastActive':
+        return 'Last active';
+      default:
+        console.error('Error in switch.');
+        return 'Select';
+    }
   }
 }

@@ -6,6 +6,7 @@ import { environment } from 'src/environments/environment';
 import { AppUser } from '../_models/appUser';
 import { AppUserParams } from '../_models/appUserParams';
 import { PaginatedResult } from '../_models/pagination';
+import { AccountService } from './account.service';
 
 @Injectable({
   providedIn: 'root',
@@ -13,20 +14,53 @@ import { PaginatedResult } from '../_models/pagination';
 export class AppUserService {
   baseUrl = environment.apiUrl;
   appUsers: AppUser[] = [];
+  appUserCache = new Map();
+  appUserParams: AppUserParams = new AppUserParams();
 
-  constructor(private _http: HttpClient) {}
+  constructor(
+    private _http: HttpClient,
+    private _accountService: AccountService
+  ) {}
+
+  getAppUserParams() {
+    return this.appUserParams;
+  }
+
+  setAppUserParams(params: AppUserParams) {
+    this.appUserParams = params;
+  }
+
+  resetAppUserParams() {
+    this.appUserParams = new AppUserParams();
+    return this.appUserParams;
+  }
 
   getAppUsers(appUserParams: AppUserParams) {
+    const response = this.appUserCache.get(
+      Object.values(appUserParams).join('-')
+    );
+    if (response) {
+      return of(response);
+    }
     let params = this.getPaginationHeaders(
       appUserParams.pageNumber,
       appUserParams.pageSize
     );
     params = params.append('minAge', appUserParams.minAge.toString());
     params = params.append('maxAge', appUserParams.maxAge.toString());
+    params = params.append('orderBy', appUserParams.orderBy);
     // probably add vehicle tags to params here when i implement this feature
     // params = params.append('vehicleTags', appUserParams.vehicleTags);
 
-    return this.getPaginatedResult<AppUser[]>(`${this.baseUrl}/users`, params);
+    return this.getPaginatedResult<AppUser[]>(
+      `${this.baseUrl}/users`,
+      params
+    ).pipe(
+      map((response) => {
+        this.appUserCache.set(Object.values(appUserParams).join('-'), response);
+        return response;
+      })
+    );
   }
 
   private getPaginatedResult<T>(url, params: HttpParams) {
@@ -55,8 +89,12 @@ export class AppUserService {
   }
 
   getAppUser(username: string) {
-    const appUser = this.appUsers.find((user) => user.username === username);
-    if (appUser !== undefined) return of(appUser);
+    let appUser = [...this.appUserCache.values()]
+      .reduce((arr, elem) => arr.concat(elem.result), [])
+      .find((appUser: AppUser) => appUser.username === username);
+    console.log(appUser);
+    if (appUser) return of(appUser);
+
     return this._http.get<AppUser>(`${this.baseUrl}/users/${username}`);
   }
 
