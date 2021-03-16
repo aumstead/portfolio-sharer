@@ -6,6 +6,28 @@
   />
   <h2 class="username">{{ pageUser.username }}</h2>
 </div>
+
+<ng-container *ngIf="isFollowing !== null">
+  <button
+    class="btn btn-outline-primary btn-sm mb-3"
+    type="button"
+    (click)="addFollow(pageUser)"
+    *ngIf="!isFollowing; else elseBtn"
+  >
+    Follow
+  </button>
+</ng-container>
+
+<ng-template #elseBtn>
+  <button
+    class="btn btn-outline-primary btn-sm mb-3 following-btn"
+    type="button"
+    (click)="removeFollow(pageUser)"
+  >
+    <span>Following</span>
+  </button>
+</ng-template>
+
 <ul class="user-info-ul">
   <li><span class="text-muted">Age:</span> {{ pageUser.age }}</li>
 

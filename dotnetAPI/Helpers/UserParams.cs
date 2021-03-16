@@ -11,5 +11,6 @@ namespace DotnetApi.Helpers
         public int MinAge { get; set; } = 13;
         public int MaxAge { get; set; } = 150;
         public string OrderBy { get; set; } = "lastActive";
+        public bool Following { get; set; } = false;
     }
 }

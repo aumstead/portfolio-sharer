@@ -4,7 +4,10 @@
 <div class="container-xl m-nav">
   <div class="row" *ngIf="pageUser">
     <div class="col-2 banner">
-      <app-profile-banner [pageUser]="pageUser"></app-profile-banner>
+      <app-profile-banner
+        [loggedInUser]="loggedInUser"
+        [pageUser]="pageUser"
+      ></app-profile-banner>
     </div>
 
     <div class="col-2"></div>

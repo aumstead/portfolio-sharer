@@ -49,6 +49,7 @@ export class AppUserService {
     params = params.append('minAge', appUserParams.minAge.toString());
     params = params.append('maxAge', appUserParams.maxAge.toString());
     params = params.append('orderBy', appUserParams.orderBy);
+    params = params.append('following', appUserParams.following.toString());
     // probably add vehicle tags to params here when i implement this feature
     // params = params.append('vehicleTags', appUserParams.vehicleTags);
 
@@ -92,7 +93,6 @@ export class AppUserService {
     let appUser = [...this.appUserCache.values()]
       .reduce((arr, elem) => arr.concat(elem.result), [])
       .find((appUser: AppUser) => appUser.username === username);
-    console.log(appUser);
     if (appUser) return of(appUser);
 
     return this._http.get<AppUser>(`${this.baseUrl}/users/${username}`);

@@ -28,6 +28,7 @@ namespace DotnetApi.Extensions
             services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
             services.Configure<CloudinarySettings>(config.GetSection("CloudinarySettings"));
             services.AddScoped<LogUserActivity>();
+            services.AddScoped<IFollowsRepository, FollowsRepository>();
 
             return services;
         }

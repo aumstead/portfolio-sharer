@@ -29,8 +29,22 @@
           [(ngModel)]="appUserParams.maxAge"
         />
       </div>
-      <button class="btn btn-primary ml-1" type="submit">Apply filters</button>
-      <button (click)="resetFilters($event)" class="btn btn-info ml-1">
+      <div class="form-group px-2">
+        <div class="custom-control custom-checkbox">
+          <input
+            type="checkbox"
+            class="custom-control-input"
+            id="customCheck1"
+            [(ngModel)]="appUserParams.following"
+            name="following"
+          />
+          <label class="custom-control-label" for="customCheck1"
+            >My follows</label
+          >
+        </div>
+      </div>
+      <button class="btn btn-primary ml-2" type="submit">Apply filters</button>
+      <button (click)="resetFilters($event)" class="btn btn-info ml-2">
         Reset filters
       </button>
     </form>

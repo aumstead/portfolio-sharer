@@ -12,3 +12,13 @@
 .user-info-ul {
   list-style: none;
 }
+
+.following-btn {
+  width: 6rem;
+}
+.following-btn:hover span {
+  display: none;
+}
+.following-btn:hover:before {
+  content: "Unfollow";
+}

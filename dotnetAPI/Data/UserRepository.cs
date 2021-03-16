@@ -41,11 +41,12 @@ namespace DotnetApi.Controllers
         public async Task<PagedList<AppUser>> GetUsersAsync(UserParams userParams)
         {
             var query = _context.Users
-                .Include(u => u.Photo)
-                .Include(u => u.Portfolios)
-                .ThenInclude(p => p.Positions)
-                .AsNoTracking()
-                .AsQueryable();
+            .Include(u => u.Photo)
+            .Include(u => u.Portfolios)
+            .ThenInclude(p => p.Positions)
+            .AsNoTracking()
+            .AsQueryable();
+
             query = query.Where(u => u.UserName != userParams.CurrentUsername);
             var minDob = DateTime.Today.AddYears(-userParams.MaxAge - 1);
             var maxDob = DateTime.Today.AddYears(-userParams.MinAge);
@@ -53,6 +54,14 @@ namespace DotnetApi.Controllers
             if (userParams.MinAge != 13 || userParams.MaxAge != 150)
             {
                 query = query.Where(u => u.DateOfBirth >= minDob && u.DateOfBirth <= maxDob);
+            }
+
+            if (userParams.Following)
+            {
+                var follows = _context.Follows.AsQueryable();
+                follows = follows.Where(follow => follow.SourceUser.UserName == userParams.CurrentUsername);
+                var followsList = await follows.Select(follow => follow.FollowedUser).ToListAsync();
+                query = query.Where(u => followsList.Contains(u));
             }
 
             query = userParams.OrderBy switch

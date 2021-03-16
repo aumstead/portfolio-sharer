@@ -1,4 +1,5 @@
-﻿using DotnetApi.Extensions;
+﻿using DotnetApi.Entities;
+using DotnetApi.Extensions;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -36,6 +37,9 @@ namespace API.Entities
         [MaxLength(500, ErrorMessage = "There is a 500 character limit")]
         public string InvestingStrategySummary { get; set; }
 
+
+        public ICollection<UserFollow> Followers { get; set; }
+        public ICollection<UserFollow> Following { get; set; }
 
         //public ICollection<Trade> TradeHistory { get; set; }
         //public InvestingInterests InvestingInterests { get; set; }

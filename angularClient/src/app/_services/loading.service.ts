@@ -21,7 +21,6 @@ export class LoadingService {
 
   idle() {
     this.loadingRequestCount--;
-    console.log('in idle, count:', this.loadingRequestCount);
     if (this.loadingRequestCount <= 0) {
       this.loadingRequestCount = 0;
       this._spinnerService.hide();
