@@ -28,6 +28,10 @@
   </button>
 </ng-template>
 
+<a class="d-block" [routerLink]="['/user/messages/' + pageUser.username]"
+  >Message</a
+>
+
 <ul class="user-info-ul">
   <li><span class="text-muted">Age:</span> {{ pageUser.age }}</li>
 

@@ -1,0 +1,45 @@
+.card {
+  border: none;
+}
+
+.chat {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.chat li {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px dotted #b3a9a9;
+}
+
+.margin-auto {
+  margin: 0 auto;
+}
+
+form {
+  width: 100%;
+}
+
+h1 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+
+a {
+  width: fit-content;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  margin-bottom: 0rem;
+}
+
+.userMessage {
+  background-color: whitesmoke;
+}
+
+.friendMessage {
+  background-color: none;
+}

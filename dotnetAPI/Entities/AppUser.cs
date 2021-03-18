@@ -40,6 +40,8 @@ namespace API.Entities
 
         public ICollection<UserFollow> Followers { get; set; }
         public ICollection<UserFollow> Following { get; set; }
+        public ICollection<Message> MessagesSent { get; set; }
+        public ICollection<Message> MessagesReceived { get; set; }
 
         //public ICollection<Trade> TradeHistory { get; set; }
         //public InvestingInterests InvestingInterests { get; set; }

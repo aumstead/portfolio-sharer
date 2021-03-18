@@ -1,0 +1,68 @@
+<app-navbar></app-navbar>
+<ngx-spinner></ngx-spinner>
+
+<div class="container m-nav">
+  <div class="row" *ngIf="messages">
+    <div class="col-10 margin-auto">
+      <div class="row d-flex flex-column">
+        <h1>Messages between you and {{ username }}</h1>
+        <a [routerLink]="'/user/messages'">&lArr; Back to Inbox</a>
+        <div class="" *ngIf="messages?.length === 0">No messages yet...</div>
+
+        <ul *ngIf="messages.length > 0" class="chat">
+          <li
+            *ngFor="let message of messages"
+            [class.userMessage]="message.senderUsername !== username"
+            [class.friendMessage]="message.senderUsername === username"
+          >
+            <div class="header">
+              <small
+                *ngIf="message.senderUsername === username"
+                class="text-muted"
+              >
+                <span>{{ username }}&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+              </small>
+              <small
+                *ngIf="message.senderUsername !== username"
+                class="text-muted"
+              >
+                <span>You&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+              </small>
+              <small class="text-muted">
+                <span class="">sent {{ message.messageSent | timeago }}</span>
+              </small>
+            </div>
+            <p>
+              {{ message.content }}
+            </p>
+          </li>
+        </ul>
+      </div>
+
+      <div class="row mt-2">
+        <form
+          #messageForm="ngForm"
+          (ngSubmit)="sendMessage()"
+          autocomplete="off"
+        >
+          <textarea
+            name="messageContent"
+            required
+            [(ngModel)]="messageContent"
+            type="text"
+            class="form-control"
+            placeholder="Send a private message"
+            rows="3"
+          ></textarea>
+          <button
+            [disabled]="!messageForm.valid"
+            class="btn btn-primary mt-3"
+            type="submit"
+          >
+            Send
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

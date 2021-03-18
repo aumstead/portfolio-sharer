@@ -12,6 +12,8 @@ import { ServerErrorComponent } from './views/server-error/server-error.componen
 import { PortfoliosComponent } from './views/user/username/portfolios/portfolios.component';
 import { EditProfileComponent } from './views/user/edit-profile/edit-profile.component';
 import { PreventUnsavedChangesGuard } from './_guards/prevent-unsaved-changes.guard';
+import { MessagesComponent } from './views/user/messages/messages.component';
+import { ThreadComponent } from './views/user/messages/thread/thread.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -31,6 +33,14 @@ const routes: Routes = [
         path: 'user/edit-profile',
         component: EditProfileComponent,
         canDeactivate: [PreventUnsavedChangesGuard],
+      },
+      {
+        path: 'user/messages',
+        component: MessagesComponent,
+      },
+      {
+        path: 'user/messages/:username',
+        component: ThreadComponent,
       },
     ],
   },

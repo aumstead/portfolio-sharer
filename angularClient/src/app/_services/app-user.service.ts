@@ -7,6 +7,7 @@ import { AppUser } from '../_models/appUser';
 import { AppUserParams } from '../_models/appUserParams';
 import { PaginatedResult } from '../_models/pagination';
 import { AccountService } from './account.service';
+import { getPaginatedResult, getPaginationHeaders } from './paginationHelper';
 
 @Injectable({
   providedIn: 'root',
@@ -42,7 +43,7 @@ export class AppUserService {
     if (response) {
       return of(response);
     }
-    let params = this.getPaginationHeaders(
+    let params = getPaginationHeaders(
       appUserParams.pageNumber,
       appUserParams.pageSize
     );
@@ -53,40 +54,16 @@ export class AppUserService {
     // probably add vehicle tags to params here when i implement this feature
     // params = params.append('vehicleTags', appUserParams.vehicleTags);
 
-    return this.getPaginatedResult<AppUser[]>(
+    return getPaginatedResult<AppUser[]>(
       `${this.baseUrl}/users`,
-      params
+      params,
+      this._http
     ).pipe(
       map((response) => {
         this.appUserCache.set(Object.values(appUserParams).join('-'), response);
         return response;
       })
     );
-  }
-
-  private getPaginatedResult<T>(url, params: HttpParams) {
-    const paginatedResult: PaginatedResult<T> = new PaginatedResult<T>();
-
-    return this._http
-      .get<T>(url, { observe: 'response', params })
-      .pipe(
-        map((response) => {
-          paginatedResult.result = response.body;
-          if (response.headers.get('Pagination') !== null) {
-            paginatedResult.pagination = JSON.parse(
-              response.headers.get('Pagination')
-            );
-          }
-          return paginatedResult;
-        })
-      );
-  }
-
-  private getPaginationHeaders(pageNumber: number, pageSize: number) {
-    let params = new HttpParams();
-    params = params.append('pageNumber', pageNumber.toString());
-    params = params.append('pageSize', pageSize.toString());
-    return params;
   }
 
   getAppUser(username: string) {

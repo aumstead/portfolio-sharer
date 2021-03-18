@@ -1,6 +1,7 @@
 ﻿using API.Entities;
 using AutoMapper;
 using DotnetApi.DTOs;
+using DotnetApi.Entities;
 using DotnetApi.Extensions;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,7 @@ namespace DotnetApi.Helpers
             CreateMap<Position, PositionDto>();
             CreateMap<AppUserUpdateDto, AppUser>();
             CreateMap<RegisterDto, AppUser>();
+            CreateMap<Message, MessageDto>();
         }
     }
 }

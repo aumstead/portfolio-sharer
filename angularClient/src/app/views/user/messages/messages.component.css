@@ -1,0 +1,29 @@
+.margin-auto {
+  margin: 0 auto;
+}
+
+.message {
+  width: 100%;
+  border-bottom: 1px dotted #b3a9a9;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+.header-info {
+  font-size: 0.8rem;
+}
+
+.text-btn {
+  background: none;
+  border: none;
+  font-size: 0.9rem;
+}
+
+.text-btn:hover {
+  text-decoration: underline;
+  color: #187ca5 !important;
+}
+
+p {
+  margin-bottom: 0.5rem;
+}

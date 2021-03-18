@@ -27,6 +27,8 @@ import { TableMenuHeaderComponent } from './views/user/username/portfolios/table
 import { EditNameModalComponent } from './views/user/username/portfolios/edit-name-modal/edit-name-modal.component';
 import { EditProfileComponent } from './views/user/edit-profile/edit-profile.component';
 import { LoadingInterceptor } from './_interceptors/loading.interceptor';
+import { MessagesComponent } from './views/user/messages/messages.component';
+import { ThreadComponent } from './views/user/messages/thread/thread.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +49,8 @@ import { LoadingInterceptor } from './_interceptors/loading.interceptor';
     TableMenuHeaderComponent,
     EditNameModalComponent,
     EditProfileComponent,
+    MessagesComponent,
+    ThreadComponent,
   ],
   imports: [
     BrowserModule,

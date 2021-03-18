@@ -29,6 +29,7 @@ namespace DotnetApi.Extensions
             services.Configure<CloudinarySettings>(config.GetSection("CloudinarySettings"));
             services.AddScoped<LogUserActivity>();
             services.AddScoped<IFollowsRepository, FollowsRepository>();
+            services.AddScoped<IMessageRepository, MessageRepository>();
 
             return services;
         }

@@ -18,6 +18,7 @@ namespace API.Data
         public DbSet<Portfolio> Portfolios { get; set; }
         public DbSet<Position> Positions { get; set; }
         public DbSet<UserFollow> Follows { get; set; }
+        public DbSet<Message> Messages { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -38,6 +39,16 @@ namespace API.Data
                 .WithMany(f => f.Followers)
                 .HasForeignKey(s => s.FollowedUserId)
                 .OnDelete(DeleteBehavior.NoAction);
+
+            builder.Entity<Message>()
+                .HasOne(u => u.Recipient)
+                .WithMany(m => m.MessagesReceived)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.Entity<Message>()
+                .HasOne(u => u.Sender)
+                .WithMany(m => m.MessagesSent)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }
