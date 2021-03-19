@@ -37,44 +37,13 @@
 
       <ng-container *ngIf="messages?.length > 0">
         <div class="row" [hidden]="loading" *ngFor="let message of messages">
-          <div class="message">
-            <div class="header-info text-muted d-flex mb-1">
-              <div *ngIf="container === 'outbox'">
-                <span class=""
-                  >to
-                  {{ message.recipientUsername }}&nbsp;&nbsp;|&nbsp;&nbsp;</span
-                >
-              </div>
-              <div *ngIf="container !== 'outbox'">
-                <span class=""
-                  >from
-                  {{ message.senderUsername }}&nbsp;&nbsp;|&nbsp;&nbsp;</span
-                >
-              </div>
-              <span>sent {{ message.messageSent | timeago }}</span>
-            </div>
-
-            <p>{{ message.content }}</p>
-
-            <a
-              class="text-btn mr-3 text-info"
-              [routerLink]="
-                container !== 'outbox'
-                  ? ['/user/messages/' + message.senderUsername]
-                  : ['/user/messages/' + message.recipientUsername]
-              "
-            >
-              Reply
-            </a>
-
-            <button
-              (click)="$event.stopPropagation()"
-              (click)="deleteMessage(message.id)"
-              class="text-btn text-danger"
-            >
-              Delete
-            </button>
-          </div>
+          <app-message
+            class="app-message"
+            [message]="message"
+            [messages]="messages"
+            [deleteMessage]="deleteMessage"
+            [container]="container"
+          ></app-message>
         </div>
       </ng-container>
 

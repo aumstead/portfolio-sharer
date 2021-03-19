@@ -29,6 +29,7 @@ import { EditProfileComponent } from './views/user/edit-profile/edit-profile.com
 import { LoadingInterceptor } from './_interceptors/loading.interceptor';
 import { MessagesComponent } from './views/user/messages/messages.component';
 import { ThreadComponent } from './views/user/messages/thread/thread.component';
+import { MessageComponent } from './views/user/messages/message/message.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { ThreadComponent } from './views/user/messages/thread/thread.component';
     EditProfileComponent,
     MessagesComponent,
     ThreadComponent,
+    MessageComponent,
   ],
   imports: [
     BrowserModule,

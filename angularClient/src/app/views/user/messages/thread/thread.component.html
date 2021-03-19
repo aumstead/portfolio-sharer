@@ -20,13 +20,17 @@
                 *ngIf="message.senderUsername === username"
                 class="text-muted"
               >
-                <span>{{ username }}&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                <span
+                  ><a [routerLink]="['/user/' + username + '/portfolios']"
+                    ><b>{{ username }}</b></a
+                  >&nbsp;&nbsp;|&nbsp;&nbsp;</span
+                >
               </small>
               <small
                 *ngIf="message.senderUsername !== username"
                 class="text-muted"
               >
-                <span>You&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                <span><b>You</b>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
               </small>
               <small class="text-muted">
                 <span class="">sent {{ message.messageSent | timeago }}</span>
@@ -39,7 +43,7 @@
         </ul>
       </div>
 
-      <div class="row mt-2">
+      <div class="row mt-3">
         <form
           #messageForm="ngForm"
           (ngSubmit)="sendMessage()"

@@ -1,0 +1,94 @@
+<div class="message">
+  <div class="header-info text-muted d-flex mb-1">
+    <div *ngIf="container === 'outbox'">
+      <span class=""
+        >to
+        <a [routerLink]="['/user/' + message.recipientId + '/portfolios']"
+          ><b>{{ message.recipientUsername }}</b></a
+        >&nbsp;&nbsp;|&nbsp;&nbsp;</span
+      >
+    </div>
+    <div *ngIf="container !== 'outbox'">
+      <span class=""
+        >from
+        <a [routerLink]="['/user/' + message.senderUsername + '/portfolios']"
+          ><b>{{ message.senderUsername }}</b></a
+        >&nbsp;&nbsp;|&nbsp;&nbsp;</span
+      >
+    </div>
+    <span>sent {{ message.messageSent | timeago }}</span>
+  </div>
+
+  <p>{{ message.content }}</p>
+
+  <button
+    class="text-btn text-btn-primary mr-3 text-info"
+    (click)="setReplyMode(true)"
+    [hidden]="container === 'outbox'"
+  >
+    Reply
+  </button>
+
+  <a
+    class="text-btn text-btn-primary mr-3 text-info"
+    [routerLink]="
+      container !== 'outbox'
+        ? ['/user/messages/' + message.senderUsername]
+        : ['/user/messages/' + message.recipientUsername]
+    "
+    >View all</a
+  >
+
+  <button
+    *ngIf="!deleteMode"
+    (click)="setDeleteMode(true)"
+    class="text-btn text-btn-primary text-info"
+  >
+    Delete
+  </button>
+
+  <div style="display: inline" *ngIf="deleteMode">
+    Are you sure?
+    <button
+      (click)="deleteMessage(message.id)"
+      class="text-btn text-btn-primary text-info"
+    >
+      Confirm
+    </button>
+    /
+    <button
+      (click)="setDeleteMode(false)"
+      class="text-btn text-btn-primary text-info"
+    >
+      Cancel
+    </button>
+  </div>
+
+  <div class="row mt-3" *ngIf="replyMode">
+    <form #messageForm="ngForm" (ngSubmit)="sendMessage()" autocomplete="off">
+      <textarea
+        name="messageContent"
+        required
+        [(ngModel)]="messageContent"
+        type="text"
+        class="form-control"
+        placeholder="Send a private message"
+        rows="3"
+      ></textarea>
+      <button
+        [disabled]="!messageForm.valid"
+        class="btn btn-primary mt-3"
+        type="submit"
+      >
+        Send
+      </button>
+      <button
+        class="btn btn-outline-danger ml-3 mt-3"
+        type="button"
+        (click)="setReplyMode(false)"
+      >
+        Cancel
+      </button>
+    </form>
+  </div>
+</div>

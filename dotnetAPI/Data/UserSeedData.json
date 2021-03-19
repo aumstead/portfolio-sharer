@@ -222,6 +222,20 @@
       "PublicId": "xxx",
       "AppUserId": 16
     }
+  },
+  {
+    "UserName": "thecrystalhaze",
+    "Email": "thecrystalhaze@yahoo.com",
+    "DateOfBirth": "1984-03-24",
+    "Created": "2008-12-02",
+    "LastActive": "2017-05-27",
+    "City": "Carmel",
+    "Country": "USA",
+    "Photo": {
+      "Url": "/assets/orange.jpg",
+      "PublicId": "xxx",
+      "AppUserId": 17
+    }
   }
 
 
