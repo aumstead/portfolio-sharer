@@ -42,6 +42,7 @@
                 [legend]="false"
                 [legendPosition]="legendPosition"
                 [arcWidth]="0.5"
+                [animations]="false"
               >
               </ngx-charts-pie-chart>
 
@@ -59,7 +60,10 @@
       <app-table-menu-header
         [tableData]="tableData"
         [currentTabIndex]="currentTabIndex"
+        [currentPortfolioId]="currentPortfolioId"
         [isPageUserLoggedInUser]="isPageUserLoggedInUser"
+        [pageUser]="pageUser"
+        [loadUser]="loadUser.bind(this)"
       ></app-table-menu-header>
 
       <app-portfolio-table

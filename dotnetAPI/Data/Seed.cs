@@ -39,6 +39,14 @@ namespace DotnetApi.Data
                 await userManager.CreateAsync(user, "Gandalf1");
                 await userManager.AddToRoleAsync(user, "Member");
             }
+
+            var admin = new AppUser
+            {
+                UserName = "admin"
+            };
+
+            await userManager.CreateAsync(admin, "Gandalf1");
+            await userManager.AddToRolesAsync(admin, new[] { "Admin", "Moderator" });
         }
 
         public static async Task SeedPortfolios(DataContext context)

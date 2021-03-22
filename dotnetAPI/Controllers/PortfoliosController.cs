@@ -1,4 +1,6 @@
-﻿using DotnetApi.Interfaces;
+﻿using DotnetApi.Extensions;
+using DotnetApi.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -7,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace DotnetApi.Controllers
 {
+    [Authorize]
     public class PortfoliosController : BaseApiController
     {
         private readonly IPortfolioRepository _portfolioRepository;
@@ -17,9 +20,14 @@ namespace DotnetApi.Controllers
         }
 
         [HttpPut]
-        public async Task<ActionResult> UpdateName(int id, string updatedName)
+        public async Task<ActionResult> UpdateName([FromQuery] int id, string updatedName)
         {
+            var userId = User.GetUserId();
+
             var portfolio = await _portfolioRepository.GetPortfolioByIdAsync(id);
+
+            if (portfolio.AppUserId != userId) return Unauthorized();
+
             portfolio.Name = updatedName;
             _portfolioRepository.UpdateName(portfolio);
             if (await _portfolioRepository.SaveAllAsync()) return NoContent();

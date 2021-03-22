@@ -1,1 +1,34 @@
-<p>edit-name-modal works!</p>
+<div class="modal-header">
+  <h4 class="modal-title pull-left">Rename portfolio</h4>
+  <button
+    type="button"
+    class="close pull-right"
+    aria-label="Close"
+    (click)="bsModalRef.hide()"
+  >
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form #updateNameForm>
+    <label for="name">Name</label>
+    <input
+      type="text"
+      [(ngModel)]="updatedName"
+      name="name"
+      class="form-control"
+    />
+  </form>
+</div>
+<div class="modal-footer">
+  <button
+    type="button"
+    class="btn btn-primary"
+    (click)="updatePortfolioName(id, updatedName)"
+  >
+    Save
+  </button>
+  <button type="button" class="btn btn-secondary" (click)="bsModalRef.hide()">
+    Cancel
+  </button>
+</div>

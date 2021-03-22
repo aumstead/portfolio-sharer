@@ -80,7 +80,6 @@ export class AppUserService {
       map(() => {
         const index = this.appUsers.indexOf(appUser);
         this.appUsers[index] = appUser;
-        console.log(this.appUsers[index]);
       })
     );
   }

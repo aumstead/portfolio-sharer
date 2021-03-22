@@ -15,6 +15,7 @@ export class PortfoliosComponent implements OnInit {
   loggedInUser;
   isPageUserLoggedInUser = false;
   currentTabIndex: number = 0;
+  currentPortfolioId: number;
   tabs: any[] = [];
   data = [];
   results = [];
@@ -27,6 +28,7 @@ export class PortfoliosComponent implements OnInit {
   showLegend: boolean = true;
   showLabels: boolean = true;
   legendPosition: string = 'right';
+
   constructor(
     private _appUserService: AppUserService,
     private _route: ActivatedRoute,
@@ -55,7 +57,12 @@ export class PortfoliosComponent implements OnInit {
         this.organizeTabs();
         this.handlePortfolioData();
         this.getResults(0);
+        this.initCurrentPortfolioId(0);
       });
+  }
+
+  initCurrentPortfolioId(index: number) {
+    this.currentPortfolioId = this.data[index]?.id;
   }
 
   getLoggedInUser() {
@@ -67,6 +74,7 @@ export class PortfoliosComponent implements OnInit {
   onSelect(index: number) {
     this.getResults(index);
     this.currentTabIndex = index;
+    this.currentPortfolioId = this.data[index]?.id;
   }
 
   organizeTabs() {
@@ -97,6 +105,7 @@ export class PortfoliosComponent implements OnInit {
       let portfolioObj = {
         name: portfolio.name,
         positions: [],
+        id: portfolio.id,
       };
 
       let tablePortfolio = [];

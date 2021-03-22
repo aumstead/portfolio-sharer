@@ -56,7 +56,10 @@ namespace DotnetApi.Controllers
 
             if (!result.Result.Succeeded) return BadRequest(result.Result.Errors);
 
-            return new UserDto { Username = user.UserName, Token = _tokenService.CreateToken(user) };
+            var roleResult = await _userManager.AddToRoleAsync(user, "Member");
+            if (!roleResult.Succeeded) return BadRequest(result.Result.Errors);
+
+            return new UserDto { Username = user.UserName, Token = await _tokenService.CreateToken(user) };
         }
 
         [HttpPost("login")]
@@ -74,7 +77,7 @@ namespace DotnetApi.Controllers
 
             if (!result.Succeeded) return Unauthorized();
 
-            return new UserDto { Username = user.UserName, Token = _tokenService.CreateToken(user), PhotoUrl = user.Photo?.Url };
+            return new UserDto { Username = user.UserName, Token = await _tokenService.CreateToken(user), PhotoUrl = user.Photo?.Url };
         }
 
         private async Task<bool> UsernameExists(string username)
