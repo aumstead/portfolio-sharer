@@ -6,6 +6,12 @@
 
 :root {
   --color-primary: #325d88;
+  --color-primary-hover: #284a6c;
+  --color-info: #29abe0;
+  --color-secondary-hover: #7b7971;
+  --color-danger: #d9534f;
+  --color-warning: #f47c3c;
+  --color-warning-hover: #f26418;
 }
 
 *,
@@ -36,6 +42,13 @@ body {
 .btn {
   font-size: 0.8rem;
 }
+
+/* a {
+  color: var(--color-primary);
+}
+a:hover {
+  color: var(--color-primary-hover);
+} */
 
 .navbar .nav-link {
   font-size: 1rem;

@@ -13,6 +13,10 @@
   list-style: none;
 }
 
+.btn-width {
+  width: 6rem;
+}
+
 .following-btn {
   width: 6rem;
 }

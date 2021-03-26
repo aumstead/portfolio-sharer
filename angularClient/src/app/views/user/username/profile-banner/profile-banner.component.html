@@ -7,30 +7,37 @@
   <h2 class="username">{{ pageUser.username }}</h2>
 </div>
 
-<ng-container *ngIf="isFollowing !== null">
+<div *ngIf="pageUser.username !== loggedInUser.username" class="mb-3">
   <button
-    class="btn btn-outline-primary btn-sm mb-3"
+    class="btn btn-outline-primary btn-sm btn-width"
+    [class.following-btn]="isFollowing"
     type="button"
-    (click)="addFollow(pageUser)"
-    *ngIf="!isFollowing; else elseBtn"
+    (click)="!isFollowing ? addFollow(pageUser) : removeFollow(pageUser)"
   >
-    Follow
+    <ng-container *ngIf="!isFollowing; else elseText"> Follow </ng-container>
+    <ng-template #elseText>
+      <span>Following</span>
+    </ng-template>
   </button>
-</ng-container>
 
-<ng-template #elseBtn>
   <button
-    class="btn btn-outline-primary btn-sm mb-3 following-btn"
     type="button"
-    (click)="removeFollow(pageUser)"
+    class="btn btn-outline-primary btn-sm ml-3 btn-width"
+    [routerLink]="['/user/messages/' + pageUser.username]"
   >
-    <span>Following</span>
+    Message
   </button>
-</ng-template>
 
-<a class="d-block" [routerLink]="['/user/messages/' + pageUser.username]"
-  >Message</a
->
+  <!-- <ng-template #elseBtn>
+    <button
+      class="btn btn-outline-primary btn-sm following-btn"
+      type="button"
+      (click)="removeFollow(pageUser)"
+    >
+      <span>Following</span>
+    </button>
+  </ng-template> -->
+</div>
 
 <ul class="user-info-ul">
   <li><span class="text-muted">Age:</span> {{ pageUser.age }}</li>

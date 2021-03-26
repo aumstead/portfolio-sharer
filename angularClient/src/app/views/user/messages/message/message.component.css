@@ -1,8 +1,13 @@
 .message {
   width: 100%;
   border-bottom: 1px dotted #b3a9a9;
-  padding-bottom: 15px;
-  margin-bottom: 20px;
+  padding: 15px 1rem 10px 1rem;
+  /* padding-bottom: 10px; */
+  /* margin-bottom: 15px; */
+}
+
+.unread-bg {
+  background-color: rgb(227 242 255);
 }
 
 .header-info {
@@ -19,7 +24,16 @@
   text-decoration: underline;
   color: #187ca5 !important;
 }
-
+.text-btn-secondary {
+  color: #7b7971;
+}
+.text-btn-secondary:hover {
+  text-decoration: underline;
+  color: #74726b;
+}
+.text-btn-danger {
+  color: var(--color-danger);
+}
 .text-btn-danger:hover {
   text-decoration: underline;
   color: #d23430 !important;

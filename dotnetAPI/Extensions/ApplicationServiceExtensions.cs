@@ -5,6 +5,7 @@ using DotnetApi.Data;
 using DotnetApi.Helpers;
 using DotnetApi.Interfaces;
 using DotnetApi.Services;
+using DotnetApi.SignalR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -30,6 +31,7 @@ namespace DotnetApi.Extensions
             services.AddScoped<LogUserActivity>();
             services.AddScoped<IFollowsRepository, FollowsRepository>();
             services.AddScoped<IMessageRepository, MessageRepository>();
+            services.AddSingleton<PresenceTracker>();
 
             return services;
         }

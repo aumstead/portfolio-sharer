@@ -46,7 +46,7 @@
         </div>
       </div>
 
-      <ul class="navbar-nav mr-5">
+      <ul class="navbar-nav mr-5 align-items-center">
         <li class="nav-item">
           <a
             class="nav-link"
@@ -70,6 +70,26 @@
             routerLinkActive="router-link-active"
             >Login</a
           >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link mail-btn"
+            [routerLink]="['/user/messages']"
+            routerLinkActive="router-link-active"
+            (click)="_router.url === '/user/messages' ? reloadPage() : null"
+          >
+            <svg-icon
+              src="assets/svg/envelope-o.svg"
+              [svgStyle]="{
+                'width.px': 20,
+                'height.px': 20,
+                fill:
+                  _messageService.numberOfUnreadMessages > 0
+                    ? 'var(--color-warning)'
+                    : ''
+              }"
+            ></svg-icon
+          ></a>
         </li>
       </ul>
       <img

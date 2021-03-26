@@ -1,7 +1,9 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { take } from 'rxjs/operators';
+import { LoggedInUser } from 'src/app/_models/loggedInUser';
 import { Message } from 'src/app/_models/message';
 import { Pagination } from 'src/app/_models/pagination';
+import { AccountService } from 'src/app/_services/account.service';
 import { MessageService } from 'src/app/_services/message.service';
 
 @Component({
@@ -16,8 +18,16 @@ export class MessagesComponent implements OnInit {
   pageNumber = 1;
   pageSize = 5;
   loading = false;
+  loggedInUser: LoggedInUser;
 
-  constructor(private _messageService: MessageService) {}
+  constructor(
+    private _messageService: MessageService,
+    private _accountService: AccountService
+  ) {
+    this._accountService.currentUser$
+      .pipe(take(1))
+      .subscribe((user) => (this.loggedInUser = user));
+  }
 
   ngOnInit(): void {
     this.loadMessages();

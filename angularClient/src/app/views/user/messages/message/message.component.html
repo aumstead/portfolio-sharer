@@ -1,5 +1,14 @@
-<div class="message">
-  <div class="header-info text-muted d-flex mb-1">
+<div
+  (click)="markAsRead(message.id)"
+  class="message"
+  [class.unread-bg]="!message.dateRead"
+>
+  <div
+    class="header-info d-flex mb-1"
+    [ngClass]="
+      message.dateRead ? 'text-muted' : 'text-warning font-weight-bold'
+    "
+  >
     <div *ngIf="container === 'outbox'">
       <span class=""
         >to
@@ -21,14 +30,6 @@
 
   <p>{{ message.content }}</p>
 
-  <button
-    class="text-btn text-btn-primary mr-3 text-info"
-    (click)="setReplyMode(true)"
-    [hidden]="container === 'outbox'"
-  >
-    Reply
-  </button>
-
   <a
     class="text-btn text-btn-primary mr-3 text-info"
     [routerLink]="
@@ -36,13 +37,14 @@
         ? ['/user/messages/' + message.senderUsername]
         : ['/user/messages/' + message.recipientUsername]
     "
-    >View all</a
+    >Chat</a
   >
 
   <button
     *ngIf="!deleteMode"
+    (click)="$event.stopPropagation()"
     (click)="setDeleteMode(true)"
-    class="text-btn text-btn-primary text-info"
+    class="text-btn text-btn-primary text-info mr-3"
   >
     Delete
   </button>
@@ -50,45 +52,28 @@
   <div style="display: inline" *ngIf="deleteMode">
     Are you sure?
     <button
+      (click)="$event.stopPropagation()"
       (click)="deleteMessage(message.id)"
-      class="text-btn text-btn-primary text-info"
+      class="text-btn text-info text-btn-danger"
     >
       Confirm
     </button>
     /
     <button
+      (click)="$event.stopPropagation()"
       (click)="setDeleteMode(false)"
-      class="text-btn text-btn-primary text-info"
+      class="text-btn text-info mr-3 text-btn-secondary"
     >
       Cancel
     </button>
   </div>
 
-  <div class="row mt-3" *ngIf="replyMode">
-    <form #messageForm="ngForm" (ngSubmit)="sendMessage()" autocomplete="off">
-      <textarea
-        name="messageContent"
-        required
-        [(ngModel)]="messageContent"
-        type="text"
-        class="form-control"
-        placeholder="Send a private message"
-        rows="3"
-      ></textarea>
-      <button
-        [disabled]="!messageForm.valid"
-        class="btn btn-primary mt-3"
-        type="submit"
-      >
-        Send
-      </button>
-      <button
-        class="btn btn-outline-danger ml-3 mt-3"
-        type="button"
-        (click)="setReplyMode(false)"
-      >
-        Cancel
-      </button>
-    </form>
-  </div>
+  <button
+    *ngIf="message.dateRead"
+    (click)="$event.stopPropagation()"
+    (click)="markAsUnread(message.id)"
+    class="text-btn text-btn-primary text-info"
+  >
+    Mark unread
+  </button>
 </div>

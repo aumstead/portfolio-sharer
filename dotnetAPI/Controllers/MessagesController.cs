@@ -62,12 +62,42 @@ namespace DotnetApi.Controllers
             return messages;
         }
 
+        [HttpGet("unread")]
+        public async Task<ActionResult<IEnumerable<MessageDto>>> GetUnreadMessages()
+        {
+            var username = User.GetUsername();
+            var unreadMessages = await _messageRepository.GetUnreadMessages(username);
+            return Ok(unreadMessages);
+        }
+
         [HttpGet("thread/{username}")]
         public async Task<ActionResult<IEnumerable<MessageDto>>> GetMessageThread(string username)
         {
             var currentUsername = User.GetUsername();
 
             return Ok(await _messageRepository.GetMessageThread(currentUsername, username));
+        }
+
+        [HttpPut("read/{id}")]
+        public async Task<ActionResult> MarkAsRead(int id)
+        {
+            var username = User.GetUsername();
+            var message = await _messageRepository.GetMessage(id);
+            if (message.Recipient.UserName != username) return Unauthorized();
+            message.DateRead = DateTime.UtcNow;
+            if (await _messageRepository.SaveAllAsync()) return NoContent();
+            return BadRequest("Error marking the message as 'read'.");
+        }
+
+        [HttpPut("unread/{id}")]
+        public async Task<ActionResult> MarkAsUnread(int id)
+        {
+            var username = User.GetUsername();
+            var message = await _messageRepository.GetMessage(id);
+            if (message.Recipient.UserName != username) return Unauthorized();
+            message.DateRead = null;
+            if (await _messageRepository.SaveAllAsync()) return NoContent();
+            return BadRequest("Error marking the message as 'unread'.");
         }
 
         [HttpDelete("{id}")]

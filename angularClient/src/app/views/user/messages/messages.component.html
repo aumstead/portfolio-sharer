@@ -33,7 +33,25 @@
         </div>
       </div>
 
-      <div class="row" *ngIf="messages?.length === 0"><h5>No messages</h5></div>
+      <div class="row" *ngIf="messages?.length === 0">
+        <h5>No messages</h5>
+      </div>
+
+      <!-- <ng-container *ngIf="_messageService.messageThread$.subscribe(() => {})>
+        <div
+          class="row"
+          [hidden]="loading"
+          *ngFor="let message of _messageService.messageThread$ | async"
+        >
+          <app-message
+            class="app-message"
+            [message]="message"
+            [messages]="messages"
+            [deleteMessage]="deleteMessage"
+            [container]="container"
+          ></app-message>
+        </div>
+      </ng-container> -->
 
       <ng-container *ngIf="messages?.length > 0">
         <div class="row" [hidden]="loading" *ngFor="let message of messages">
@@ -48,7 +66,7 @@
       </ng-container>
 
       <div
-        class="d-flex justify-content-center"
+        class="d-flex justify-content-center mt-4"
         *ngIf="pagination && !loading && messages?.length !== 0"
       >
         <pagination

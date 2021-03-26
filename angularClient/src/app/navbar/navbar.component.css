@@ -7,8 +7,16 @@ a.dropdown-item {
 }
 
 img {
-  max-height: 40px;
-  border-radius: 100%;
+  max-height: 30px;
+  border-radius: 20%;
   border: 1px solid #fff;
   margin-right: 1rem;
+}
+
+.mail-btn {
+  border-radius: 3px;
+}
+
+.mail-btn:hover {
+  background-color: rgb(117, 113, 113);
 }
