@@ -30,7 +30,7 @@ namespace DotnetApi.Services
                 var uploadParams = new ImageUploadParams
                 {
                     File = new FileDescription(file.FileName, stream),
-                    Transformation = new Transformation().Gravity("face").Height(100).Quality("auto:eco").Radius("max").Width(100).Crop("fill")
+                    Transformation = new Transformation().Gravity("face").Height(100).Quality("auto:good").Width(100).Crop("fill")
                 };
                 uploadResult = await _cloudinary.UploadAsync(uploadParams);
 

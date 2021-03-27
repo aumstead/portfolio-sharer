@@ -13,10 +13,11 @@ namespace DotnetApi.DTOs
         public string Email { get; set; }
 
         [Required(ErrorMessage = "A username is required.")]
+        [MaxLength(16, ErrorMessage = "Username cannot exceed 16 characters")]
         public string Username { get; set; }
 
         [Required(ErrorMessage = "Your account needs a password!")]
-        [StringLength(8, MinimumLength = 4)]
+        //[StringLength(8, MinimumLength = 4)]
         public string Password { get; set; }
 
         public DateTime DateOfBirth { get; set; }

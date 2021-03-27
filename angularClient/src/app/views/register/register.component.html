@@ -25,15 +25,39 @@
         >
           Please enter a username.
         </div>
+        <div
+          class="invalid-feedback"
+          *ngIf="registerForm.get('username').hasError('minlength')"
+        >
+          Requires at least 3 characters.
+        </div>
+        <div
+          class="invalid-feedback"
+          *ngIf="registerForm.get('username').hasError('maxlength')"
+        >
+          Has a max length of 16 characters.
+        </div>
       </div>
 
       <div class="form-group">
         <label for="email">Email address</label>
+        <div
+          class="text-muted helper-text"
+          *ngIf="
+            showEmailHelperText ||
+            (registerForm.get('email').invalid &&
+              registerForm.get('email').touched)
+          "
+        >
+          Email is used to change or reset password.
+        </div>
         <input
           [class.is-invalid]="
             registerForm.get('email').errors &&
             registerForm.get('email').touched
           "
+          (focus)="emailFocus()"
+          (focusout)="emailFocusOut()"
           type="email"
           class="form-control"
           formControlName="email"
@@ -69,6 +93,13 @@
         >
           Please enter your password.
         </div>
+        <div
+          class="invalid-feedback"
+          *ngIf="registerForm.get('password').hasError('minlength')"
+        >
+          Password must be at least 6 characters, contain an uppercase letter,
+          and a number.
+        </div>
       </div>
 
       <div class="form-group">
@@ -98,6 +129,16 @@
 
       <div class="form-group">
         <label for="email">Date of Birth</label>
+        <div
+          class="text-muted helper-text"
+          *ngIf="
+            showDateOfBirthHelperText ||
+            (registerForm.get('dateOfBirth').invalid &&
+              registerForm.get('dateOfBirth').touched)
+          "
+        >
+          Date of birth is used to display your age.
+        </div>
         <input
           type="text"
           [class.is-invalid]="
@@ -105,19 +146,20 @@
             registerForm.get('dateOfBirth').touched
           "
           class="form-control"
+          [maxDate]="maxDate"
           placeholder="MM-DD-YYYY"
           bsDatepicker
           formControlName="dateOfBirth"
+          (focus)="dateOfBirthFocus()"
+          (focusout)="(dateOfBirthFocusOut)"
         />
         <div
           class="invalid-feedback"
           *ngIf="registerForm.get('confirmPassword').hasError('required')"
         >
-          A date of birth is required.
+          This field is required.
         </div>
       </div>
-
-      <!-- Angular form model: {{ registerForm.value | json }} -->
 
       <div *ngIf="validationErrors.length > 0">
         <ul class="text-danger">
@@ -126,6 +168,8 @@
           </li>
         </ul>
       </div>
+
+      <!-- <p>{{ validationErrors | json }}</p> -->
 
       <div class="form-group text-center mt-5">
         <button

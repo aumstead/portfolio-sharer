@@ -82,3 +82,11 @@ ul.nav.nav-tabs {
 .tab-content {
   margin-left: 1rem;
 }
+
+/* overwriting ngx-toastr */
+.toast-info {
+  background-color: var(--color-warning);
+}
+.toast-success {
+  background-color: var(--color-primary);
+}

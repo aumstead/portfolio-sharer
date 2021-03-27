@@ -40,10 +40,6 @@ export class MessageService {
       this.messageThreadSource.next(messages);
     });
 
-    this.hubConnection.on('MessageHubOnline', () => {
-      console.log('msg hub online');
-    });
-
     this.hubConnection.on('NewMessage', (message) => {
       this.messageThread$.pipe(take(1)).subscribe((messages) => {
         this.messageThreadSource.next([...messages, message]);
@@ -85,17 +81,10 @@ export class MessageService {
     return this._http.get(`${this.baseUrl}/messages/unread`);
   }
 
-  getMessageThread(username: string) {
-    return this._http.get<Message[]>(
-      `${this.baseUrl}/messages/thread/${username}`
-    );
-  }
-
-  // sendMessage(username: string, content: string) {
-  //   return this._http.post<Message>(`${this.baseUrl}/messages`, {
-  //     recipientUsername: username,
-  //     content,
-  //   });
+  // getMessageThread(username: string) {
+  //   return this._http.get<Message[]>(
+  //     `${this.baseUrl}/messages/thread/${username}`
+  //   );
   // }
 
   async sendChatMessage(username: string, content: string) {
@@ -111,9 +100,9 @@ export class MessageService {
     return this._http.put(`${this.baseUrl}/messages/read/${id}`, {});
   }
 
-  markAsUnread(id: number) {
-    return this._http.put(`${this.baseUrl}/messages/unread/${id}`, {});
-  }
+  // markAsUnread(id: number) {
+  //   return this._http.put(`${this.baseUrl}/messages/unread/${id}`, {});
+  // }
 
   deleteMessage(id: number) {
     return this._http.delete(`${this.baseUrl}/messages/${id}`);

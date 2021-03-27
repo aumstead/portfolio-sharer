@@ -7,3 +7,9 @@
   padding-left: 4rem;
   padding-right: 4rem;
 }
+
+.custom-invalid-feedback {
+  font-size: 80%;
+  margin-top: 0.25rem;
+  width: 100%;
+}

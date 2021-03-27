@@ -3,31 +3,94 @@
 <div class="row justify-content-center align-items-center row-custom-container">
   <div class="col-4 form-custom-container">
     <h1 class="text-center">Login</h1>
-    <form #loginForm="ngForm" (ngSubmit)="login()">
-      <label class="mt-2" for="username">Username</label>
-      <input
-        class="form-control mr-sm-2"
-        type="text"
-        name="username"
-        [(ngModel)]="model.username"
-      />
-      <div *ngIf="errors.username" class="text-danger">
-        We couldn't find this username in our database.
+    <form [formGroup]="loginForm" (ngSubmit)="loginForm.valid && login()">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input
+          [class.is-invalid]="
+            loginForm.get('username').errors &&
+            loginForm.get('username').touched
+          "
+          class="form-control mr-sm-2"
+          type="text"
+          name="username"
+          formControlName="username"
+        />
+        <div
+          *ngIf="errors.username"
+          class="text-danger custom-invalid-feedback"
+        >
+          This username is not registered.
+        </div>
+        <div
+          class="invalid-feedback"
+          *ngIf="loginForm.get('username').hasError('required')"
+        >
+          Please enter a username.
+        </div>
+        <div
+          class="invalid-feedback"
+          *ngIf="loginForm.get('username').hasError('minlength')"
+        >
+          Requires at least 3 characters.
+        </div>
+        <div
+          class="invalid-feedback"
+          *ngIf="loginForm.get('username').hasError('maxlength')"
+        >
+          Has a max length of 16 characters.
+        </div>
       </div>
 
-      <label class="mt-4" for="password">Password</label>
-      <input
-        class="form-control mr-sm-2"
-        type="password"
-        name="password"
-        [(ngModel)]="model.password"
-      />
-      <div *ngIf="errors.password" class="text-danger">
-        Invalid password. *Reminder: passwords require a number, uppercase
-        letter, and at least 8 characters.
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          [class.is-invalid]="
+            loginForm.get('password').errors &&
+            loginForm.get('password').touched
+          "
+          class="form-control mr-sm-2"
+          type="password"
+          name="password"
+          formControlName="password"
+        />
+        <div
+          *ngIf="errors.password"
+          class="text-danger custom-invalid-feedback"
+        >
+          Invalid password. *Reminder: passwords require a number, uppercase
+          letter, and at least 6 characters.
+        </div>
+        <div
+          class="invalid-feedback"
+          *ngIf="loginForm.get('password').hasError('required')"
+        >
+          Please enter your password.
+        </div>
+        <div
+          class="invalid-feedback"
+          *ngIf="
+            loginForm.get('password').hasError('minlength') && !errors.password
+          "
+        >
+          Password must be at least 6 characters, contain an uppercase letter,
+          and a number.
+        </div>
       </div>
 
-      <button class="btn btn-outline-success mt-4 w-100" type="submit">
+      <div *ngIf="validationErrors.length > 0">
+        <ul class="text-danger">
+          <li *ngFor="let error of validationErrors">
+            {{ error }}
+          </li>
+        </ul>
+      </div>
+
+      <button
+        class="btn btn-outline-success mt-4 w-100"
+        type="submit"
+        [disabled]="!loginForm.valid"
+      >
         Login
       </button>
     </form>

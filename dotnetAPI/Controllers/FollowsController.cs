@@ -14,26 +14,24 @@ namespace DotnetApi.Controllers
     [Authorize]
     public class FollowsController : BaseApiController
     {
-        private readonly IUserRepository _userRepository;
-        private readonly IFollowsRepository _followsRepository;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public FollowsController(IUserRepository userRepository, IFollowsRepository followsRepository)
+        public FollowsController(IUnitOfWork unitOfWork)
         {
-            _userRepository = userRepository;
-            _followsRepository = followsRepository;
+            _unitOfWork = unitOfWork;
         }
 
         [HttpPost("{username}")]
         public async Task<ActionResult> AddFollow(string username)
         {
             var sourceUserId = User.GetUserId();
-            var followedUser = await _userRepository.GetUserByUsernameAsync(username);
-            var sourceUser = await _followsRepository.GetUserWithFollowings(sourceUserId);
+            var followedUser = await _unitOfWork.UserRepository.GetUserByUsernameAsync(username);
+            var sourceUser = await _unitOfWork.FollowsRepository.GetUserWithFollowings(sourceUserId);
 
             if (followedUser == null) return NotFound();
             if (sourceUser.UserName == username) return BadRequest("You cannot follow yourself.");
 
-            var userFollow = await _followsRepository.GetUserFollow(sourceUserId, followedUser.Id);
+            var userFollow = await _unitOfWork.FollowsRepository.GetUserFollow(sourceUserId, followedUser.Id);
             if (userFollow != null) return BadRequest("You already follow this user.");
 
             userFollow = new UserFollow
@@ -44,7 +42,7 @@ namespace DotnetApi.Controllers
 
             sourceUser.Following.Add(userFollow);
 
-            if (await _userRepository.SaveAllAsync()) return Ok();
+            if (await _unitOfWork.Complete()) return Ok();
 
             return BadRequest("Failed to follow.");
         }
@@ -52,7 +50,7 @@ namespace DotnetApi.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<FollowDto>>> GetUserFollows(string predicate)
         {
-            var users = await _followsRepository.GetUserFollows(predicate, User.GetUserId());
+            var users = await _unitOfWork.FollowsRepository.GetUserFollows(predicate, User.GetUserId());
             return Ok(users);
         }
     }

@@ -7,3 +7,8 @@
   padding-left: 4rem;
   padding-right: 4rem;
 }
+
+.helper-text {
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+}

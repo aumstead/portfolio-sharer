@@ -36,10 +36,17 @@ p {
   margin-bottom: 0rem;
 }
 
-.userMessage {
-  background-color: whitesmoke;
+.flex-container {
+  display: flex;
 }
 
-.friendMessage {
-  background-color: none;
+.flex-item {
+  margin-left: 0.7rem;
+}
+
+img {
+  height: 30px;
+  width: 30px;
+  border-radius: 10%;
+  margin-top: 0.3rem;
 }

@@ -41,6 +41,14 @@ export class ErrorInterceptor implements HttpInterceptor {
                 throw errorArr;
               } else if (typeof error.error === 'object') {
                 this._toastr.error(error.statusText, error.status);
+                console.log('error', error);
+                const modelStateErrors = [];
+                for (const key in error.error) {
+                  if (error.error[key]) {
+                    modelStateErrors.push(error.error[key].description);
+                  }
+                }
+                throw modelStateErrors.flat();
               } else {
                 this._toastr.error(error.error, error.status);
               }

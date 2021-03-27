@@ -1,0 +1,37 @@
+<div class="d-flex align-items-center mb-4">
+  <img
+    class="profile-image mr-3"
+    [src]="pageUser.photo.url || './assets/default-user.png'"
+    [alt]="pageUser.username + ' profile image'"
+  />
+  <h2 class="username">{{ pageUser.username }}</h2>
+</div>
+
+<ul class="user-info-ul">
+  <li><span class="text-muted">Age:</span> {{ pageUser.age }}</li>
+
+  <li *ngIf="pageUser.city">
+    <span class="text-muted">City:</span> {{ pageUser.city }}
+  </li>
+  <li *ngIf="pageUser.country">
+    <span class="text-muted">Country:</span> {{ pageUser.country }}
+  </li>
+  <li>
+    <span class="text-muted">Last active:</span>
+    {{ pageUser.lastActive | date: "dd MMM yyyy" }}
+  </li>
+</ul>
+
+<div class="d-flex flex-column">
+  <a href="#">Portfolios</a>
+  <a href="#">Trades</a>
+  <a href="#">Dividends</a>
+  <a href="#">Options</a>
+</div>
+
+<div class="mt-3">
+  <span class="text-muted">Strategy:</span>
+  <p *ngIf="pageUser.investingStrategySummary">
+    {{ pageUser.investingStrategySummary }}
+  </p>
+</div>

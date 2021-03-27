@@ -49,12 +49,12 @@ export class MessageComponent implements OnInit, OnDestroy {
     }
   }
 
-  markAsUnread(id: number) {
-    if (this.message.dateRead !== null) {
-      this.message.dateRead = null;
-      this._messageService.markAsUnread(id).subscribe(() => {
-        this._messageService.numberOfUnreadMessages++;
-      });
-    }
-  }
+  // markAsUnread(id: number) {
+  //   if (this.message.dateRead !== null) {
+  //     this.message.dateRead = null;
+  //     this._messageService.markAsUnread(id).subscribe(() => {
+  //       this._messageService.numberOfUnreadMessages++;
+  //     });
+  //   }
+  // }
 }

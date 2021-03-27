@@ -22,9 +22,9 @@ export class NavbarComponent implements OnInit {
   currentUser: LoggedInUser;
 
   ngOnInit(): void {
-    this._accountService.currentUser$
-      .pipe(take(1))
-      .subscribe((user) => (this.currentUser = user));
+    this._accountService.currentUser$.pipe(take(1)).subscribe((user) => {
+      this.currentUser = user;
+    });
 
     if (this.currentUser) {
       this._messageService.getUnreadMessages().subscribe((messages: any) => {
@@ -38,9 +38,9 @@ export class NavbarComponent implements OnInit {
     this._router.navigateByUrl('/');
   }
 
-  getRandomPhoto() {
-    return '/assets/orange.jpg';
-  }
+  // getRandomPhoto() {
+  //   return '/assets/orange.jpg';
+  // }
 
   reloadPage() {
     console.log('reload page');

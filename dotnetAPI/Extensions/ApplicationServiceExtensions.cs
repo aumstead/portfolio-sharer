@@ -24,14 +24,12 @@ namespace DotnetApi.Extensions
                 options => options.UseSqlServer(config.GetConnectionString("DefaultConnection")));
             services.AddScoped<ITokenService, TokenService>();
             services.AddScoped<IPhotoService, PhotoService>();
-            services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IPortfolioRepository, PortfolioRepository>();
             services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
             services.Configure<CloudinarySettings>(config.GetSection("CloudinarySettings"));
             services.AddScoped<LogUserActivity>();
-            services.AddScoped<IFollowsRepository, FollowsRepository>();
-            services.AddScoped<IMessageRepository, MessageRepository>();
             services.AddSingleton<PresenceTracker>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             return services;
         }

@@ -1,18 +1,19 @@
 <div
-  (click)="markAsRead(message.id)"
+  (click)="container !== 'outbox' ? markAsRead(message.id) : null"
   class="message"
-  [class.unread-bg]="!message.dateRead"
+  [class.unread-bg]="!message.dateRead && container !== 'outbox'"
 >
   <div
     class="header-info d-flex mb-1"
-    [ngClass]="
-      message.dateRead ? 'text-muted' : 'text-warning font-weight-bold'
-    "
+    [class.text-muted]="container === 'outbox'"
+    [class.text-warning]="!message.dateRead && container !== 'outbox'"
+    [class.font-weight-bold]="!message.dateRead && container !== 'outbox'"
+    [ngClass]="message.dateRead ? 'text-muted' : ''"
   >
     <div *ngIf="container === 'outbox'">
       <span class=""
         >to
-        <a [routerLink]="['/user/' + message.recipientId + '/portfolios']"
+        <a [routerLink]="['/user/' + message.recipientUsername + '/portfolios']"
           ><b>{{ message.recipientUsername }}</b></a
         >&nbsp;&nbsp;|&nbsp;&nbsp;</span
       >
@@ -37,7 +38,7 @@
         ? ['/user/messages/' + message.senderUsername]
         : ['/user/messages/' + message.recipientUsername]
     "
-    >Chat</a
+    >Message</a
   >
 
   <button
@@ -49,12 +50,12 @@
     Delete
   </button>
 
-  <div style="display: inline" *ngIf="deleteMode">
+  <div style="display: inline; font-size: 0.8rem" *ngIf="deleteMode">
     Are you sure?
     <button
       (click)="$event.stopPropagation()"
       (click)="deleteMessage(message.id)"
-      class="text-btn text-info text-btn-danger"
+      class="text-btn text-btn-danger ml-2"
     >
       Confirm
     </button>
@@ -62,18 +63,18 @@
     <button
       (click)="$event.stopPropagation()"
       (click)="setDeleteMode(false)"
-      class="text-btn text-info mr-3 text-btn-secondary"
+      class="text-btn mr-3 text-btn-secondary"
     >
       Cancel
     </button>
   </div>
 
-  <button
+  <!-- <button
     *ngIf="message.dateRead"
     (click)="$event.stopPropagation()"
     (click)="markAsUnread(message.id)"
     class="text-btn text-btn-primary text-info"
   >
     Mark unread
-  </button>
+  </button> -->
 </div>

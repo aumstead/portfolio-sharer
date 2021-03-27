@@ -1,4 +1,5 @@
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, OnChanges, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginErrors } from 'src/app/_models/loginErrors';
 import { AccountService } from 'src/app/_services/account.service';
@@ -9,14 +10,23 @@ import { AccountService } from 'src/app/_services/account.service';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  model: any = {};
+  loginForm: FormGroup;
+  validationErrors: string[] = [];
   errors: LoginErrors = { username: false, password: false };
-  constructor(public accountService: AccountService, private router: Router) {}
-  ngOnInit(): void {}
+
+  constructor(
+    public accountService: AccountService,
+    private router: Router,
+    private _fb: FormBuilder
+  ) {}
+
+  ngOnInit(): void {
+    this.initializeForm();
+  }
 
   login() {
     this.errors = { username: false, password: false };
-    this.accountService.login(this.model).subscribe(
+    this.accountService.login(this.loginForm.value).subscribe(
       () => {
         this.router.navigateByUrl('/feed');
       },
@@ -28,5 +38,19 @@ export class LoginComponent implements OnInit {
         }
       }
     );
+  }
+
+  initializeForm() {
+    this.loginForm = this._fb.group({
+      username: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(16),
+        ],
+      ],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+    });
   }
 }

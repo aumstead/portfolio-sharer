@@ -15,38 +15,46 @@
         </div>
 
         <ul
+          #scrollMe
+          style="overflow: scroll; height: 500px"
+          [scrollTop]="scrollMe.scrollHeight"
           *ngIf="(_messageService.messageThread$ | async).length > 0"
           class="chat"
         >
           <li
             *ngFor="let message of _messageService.messageThread$ | async"
-            [class.userMessage]="message.senderUsername !== username"
-            [class.friendMessage]="message.senderUsername === username"
+            class="flex-container"
           >
-            <div class="header">
-              <small
-                *ngIf="message.senderUsername === username"
-                class="text-muted"
-              >
-                <span
-                  ><a [routerLink]="['/user/' + username + '/portfolios']"
-                    ><b>{{ username }}</b></a
-                  >&nbsp;&nbsp;|&nbsp;&nbsp;</span
+            <img
+              src="{{ message.senderPhotoUrl }}"
+              alt="{{ message.senderUsername }}"
+            />
+            <div class="flex-item">
+              <div class="header">
+                <small
+                  *ngIf="message.senderUsername === username"
+                  class="text-muted"
                 >
-              </small>
-              <small
-                *ngIf="message.senderUsername !== username"
-                class="text-muted"
-              >
-                <span><b>You</b>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-              </small>
-              <small class="text-muted">
-                <span class="">sent {{ message.messageSent | timeago }}</span>
-              </small>
+                  <span
+                    ><a [routerLink]="['/user/' + username + '/portfolios']"
+                      ><b>{{ username }}</b></a
+                    >&nbsp;&nbsp;|&nbsp;&nbsp;</span
+                  >
+                </small>
+                <small
+                  *ngIf="message.senderUsername !== username"
+                  class="text-muted"
+                >
+                  <span><b>You</b>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                </small>
+                <small class="text-muted">
+                  <span class="">sent {{ message.messageSent | timeago }}</span>
+                </small>
+              </div>
+              <p>
+                {{ message.content }}
+              </p>
             </div>
-            <p>
-              {{ message.content }}
-            </p>
           </li>
         </ul>
       </div>

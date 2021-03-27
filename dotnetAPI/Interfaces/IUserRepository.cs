@@ -14,6 +14,5 @@ namespace DotnetApi.Interfaces
         Task<AppUser> GetUserByIdAsync(int id);
         Task<AppUser> GetUserByUsernameAsync(string username);
         void Update(AppUser user);
-        Task<bool> SaveAllAsync();
     }
 }

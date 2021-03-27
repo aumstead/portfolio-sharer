@@ -42,9 +42,12 @@ namespace DotnetApi.Controllers
 
             var user = _mapper.Map<AppUser>(registerDto);
 
+            Random rndmInt = new Random();
+            var imageFileName = rndmInt.Next(1, 17);
+
             var image = new Photo
             {
-                Url = "/assets/orange.jpg",
+                Url = "/assets/thumbs/" + imageFileName + ".jpg",
                 PublicId = null
             };
 
@@ -59,7 +62,7 @@ namespace DotnetApi.Controllers
             var roleResult = await _userManager.AddToRoleAsync(user, "Member");
             if (!roleResult.Succeeded) return BadRequest(result.Result.Errors);
 
-            return new UserDto { Username = user.UserName, Token = await _tokenService.CreateToken(user) };
+            return new UserDto { Username = user.UserName, Token = await _tokenService.CreateToken(user), PhotoUrl = user.Photo.Url };
         }
 
         [HttpPost("login")]
@@ -75,7 +78,7 @@ namespace DotnetApi.Controllers
 
             var result = await _signInManager.CheckPasswordSignInAsync(user, loginDto.Password, false);
 
-            if (!result.Succeeded) return Unauthorized();
+            if (!result.Succeeded) return Unauthorized(new { source = "login", type = "password" });
 
             return new UserDto { Username = user.UserName, Token = await _tokenService.CreateToken(user), PhotoUrl = user.Photo?.Url };
         }

@@ -9,7 +9,6 @@ a.dropdown-item {
 img {
   max-height: 30px;
   border-radius: 20%;
-  border: 1px solid #fff;
   margin-right: 1rem;
 }
 
@@ -19,4 +18,18 @@ img {
 
 .mail-btn:hover {
   background-color: rgb(117, 113, 113);
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: #fff;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+  color: #e0d2bc;
+  text-decoration: underline;
+}
+
+.router-link-active {
+  text-decoration: underline;
+  color: #e0d2bc !important;
 }

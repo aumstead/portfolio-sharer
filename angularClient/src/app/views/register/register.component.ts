@@ -18,6 +18,9 @@ import { AccountService } from '../../_services/account.service';
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   validationErrors: string[] = [];
+  maxDate: Date = new Date();
+  showEmailHelperText = false;
+  showDateOfBirthHelperText = false;
 
   constructor(
     private _accountService: AccountService,
@@ -52,11 +55,15 @@ export class RegisterComponent implements OnInit {
 
   initializeForm() {
     this.registerForm = this._fb.group({
-      username: ['', Validators.required],
-      password: [
+      username: [
         '',
-        [Validators.required, Validators.minLength(4), Validators.maxLength(8)],
+        [
+          Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(16),
+        ],
       ],
+      password: ['', [Validators.required, Validators.minLength(6)]],
       confirmPassword: [
         '',
         [Validators.required, this.matchValues('password')],
@@ -75,5 +82,21 @@ export class RegisterComponent implements OnInit {
         ? null
         : { isMatching: true };
     };
+  }
+
+  emailFocus() {
+    this.showEmailHelperText = true;
+  }
+
+  emailFocusOut() {
+    this.showEmailHelperText = false;
+  }
+
+  dateOfBirthFocus() {
+    this.showDateOfBirthHelperText = true;
+  }
+
+  dateOfBirthFocusOut() {
+    this.showDateOfBirthHelperText = false;
   }
 }

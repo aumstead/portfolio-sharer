@@ -30,6 +30,7 @@ import { LoadingInterceptor } from './_interceptors/loading.interceptor';
 import { MessagesComponent } from './views/user/messages/messages.component';
 import { ThreadComponent } from './views/user/messages/thread/thread.component';
 import { MessageComponent } from './views/user/messages/message/message.component';
+import { EditProfileBannerComponent } from './views/user/edit-profile/edit-profile-banner/edit-profile-banner.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { MessageComponent } from './views/user/messages/message/message.componen
     MessagesComponent,
     ThreadComponent,
     MessageComponent,
+    EditProfileBannerComponent,
   ],
   imports: [
     BrowserModule,
