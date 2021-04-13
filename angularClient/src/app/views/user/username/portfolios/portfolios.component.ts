@@ -1,9 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AppUser } from 'src/app/_models/appUser';
+import { Portfolio } from 'src/app/_models/portfolio';
 import { AccountService } from 'src/app/_services/account.service';
 import { AppUserService } from 'src/app/_services/app-user.service';
+import { PortfolioService } from 'src/app/_services/portfolio.service';
 
 @Component({
   selector: 'app-portfolios',
@@ -16,12 +19,18 @@ export class PortfoliosComponent implements OnInit {
   isPageUserLoggedInUser = false;
   currentTabIndex: number = 0;
   currentPortfolioId: number;
+  currentPortfolioName: string;
   tabs: any[] = [];
   data = [];
   results = [];
   tableData = [];
   isCollapsed = true;
 
+  // create portfolio form
+  newPortfolio: any = {};
+  @ViewChild('createPortfolioForm') createPortfolioForm: NgForm;
+
+  // pie chart
   colorScheme = {
     domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA'],
   };
@@ -32,7 +41,9 @@ export class PortfoliosComponent implements OnInit {
   constructor(
     private _appUserService: AppUserService,
     private _route: ActivatedRoute,
-    private _accountService: AccountService
+    private _accountService: AccountService,
+    private _portfolioService: PortfolioService,
+    private _router: Router
   ) {}
 
   ngOnInit(): void {
@@ -58,11 +69,14 @@ export class PortfoliosComponent implements OnInit {
         this.handlePortfolioData();
         this.getResults(0);
         this.initCurrentPortfolioId(0);
+        // for reloading after deleting portfolio
+        this.currentTabIndex = 0;
       });
   }
 
   initCurrentPortfolioId(index: number) {
     this.currentPortfolioId = this.data[index]?.id;
+    this.currentPortfolioName = this.data[index]?.name;
   }
 
   getLoggedInUser() {
@@ -72,9 +86,16 @@ export class PortfoliosComponent implements OnInit {
   }
 
   onSelect(index: number) {
-    this.getResults(index);
-    this.currentTabIndex = index;
-    this.currentPortfolioId = this.data[index]?.id;
+    // if tab selected is add portfolio, ie the last index in tabs array
+    if (this.isPageUserLoggedInUser && index === this.tabs.length - 1) {
+      this.currentTabIndex = -1;
+      this.currentPortfolioId = -1;
+    } else {
+      this.getResults(index);
+      this.currentTabIndex = index;
+      this.currentPortfolioId = this.data[index]?.id;
+      this.currentPortfolioName = this.data[index]?.name;
+    }
   }
 
   organizeTabs() {
@@ -101,6 +122,8 @@ export class PortfoliosComponent implements OnInit {
   }
 
   handlePortfolioData() {
+    this.data = [];
+    this.tableData = [];
     this.pageUser.portfolios.forEach((portfolio) => {
       let portfolioObj = {
         name: portfolio.name,
@@ -128,8 +151,20 @@ export class PortfoliosComponent implements OnInit {
         portfolioObj.positions.push(position);
         tablePortfolio.push(tablePosition);
       });
+
       this.data.push(portfolioObj);
       this.tableData.push(tablePortfolio);
     });
+  }
+
+  createPortfolio() {
+    this._portfolioService
+      .createPortfolio(this.newPortfolio.name)
+      .subscribe((newPortfolio) => {
+        console.log('in subscribe', newPortfolio);
+        // this._router.navigateByUrl(`user/${this.pageUser.username}/portfolios`);
+        this.createPortfolioForm.reset();
+        this.loadUser();
+      });
   }
 }

@@ -31,6 +31,7 @@ import { MessagesComponent } from './views/user/messages/messages.component';
 import { ThreadComponent } from './views/user/messages/thread/thread.component';
 import { MessageComponent } from './views/user/messages/message/message.component';
 import { EditProfileBannerComponent } from './views/user/edit-profile/edit-profile-banner/edit-profile-banner.component';
+import { DeletePortfolioModalComponent } from './views/user/username/portfolios/delete-portfolio-modal/delete-portfolio-modal.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { EditProfileBannerComponent } from './views/user/edit-profile/edit-profi
     ThreadComponent,
     MessageComponent,
     EditProfileBannerComponent,
+    DeletePortfolioModalComponent,
   ],
   imports: [
     BrowserModule,

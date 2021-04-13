@@ -16,7 +16,6 @@ export class PortfolioService {
   ) {}
 
   updatePortfolioName(id, updatedName) {
-    console.log('in service', id, updatedName);
     return this._http.put(
       `${this.baseUrl}/portfolios?id=${id}&updatedName=${updatedName}`,
       {}
@@ -28,5 +27,17 @@ export class PortfolioService {
     //     console.log(this.appUsers[index]);
     //   })
     // );
+  }
+
+  createPortfolio(name: string) {
+    console.log('in service', name);
+    return this._http.post(
+      `${this.baseUrl}/portfolios?portfolioName=${name}`,
+      {}
+    );
+  }
+
+  deletePortfolio(id: number) {
+    return this._http.delete(`${this.baseUrl}/portfolios/${id}`);
   }
 }

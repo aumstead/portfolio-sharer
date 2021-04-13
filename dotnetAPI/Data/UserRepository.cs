@@ -73,6 +73,11 @@ namespace DotnetApi.Controllers
             return await PagedList<AppUser>.CreateAsync(query, userParams.PageNumber, userParams.PageSize);
         }
 
+        public async Task<AppUser> GetUserWithPortfoliosAsync(int id)
+        {
+            return await _context.Users.Include(u => u.Portfolios).SingleOrDefaultAsync(u => u.Id == id);
+        }
+
         public void Update(AppUser user)
         {
             _context.Entry(user).State = EntityState.Modified;

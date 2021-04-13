@@ -19,14 +19,19 @@ namespace DotnetApi.Data
             _context = context;
         }
 
-        public Task<PortfolioDto> CreatePortfolio(string name)
+        public async Task CreatePortfolio(Portfolio portfolio)
         {
-            throw new NotImplementedException();
+            await _context.Portfolios.AddAsync(portfolio);
         }
 
         public async Task<Portfolio> GetPortfolioByIdAsync(int id)
         {
             return await _context.Portfolios.FindAsync(id);
+        }
+
+        public async Task<Portfolio> GetPortfolioWithPositionsAsync(int id)
+        {
+            return await _context.Portfolios.Include(p => p.Positions).FirstOrDefaultAsync(p => p.Id == id);
         }
 
         public async Task<bool> SaveAllAsync()
@@ -37,6 +42,11 @@ namespace DotnetApi.Data
         public void UpdateName(Portfolio portfolio)
         {
             _context.Entry(portfolio).State = EntityState.Modified;
+        }
+
+        public void DeletePortfolio(Portfolio portfolio)
+        {
+            _context.Portfolios.Remove(portfolio);
         }
     }
 }

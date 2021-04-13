@@ -26,6 +26,7 @@ namespace DotnetApi.Data
 
         public IFollowsRepository FollowsRepository => new FollowsRepository(_context);
         public IPortfolioRepository PortfolioRepository => new PortfolioRepository(_context);
+        public IPositionRepository PositionRepository => new PositionRepository(_context);
 
         public async Task<bool> Complete()
         {

@@ -12,7 +12,6 @@ import { LoggedInUser } from 'src/app/_models/loggedInUser';
 import { Message } from 'src/app/_models/message';
 import { AccountService } from 'src/app/_services/account.service';
 import { MessageService } from 'src/app/_services/message.service';
-import { PresenceService } from 'src/app/_services/presence.service';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,

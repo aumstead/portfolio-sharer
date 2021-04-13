@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 
 namespace API.Entities
@@ -15,9 +16,10 @@ namespace API.Entities
         [JsonIgnore]
         public DateTime LastUpdated { get; set; } = DateTime.Now;
 
+        [ForeignKey(nameof(AppUser))]
+        public int AppUserId { get; set; }
         [JsonIgnore]
         public AppUser AppUser { get; set; }
-        public int AppUserId { get; set; }
         public ICollection<Position> Positions { get; set; }
     }
 }

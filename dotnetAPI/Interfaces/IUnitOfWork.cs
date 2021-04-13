@@ -10,6 +10,8 @@ namespace DotnetApi.Interfaces
         IUserRepository UserRepository { get; }
         IMessageRepository MessageRepository { get; }
         IFollowsRepository FollowsRepository { get; }
+        IPortfolioRepository PortfolioRepository { get; }
+        IPositionRepository PositionRepository { get; }
         Task<bool> Complete();
         bool HasChanges();
     }

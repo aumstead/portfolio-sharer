@@ -49,9 +49,35 @@
               <h3 *ngIf="tab.title === 'Empty'">No portfolios!</h3>
             </div>
 
-            <h3 *ngIf="tab.title === 'Add portfolio +'">New Portfolio</h3>
-            <form *ngIf="tab.title === 'Add portfolio +'">
-              <input type="text" />
+            <h3 class="ml-3" *ngIf="tab.title === 'Add portfolio +'">
+              New Portfolio
+            </h3>
+            <form
+              class="mt-3 form-inline col-6"
+              #createPortfolioForm="ngForm"
+              (ngSubmit)="createPortfolio()"
+              *ngIf="tab.title === 'Add portfolio +'"
+            >
+              <div class="input-group">
+                <input
+                  type="text"
+                  [(ngModel)]="newPortfolio.name"
+                  class="form-control"
+                  placeholder="Enter a portfolio name"
+                  name="name"
+                  autocomplete="off"
+                />
+                <div class="input-group-append">
+                  <button
+                    [disabled]="!createPortfolioForm.dirty"
+                    type="submit"
+                    class="btn btn-primary"
+                    style="height: 2.2rem"
+                  >
+                    Create
+                  </button>
+                </div>
+              </div>
             </form>
           </div>
         </tab>
@@ -61,6 +87,7 @@
         [tableData]="tableData"
         [currentTabIndex]="currentTabIndex"
         [currentPortfolioId]="currentPortfolioId"
+        [currentPortfolioName]="currentPortfolioName"
         [isPageUserLoggedInUser]="isPageUserLoggedInUser"
         [pageUser]="pageUser"
         [loadUser]="loadUser.bind(this)"

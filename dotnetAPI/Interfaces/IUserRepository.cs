@@ -12,6 +12,7 @@ namespace DotnetApi.Interfaces
     {
         Task<PagedList<AppUser>> GetUsersAsync(UserParams userParams);
         Task<AppUser> GetUserByIdAsync(int id);
+        Task<AppUser> GetUserWithPortfoliosAsync(int id);
         Task<AppUser> GetUserByUsernameAsync(string username);
         void Update(AppUser user);
     }

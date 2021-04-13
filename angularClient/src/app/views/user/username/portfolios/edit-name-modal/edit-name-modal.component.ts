@@ -27,7 +27,6 @@ export class EditNameModalComponent implements OnInit {
   ngOnInit(): void {}
 
   updatePortfolioName(id: string, updatedName: string) {
-    console.log('from modal component: id', id);
     this._portfolioService
       .updatePortfolioName(id, updatedName)
       .subscribe(() => {
@@ -39,7 +38,6 @@ export class EditNameModalComponent implements OnInit {
           if (portfolio.id === id) {
             portfolio.name = updatedName;
           }
-          console.log(portfolio);
         }
 
         this.loadUser();

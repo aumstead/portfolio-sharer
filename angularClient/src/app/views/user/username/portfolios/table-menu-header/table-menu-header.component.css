@@ -18,8 +18,14 @@
   width: 118px;
 }
 
+.actions-button {
+  margin-right: 1rem;
+  align-items: center;
+  font-size: 0.8rem;
+}
+
 .dropdown-toggle::after {
-  display: none;
+  /* display: none; */
 }
 
 .well.well-lg.card.card-block.card-header {
