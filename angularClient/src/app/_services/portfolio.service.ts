@@ -20,17 +20,9 @@ export class PortfolioService {
       `${this.baseUrl}/portfolios?id=${id}&updatedName=${updatedName}`,
       {}
     );
-    // .pipe(
-    //   map(() => {
-    //     const index = this.appUsers.indexOf(appUser);
-    //     this.appUsers[index] = appUser;
-    //     console.log(this.appUsers[index]);
-    //   })
-    // );
   }
 
   createPortfolio(name: string) {
-    console.log('in service', name);
     return this._http.post(
       `${this.baseUrl}/portfolios?portfolioName=${name}`,
       {}

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { AppUser } from 'src/app/_models/appUser';
 import { DeletePortfolioModalComponent } from '../delete-portfolio-modal/delete-portfolio-modal.component';
@@ -19,8 +19,13 @@ export class TableMenuHeaderComponent implements OnInit {
   bsModalRef: BsModalRef;
   @Input() pageUser: AppUser;
   @Input() loadUser;
+  @Input() handlePortfolioData;
+  @Input() getResults;
+  @Output() goToAddPortfolioTabEvent = new EventEmitter<boolean>();
 
   constructor(private _modalService: BsModalService) {}
+
+  ngOnInit(): void {}
 
   openEditNameModal() {
     this.bsModalRef = this._modalService.show(EditNameModalComponent);
@@ -37,5 +42,11 @@ export class TableMenuHeaderComponent implements OnInit {
     this.bsModalRef.content.loadUser = this.loadUser;
   }
 
-  ngOnInit(): void {}
+  hideCollapse(e) {
+    this.isCollapsed = e;
+  }
+
+  goToAddPortfolioTab() {
+    this.goToAddPortfolioTabEvent.emit(true);
+  }
 }

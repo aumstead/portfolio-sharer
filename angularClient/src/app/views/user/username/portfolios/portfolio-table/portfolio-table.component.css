@@ -7,7 +7,47 @@
   background-color: rgba(0, 0, 0, 0.03);
 }
 
-.table-sm td,
+/* .table-sm td,
 .table-sm th {
   padding: 0.45rem;
+} */
+
+th {
+  font-size: 0.8rem;
+}
+
+td {
+  /* padding-right: 6rem; */
+}
+
+.noPositions {
+  margin-left: 1.75rem;
+}
+
+.sort-container {
+  margin-left: 1rem;
+  display: flex;
+  align-items: baseline;
+}
+
+.label {
+  font-size: 0.8rem;
+  margin-left: 0.75rem;
+  margin-right: 0.5rem;
+  text-transform: uppercase;
+}
+
+.dropdown-toggle {
+  color: var(--color-info);
+  font-weight: 800;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+
+.dropdown-toggle:hover {
+  cursor: pointer;
+}
+
+.active {
+  color: var(--color-info);
 }

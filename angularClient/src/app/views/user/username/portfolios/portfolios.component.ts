@@ -7,6 +7,8 @@ import { Portfolio } from 'src/app/_models/portfolio';
 import { AccountService } from 'src/app/_services/account.service';
 import { AppUserService } from 'src/app/_services/app-user.service';
 import { PortfolioService } from 'src/app/_services/portfolio.service';
+import { PercentPieModalComponent } from './percent-pie-modal/percent-pie-modal.component';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-portfolios',
@@ -21,29 +23,20 @@ export class PortfoliosComponent implements OnInit {
   currentPortfolioId: number;
   currentPortfolioName: string;
   tabs: any[] = [];
-  data = [];
+  // a collection of portfolioObjects which contain details about each portfolio. Used to get currentPortfolioId and currentPortfolioName
+  portfolioObjArr = [];
+  portfolioTotalValues = [];
+  // results is for pie chart data
   results = [];
   tableData = [];
-  isCollapsed = true;
-
-  // create portfolio form
-  newPortfolio: any = {};
-  @ViewChild('createPortfolioForm') createPortfolioForm: NgForm;
-
-  // pie chart
-  colorScheme = {
-    domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA'],
-  };
-  showLegend: boolean = true;
-  showLabels: boolean = true;
-  legendPosition: string = 'right';
+  bsModalRef: BsModalRef;
 
   constructor(
     private _appUserService: AppUserService,
     private _route: ActivatedRoute,
     private _accountService: AccountService,
-    private _portfolioService: PortfolioService,
-    private _router: Router
+    private _router: Router,
+    private _modalService: BsModalService
   ) {}
 
   ngOnInit(): void {
@@ -75,8 +68,8 @@ export class PortfoliosComponent implements OnInit {
   }
 
   initCurrentPortfolioId(index: number) {
-    this.currentPortfolioId = this.data[index]?.id;
-    this.currentPortfolioName = this.data[index]?.name;
+    this.currentPortfolioId = this.portfolioObjArr[index - 1]?.id;
+    this.currentPortfolioName = this.portfolioObjArr[index - 1]?.name;
   }
 
   getLoggedInUser() {
@@ -93,8 +86,8 @@ export class PortfoliosComponent implements OnInit {
     } else {
       this.getResults(index);
       this.currentTabIndex = index;
-      this.currentPortfolioId = this.data[index]?.id;
-      this.currentPortfolioName = this.data[index]?.name;
+      this.currentPortfolioId = this.portfolioObjArr[index - 1]?.id;
+      this.currentPortfolioName = this.portfolioObjArr[index - 1]?.name;
     }
   }
 
@@ -103,6 +96,10 @@ export class PortfoliosComponent implements OnInit {
   }
 
   createTabs() {
+    let overviewTab = {
+      title: 'Overview',
+    };
+    this.tabs.push(overviewTab);
     this.pageUser.portfolios.forEach((portfolio) => {
       let tab = {
         title: portfolio.name,
@@ -112,59 +109,91 @@ export class PortfoliosComponent implements OnInit {
     if (this.isPageUserLoggedInUser) {
       this.tabs.push({ title: 'Add portfolio +' });
     }
-    if (this.tabs.length === 0) {
-      this.tabs.push({ title: 'Empty' });
-    }
+    // if (this.tabs.length === 0) {
+    //   this.tabs.push({ title: 'Empty' });
+    // }
   }
 
+  // this method is for pie chart. gets drilled down into add-ticker-collapse in order to rerender after adding position
   getResults(index) {
-    this.results = this.data[index]?.positions;
+    // subtract 1 from index to account for overview tab
+    this.results = this.portfolioObjArr[index - 1]?.positions;
   }
 
-  handlePortfolioData() {
-    this.data = [];
-    this.tableData = [];
+  calculatePortfolioTotals() {
+    this.portfolioTotalValues = [];
     this.pageUser.portfolios.forEach((portfolio) => {
+      let portfolioTotal = 0;
+      portfolio.positions.forEach((p) => {
+        portfolioTotal += p.costBasis;
+      });
+
+      this.portfolioTotalValues.push(portfolioTotal);
+    });
+  }
+
+  // this method gets drilled into add-ticker-collapse just like getResults in order to rerender table.
+  handlePortfolioData() {
+    this.calculatePortfolioTotals();
+    this.portfolioObjArr = [];
+    this.tableData = [];
+    this.pageUser.portfolios.forEach((portfolio, i) => {
       let portfolioObj = {
         name: portfolio.name,
         positions: [],
         id: portfolio.id,
       };
 
+      // portfolio gets pushed to table data and displayed there
       let tablePortfolio = [];
 
       portfolio.positions.forEach((p) => {
+        let percentOfPortfolio = (
+          (p.costBasis / this.portfolioTotalValues[i]) *
+          100
+        ).toFixed(1);
+
+        // position for pie chart
         let position = {
           name: p.ticker,
-          value: parseFloat(
-            (p.shares * (p.pricePerShare + p.commissionFee)).toFixed(2)
-          ),
+          value: percentOfPortfolio,
         };
 
+        // position for table
         let tablePosition = {
           ticker: p.ticker,
           shares: p.shares,
           pricePerShare: p.pricePerShare,
+          costBasis: p.costBasis,
           commissionFee: p.commissionFee,
+          percentOfPortfolio: percentOfPortfolio,
         };
 
         portfolioObj.positions.push(position);
         tablePortfolio.push(tablePosition);
       });
 
-      this.data.push(portfolioObj);
+      // push portfolios to respective arrays
+      // sort for pie chart by cost basis
+      portfolioObj.positions.sort((a, b) => b.value - a.value);
+      this.portfolioObjArr.push(portfolioObj);
+      // sort portfolio alphabetically
+      tablePortfolio.sort((a, b) => {
+        let comparison = 0;
+        if (a.ticker > b.ticker) {
+          comparison = 1;
+        } else if (a.ticker < b.ticker) {
+          comparison = -1;
+        }
+        return comparison;
+      });
       this.tableData.push(tablePortfolio);
     });
   }
 
-  createPortfolio() {
-    this._portfolioService
-      .createPortfolio(this.newPortfolio.name)
-      .subscribe((newPortfolio) => {
-        console.log('in subscribe', newPortfolio);
-        // this._router.navigateByUrl(`user/${this.pageUser.username}/portfolios`);
-        this.createPortfolioForm.reset();
-        this.loadUser();
-      });
+  goToAddPortfolio() {
+    let addPortfolioIndex = this.tabs.length - 1;
+    // this.onSelect(addPortfolioIndex);
+    this.tabs[addPortfolioIndex].active = true;
   }
 }

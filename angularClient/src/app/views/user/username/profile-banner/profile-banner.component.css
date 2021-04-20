@@ -1,5 +1,6 @@
 .username {
   font-size: 1rem;
+  margin-bottom: 0rem;
 }
 
 .profile-image {
@@ -11,18 +12,35 @@
 
 .user-info-ul {
   list-style: none;
+  font-size: 0.95rem;
 }
 
-.btn-width {
-  width: 6rem;
+.btn-banner {
+  width: 5rem;
+  height: 1.8rem;
+  line-height: 20px;
 }
 
 .following-btn {
-  width: 6rem;
+  width: 5rem;
 }
 .following-btn:hover span {
   display: none;
 }
 .following-btn:hover:before {
   content: "Unfollow";
+}
+
+.banner-link {
+  color: var(--color-primary);
+  font-size: 0.95rem;
+  width: min-content;
+  display: flex;
+}
+
+.banner-h5 {
+  font-size: 0.85rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.4rem;
+  color: #8e8c84;
 }

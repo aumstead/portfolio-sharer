@@ -1,0 +1,96 @@
+<div class="well well-lg card card-block card-header">
+  <form
+    [formGroup]="createPositionForm"
+    (ngSubmit)="createPositionForm.valid && addTicker()"
+  >
+    <div class="form-row">
+      <div class="form-group">
+        <label for="ticker">Ticker</label>
+        <input
+          [class.is-invalid]="
+            createPositionForm.get('ticker').errors &&
+            createPositionForm.get('ticker').touched
+          "
+          type="text"
+          class="form-control"
+          formControlName="ticker"
+        />
+        <!-- <div
+        class="invalid-feedback"
+        *ngIf="createPositionForm.get('username').hasError('required')"
+      >
+        Please enter a ticker symbol.
+      </div> -->
+        <!-- <div
+      class="invalid-feedback"
+      *ngIf="createPositionForm.get('username').hasError('maxlength')"
+    >
+      Has a max length of 16 characters.
+    </div> -->
+      </div>
+
+      <div class="form-group">
+        <label for="shares">Shares</label>
+        <input
+          [class.is-invalid]="
+            createPositionForm.get('shares').errors &&
+            createPositionForm.get('shares').touched
+          "
+          type="number"
+          class="form-control"
+          formControlName="shares"
+        />
+        <!-- <div
+        class="invalid-feedback"
+        *ngIf="createPositionForm.get('shares').hasError('required')"
+      >
+        Please enter number of shares.
+      </div> -->
+      </div>
+
+      <div class="form-group">
+        <label for="pricePerShare">Cost / Share</label>
+        <input
+          [class.is-invalid]="
+            createPositionForm.get('pricePerShare').errors &&
+            createPositionForm.get('pricePerShare').touched
+          "
+          type="number"
+          class="form-control"
+          formControlName="pricePerShare"
+        />
+        <!-- <div
+        class="invalid-feedback"
+        *ngIf="createPositionForm.get('pricePerShare').hasError('required')"
+      >
+        Please enter the price per share.
+      </div> -->
+      </div>
+
+      <div class="form-group">
+        <label for="commissionFee">Commission fee</label>
+        <input
+          [class.is-invalid]="
+            createPositionForm.get('commissionFee').errors &&
+            createPositionForm.get('commissionFee').touched
+          "
+          type="number"
+          class="form-control"
+          formControlName="commissionFee"
+        />
+      </div>
+    </div>
+    <div class="form-row">
+      <button
+        [disabled]="!createPositionForm.valid"
+        class="btn btn-primary mr-3"
+        type="submit"
+      >
+        Add position
+      </button>
+      <button class="btn btn-outline-primary" type="button" (click)="cancel()">
+        Cancel
+      </button>
+    </div>
+  </form>
+</div>

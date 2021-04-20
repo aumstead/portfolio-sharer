@@ -75,6 +75,11 @@ namespace DotnetApi.Data
 
             foreach (var position in positions)
             {
+                position.CostBasis = position.Shares * position.PricePerShare;
+                if (position.CommissionFee != null)
+                {
+                    position.CostBasis = (decimal)(position.CostBasis + position.CommissionFee);
+                }
                 context.Positions.Add(position);
             }
 

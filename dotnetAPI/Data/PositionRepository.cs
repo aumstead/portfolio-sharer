@@ -1,6 +1,7 @@
 ﻿using API.Data;
 using API.Entities;
 using DotnetApi.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,7 +35,7 @@ namespace DotnetApi.Data
 
         public void UpdatePosition(Position position)
         {
-            throw new NotImplementedException();
+            _context.Entry(position).State = EntityState.Modified;
         }
     }
 }

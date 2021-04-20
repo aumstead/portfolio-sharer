@@ -32,6 +32,12 @@ import { ThreadComponent } from './views/user/messages/thread/thread.component';
 import { MessageComponent } from './views/user/messages/message/message.component';
 import { EditProfileBannerComponent } from './views/user/edit-profile/edit-profile-banner/edit-profile-banner.component';
 import { DeletePortfolioModalComponent } from './views/user/username/portfolios/delete-portfolio-modal/delete-portfolio-modal.component';
+import { AddTickerCollapseComponent } from './views/user/username/portfolios/add-ticker-collapse/add-ticker-collapse.component';
+import { FooterComponent } from './footer/footer.component';
+import { PercentPieModalComponent } from './views/user/username/portfolios/percent-pie-modal/percent-pie-modal.component';
+import { PortfolioChartsComponent } from './views/user/username/portfolios/portfolio-charts/portfolio-charts.component';
+import { CreatePortfolioComponent } from './views/user/username/portfolios/create-portfolio/create-portfolio.component';
+import { OverviewPortfolioComponent } from './views/user/username/portfolios/overview-portfolio/overview-portfolio.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +63,12 @@ import { DeletePortfolioModalComponent } from './views/user/username/portfolios/
     MessageComponent,
     EditProfileBannerComponent,
     DeletePortfolioModalComponent,
+    AddTickerCollapseComponent,
+    FooterComponent,
+    PercentPieModalComponent,
+    PortfolioChartsComponent,
+    CreatePortfolioComponent,
+    OverviewPortfolioComponent,
   ],
   imports: [
     BrowserModule,

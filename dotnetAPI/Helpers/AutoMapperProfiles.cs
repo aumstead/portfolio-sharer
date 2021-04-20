@@ -20,6 +20,8 @@ namespace DotnetApi.Helpers
             CreateMap<Portfolio, PortfolioDto>();
             CreateMap<Position, PositionDto>();
             CreateMap<CreatePositionDto, Position>();
+                //.ForMember(dest => dest.CostBasis, opt => opt.MapFrom(src => (src.Shares * src.PricePerShare) + src.CommissionFee));
+            CreateMap<UpdatePositionDto, Position>();
             CreateMap<AppUserUpdateDto, AppUser>();
             CreateMap<RegisterDto, AppUser>();
             CreateMap<Message, MessageDto>();

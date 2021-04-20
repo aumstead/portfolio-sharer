@@ -1,18 +1,79 @@
-<table *ngIf="tableData[currentTabIndex]" class="table table-hover table-sm">
+<div *ngIf="tableData.length > 0" class="sort-container mb-3">
+  <span class="label">Sort by:</span>
+  <div class="dropdown" dropdown>
+    <a class="dropdown-toggle" dropdownToggle>{{ sortState }}</a>
+    <div class="mt-2 dropdown-menu dropdown-menu-left" *dropdownMenu>
+      <button
+        [ngClass]="sortState === 'Ticker A-Z' ? 'active' : ''"
+        (click)="sortByAlpha()"
+        class="dropdown-item"
+      >
+        Ticker A-Z
+      </button>
+      <button
+        [ngClass]="sortState === 'Shares' ? 'active' : ''"
+        (click)="sortByShares()"
+        class="dropdown-item"
+      >
+        Shares
+      </button>
+      <button
+        [ngClass]="sortState === 'Price / Share' ? 'active' : ''"
+        (click)="sortByPricePerShare()"
+        class="dropdown-item"
+      >
+        Price/share
+      </button>
+      <button
+        [ngClass]="sortState === 'Cost Basis' ? 'active' : ''"
+        (click)="sortByCostBasis()"
+        class="dropdown-item"
+      >
+        Cost Basis
+      </button>
+    </div>
+  </div>
+</div>
+
+<table
+  *ngIf="
+    tableData[currentTabIndex - 1] && tableData[currentTabIndex - 1].length > 0;
+    else noPositions
+  "
+  class="table table-hover"
+>
   <thead>
     <tr>
-      <th>Ticker</th>
-      <th>Shares</th>
-      <th>Price/share</th>
-      <th>Cost basis</th>
+      <th style="width: 10%">Ticker</th>
+      <th style="width: 10%">Shares</th>
+      <th style="width: 10%">Price/share</th>
+      <th style="width: 10%">Cost Basis</th>
+      <th style="width: 10%">% of Portfolio</th>
+      <th style="width: 40%"></th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let position of tableData[currentTabIndex]">
-      <td>{{ position.ticker }}</td>
-      <td>{{ position.shares }}</td>
-      <td>{{ position.pricePerShare }}</td>
-      <td>{{ position.shares * position.pricePerShare }}</td>
+    <tr *ngFor="let position of tableData[currentTabIndex - 1]">
+      <td style="padding-right: 5rem">{{ position.ticker }}</td>
+      <td style="padding-right: 6rem" class="text-right">
+        {{ position.shares | number: "1.0-2" }}
+      </td>
+      <td style="padding-right: 6rem" class="text-right">
+        {{ position.pricePerShare | number: "1.2-2" }}
+      </td>
+      <td style="padding-right: 5rem" class="text-right">
+        {{ position.costBasis | number: "1.2-2" }}
+      </td>
+      <td style="padding-right: 3.5rem" class="text-right">
+        {{ position.percentOfPortfolio }}%
+      </td>
+      <td></td>
     </tr>
   </tbody>
 </table>
+
+<ng-template #noPositions>
+  <p class="noPositions" *ngIf="tableData.length > 0">
+    This portfolio doesn't have any positions yet.
+  </p>
+</ng-template>

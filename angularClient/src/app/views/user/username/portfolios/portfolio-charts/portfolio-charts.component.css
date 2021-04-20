@@ -1,0 +1,15 @@
+h3 {
+  font-size: 1.2rem;
+}
+
+.enlarge-btn {
+  color: var(--color-primary);
+  font-size: 0.95rem;
+  display: flex;
+  background-color: transparent;
+  border: none;
+  text-transform: unset;
+}
+.enlarge-btn:hover {
+  background-color: #f8f8f8;
+}

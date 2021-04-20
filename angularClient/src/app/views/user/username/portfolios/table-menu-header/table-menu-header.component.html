@@ -1,38 +1,23 @@
-<div class="positions-header" *ngIf="tableData[currentTabIndex]">
-  <h3 class="positions-title">Positions</h3>
-  <div *ngIf="isPageUserLoggedInUser">
+<div class="positions-header mt-3">
+  <h3 class="positions-title">{{ currentPortfolioName }}</h3>
+  <div class="btn-container" *ngIf="isPageUserLoggedInUser">
     <button
       type="button"
       class="btn btn-primary menu-button"
-      (click)="isCollapsed = !isCollapsed"
+      (click)="isCollapsed = false"
       [attr.aria-expanded]="!isCollapsed"
       aria-controls="collapseBasic"
     >
-      <div *ngIf="isCollapsed; else cancelAdd">
-        Add Ticker
-        <svg-icon
-          src="assets/svg/plus.svg"
-          [svgStyle]="{
-            'width.px': 14,
-            'height.px': 14,
-            'margin-top.px': -2,
-            'margin-right.px': 2
-          }"
-        ></svg-icon>
-      </div>
-
-      <ng-template #cancelAdd>
-        Cancel
-        <svg-icon
-          src="assets/svg/x.svg"
-          [svgStyle]="{
-            'width.px': 14,
-            'height.px': 14,
-            'margin-top.px': -2,
-            'margin-right.px': 2
-          }"
-        ></svg-icon>
-      </ng-template>
+      Add Ticker
+      <svg-icon
+        src="assets/svg/plus.svg"
+        [svgStyle]="{
+          'width.px': 14,
+          'height.px': 14,
+          'margin-top.px': -2,
+          'margin-right.px': 2
+        }"
+      ></svg-icon>
     </button>
     <div class="btn-group" dropdown>
       <button
@@ -61,6 +46,11 @@
         aria-labelledby="button-basic"
       >
         <li role="menuitem">
+          <a class="dropdown-item" (click)="goToAddPortfolioTab()"
+            >Create new portfolio</a
+          >
+        </li>
+        <li role="menuitem">
           <a class="dropdown-item" (click)="openEditNameModal()"
             >Edit portfolio name</a
           >
@@ -75,11 +65,14 @@
   </div>
 </div>
 
-<div
-  *ngIf="tableData[currentTabIndex]"
-  id="collapseBasic"
-  [collapse]="isCollapsed"
-  [isAnimated]="true"
->
-  <div class="well well-lg card card-block card-header">Some content</div>
+<div id="collapseBasic" [collapse]="isCollapsed" [isAnimated]="true">
+  <app-add-ticker-collapse
+    [isCollapsed]="isCollapsed"
+    (hideCollapseEvent)="hideCollapse($event)"
+    [portfolioId]="currentPortfolioId"
+    [pageUser]="pageUser"
+    [handlePortfolioData]="handlePortfolioData"
+    [getResults]="getResults"
+    [currentTabIndex]="currentTabIndex"
+  ></app-add-ticker-collapse>
 </div>

@@ -1,0 +1,32 @@
+/* .modal-dialog {
+  width: min-content;
+  max-width: unset;
+} */
+
+svg.ngx-charts.ng-tns-c103-4 {
+  float: none;
+}
+
+.pie-modal-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-header {
+  border-bottom: none;
+}
+
+.modal-title {
+  width: 100%;
+  text-align: center;
+  margin-left: 1.2rem;
+}
+
+.modal-body {
+  align-self: center;
+}
+
+.modal-footer {
+  border-top: none;
+  align-self: flex-end;
+}

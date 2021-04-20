@@ -12,6 +12,7 @@
   --color-danger: #d9534f;
   --color-warning: #f47c3c;
   --color-warning-hover: #f26418;
+  --color-success: #5fb474;
 }
 
 *,
@@ -66,6 +67,10 @@ a:hover {
   text-transform: unset;
 }
 
+a.dropdown-toggle.text-light:hover {
+  text-decoration: none;
+}
+
 label {
   margin-bottom: 0.3rem;
 }
@@ -88,5 +93,6 @@ ul.nav.nav-tabs {
   background-color: var(--color-warning);
 }
 .toast-success {
-  background-color: var(--color-primary);
+  /* background-color: var(--color-primary); */
+  background-color: var(--color-success);
 }

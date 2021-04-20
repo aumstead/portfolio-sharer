@@ -49,10 +49,44 @@ namespace DotnetApi.Controllers
                 }
             }
 
+            createPositionDto.Ticker = createPositionDto.Ticker.ToUpper();
+
             var position = _mapper.Map<Position>(createPositionDto);
+
+            position.CostBasis = position.Shares * position.PricePerShare;
+            if (position.CommissionFee != null)
+            {
+                position.CostBasis = (decimal)(position.CostBasis + position.CommissionFee);
+            }
+
             await _unitOfWork.PositionRepository.CreatePosition(position);
 
             if (await _unitOfWork.Complete()) return CreatedAtRoute("GetPositionByIdAsync", new { id = position.Id }, position);
+            return BadRequest();
+        }
+
+        [HttpPut]
+        public async Task<ActionResult> UpdatePosition([FromBody] UpdatePositionDto updatePositionDto)
+        {
+            if (!ModelState.IsValid || updatePositionDto.Id < 1)
+            {
+                return BadRequest(ModelState);
+            }
+            var position = await _unitOfWork.PositionRepository.GetPositionByIdAsync(updatePositionDto.Id);
+            if (position == null)
+            {
+                return BadRequest("Submitted data is invalid.");
+            }
+            var userId = User.GetUserId();
+            var portfolio = await _unitOfWork.PortfolioRepository.GetPortfolioByIdAsync(position.PortfolioId);
+            if (userId != portfolio.AppUserId)
+            {
+                return Unauthorized("You are not authorized to edit this position.");
+            }
+            _mapper.Map(updatePositionDto, position);
+            _unitOfWork.PositionRepository.UpdatePosition(position);
+            if (await _unitOfWork.Complete()) return NoContent();
+
             return BadRequest();
         }
 

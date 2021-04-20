@@ -167,6 +167,9 @@ namespace DotnetApi.Data.Migrations
                     b.Property<decimal?>("CommissionFee")
                         .HasColumnType("money");
 
+                    b.Property<decimal>("CostBasis")
+                        .HasColumnType("money");
+
                     b.Property<int>("PortfolioId")
                         .HasColumnType("int");
 

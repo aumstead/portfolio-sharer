@@ -1,0 +1,27 @@
+<div class="charts-container">
+  <div class="mt-4 col-6 d-flex flex-column align-items-center">
+    <h3 class="text-center mb-3">% of Portfolio Pie</h3>
+    <ngx-charts-pie-chart
+      [results]="results"
+      [view]="[400, 250]"
+      [labels]="true"
+      [legend]="false"
+      [legendPosition]="'right'"
+      [arcWidth]="0.5"
+      [animations]="false"
+      [tooltipText]="formatTooltip"
+    >
+    </ngx-charts-pie-chart>
+    <button class="btn enlarge-btn" (click)="openPercentPieModal()">
+      Enlarge<svg-icon
+        src="assets/svg/zoomin.svg"
+        [svgStyle]="{
+          'width.px': 15,
+          'height.px': 15,
+          'margin-top.px': -1,
+          'margin-left.px': 4
+        }"
+      ></svg-icon>
+    </button>
+  </div>
+</div>

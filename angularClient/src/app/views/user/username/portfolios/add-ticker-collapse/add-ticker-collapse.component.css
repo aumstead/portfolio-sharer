@@ -1,0 +1,9 @@
+.well.well-lg.card.card-block.card-header {
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+}
+
+input {
+  width: 8rem;
+  margin-right: 2rem;
+}

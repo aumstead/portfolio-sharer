@@ -23,6 +23,9 @@ namespace API.Entities
         [Column(TypeName = "money")]
         public decimal? CommissionFee { get; set; }
 
+        [Column(TypeName = "money")]
+        public decimal CostBasis { get; set; }
+
         [ForeignKey(nameof(Portfolio))]
         public int PortfolioId { get; set; }
         [JsonIgnore]
