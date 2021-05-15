@@ -15,8 +15,8 @@ export class LoginComponent implements OnInit {
   errors: LoginErrors = { username: false, password: false };
 
   constructor(
-    public accountService: AccountService,
-    private router: Router,
+    public _accountService: AccountService,
+    private _router: Router,
     private _fb: FormBuilder
   ) {}
 
@@ -26,9 +26,9 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.errors = { username: false, password: false };
-    this.accountService.login(this.loginForm.value).subscribe(
+    this._accountService.login(this.loginForm.value).subscribe(
       () => {
-        this.router.navigateByUrl('/feed');
+        this._router.navigateByUrl('/browse');
       },
       (error) => {
         if (error.error.type === 'username') {

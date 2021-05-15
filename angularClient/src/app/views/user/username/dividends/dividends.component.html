@@ -1,0 +1,80 @@
+<app-navbar></app-navbar>
+<ngx-spinner></ngx-spinner>
+
+<div class="container-xl m-nav">
+  <div class="row" *ngIf="pageUser">
+    <div class="col-2 banner">
+      <app-profile-banner
+        [loggedInUser]="loggedInUser"
+        [pageUser]="pageUser"
+      ></app-profile-banner>
+    </div>
+
+    <div class="col-2"></div>
+
+    <div class="col-10 main">
+      <!-- <h1>Dividends</h1> -->
+      <tabset #staticTabs class="mb-3">
+        <tab
+          *ngFor="let tab of tabs; let i = index"
+          [heading]="tab.title"
+          [active]="tab.active"
+          (selectTab)="onSelect(i)"
+          (deselect)="tab.active = false"
+          [disabled]="tab.disabled"
+        >
+          <div *ngIf="tab.title === 'Overview'">
+            dividends overview
+            <!-- <app-overview-portfolio
+              [portfolioTotalValues]="portfolioTotalValues"
+              [pageUser]="pageUser"
+              (selectedPortfolioIndex)="goToSelectedPortfolio($event)"
+              [portfolioObjArr]="portfolioObjArr"
+            ></app-overview-portfolio> -->
+          </div>
+
+          <!-- <div
+            *ngIf="
+              !(results?.length === 0) &&
+              !(tab.title === 'Add portfolio +') &&
+              !(tab.title === 'Overview')
+            "
+          >
+            <app-portfolio-charts [results]="results"></app-portfolio-charts>
+          </div>
+
+          <div *ngIf="tab.title === 'Add portfolio +'">
+            <app-create-portfolio
+              [loadUser]="loadUser.bind(this)"
+            ></app-create-portfolio>
+          </div> -->
+
+          <!-- <div
+            *ngIf="
+              !(tab.title === 'Overview') && !(tab.title === 'Add portfolio +')
+            "
+          >
+            <app-table-menu-header
+              [tableData]="tableData"
+              [currentTabIndex]="currentTabIndex"
+              [currentPortfolioId]="currentPortfolioId"
+              [currentPortfolioName]="currentPortfolioName"
+              [isPageUserLoggedInUser]="isPageUserLoggedInUser"
+              [pageUser]="pageUser"
+              [loadUser]="loadUser.bind(this)"
+              [handlePortfolioData]="handlePortfolioData.bind(this)"
+              [getResults]="getResults.bind(this)"
+              (goToAddPortfolioTabEvent)="goToAddPortfolio()"
+            ></app-table-menu-header>
+
+            <app-portfolio-table
+              [tableData]="tableData"
+              [currentTabIndex]="currentTabIndex"
+            ></app-portfolio-table>
+          </div> -->
+        </tab>
+      </tabset>
+      <app-footer style="margin-top: auto"></app-footer>
+    </div>
+  </div>
+</div>

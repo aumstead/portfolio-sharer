@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
   <div class="container-xl">
-    <a class="navbar-brand" routerLink="/">Fixed navbar</a>
+    <a class="navbar-brand" routerLink="/">Portfolio Sharer</a>
     <button
       class="navbar-toggler"
       type="button"
@@ -14,14 +14,14 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav">
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a
             class="nav-link"
             [routerLink]="['/feed']"
             routerLinkActive="router-link-active"
             >Feed</a
           >
-        </li>
+        </li> -->
         <li class="nav-item">
           <a
             class="nav-link"
@@ -49,17 +49,18 @@
         </div>
       </div>
 
-      <ul class="navbar-nav mr-5 align-items-center">
-        <li class="nav-item">
+      <ul class="navbar-nav mr-4 align-items-center">
+        <!-- <li class="nav-item">
           <a
             class="nav-link"
             [routerLink]="['/errors']"
             routerLinkActive="router-link-active"
             >Errors</a
           >
-        </li>
+        </li> -->
         <li class="nav-item">
           <a
+            *ngIf="!(_accountService.currentUser$ | async)"
             class="nav-link"
             [routerLink]="['/register']"
             routerLinkActive="router-link-active"
@@ -68,6 +69,7 @@
         </li>
         <li class="nav-item">
           <a
+            *ngIf="!(_accountService.currentUser$ | async)"
             class="nav-link"
             [routerLink]="['/login']"
             routerLinkActive="router-link-active"
@@ -76,6 +78,7 @@
         </li>
         <li class="nav-item">
           <a
+            *ngIf="_accountService.currentUser$ | async"
             class="nav-link mail-btn"
             [routerLink]="['/user/messages']"
             routerLinkActive="router-link-active"
@@ -107,7 +110,7 @@
         placement="bottom left"
       >
         <a class="dropdown-toggle text-light" dropdownToggle>{{
-          user.username
+          user.username | titlecase
         }}</a>
         <div class="mt-2 dropdown-menu dropdown-menu-right" *dropdownMenu>
           <a class="dropdown-item" routerLink="/user/messages">Messages</a>

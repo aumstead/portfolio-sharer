@@ -20,6 +20,81 @@
     "AppUserId": 2
   },
   {
+    "Name": "don",
+    "LastUpdated": "2020-05-27",
+    "AppUserId": 3
+  },
+  {
+    "Name": "roger",
+    "LastUpdated": "2020-05-27",
+    "AppUserId": 4
+  },
+  {
+    "Name": "Growth",
+    "LastUpdated": "2020-05-27",
+    "AppUserId": 5
+  },
+  {
+    "Name": "Etfs",
+    "LastUpdated": "2020-05-27",
+    "AppUserId": 5
+  },
+  {
+    "Name": "Megan",
+    "LastUpdated": "2020-05-27",
+    "AppUserId": 6
+  },
+  {
+    "Name": "Betty",
+    "LastUpdated": "2020-05-27",
+    "AppUserId": 7
+  },
+  {
+    "Name": "Peggy",
+    "LastUpdated": "2020-05-27",
+    "AppUserId": 8
+  },
+  {
+    "Name": "Harry's Portfolio",
+    "LastUpdated": "2020-05-27",
+    "AppUserId": 9
+  },
+  {
+    "Name": "Bert's Portfolio",
+    "LastUpdated": "2020-05-27",
+    "AppUserId": 10
+  },
+  {
+    "Name": "Ken's Portfolio",
+    "LastUpdated": "2020-05-27",
+    "AppUserId": 11
+  },
+  {
+    "Name": "Sally's Portfolio",
+    "LastUpdated": "2020-05-27",
+    "AppUserId": 12
+  },
+  {
+    "Name": "Sal's Portfolio",
+    "LastUpdated": "2020-05-27",
+    "AppUserId": 13
+  },
+  {
+    "Name": "Trudy's Portfolio",
+    "LastUpdated": "2020-05-27",
+    "AppUserId": 14
+  },
+  {
+    "Name": "Dawn's Portfolio",
+    "LastUpdated": "2020-05-27",
+    "AppUserId": 15
+  },
+  {
+    "Name": "Bob's portfolio",
+    "LastUpdated": "2020-05-27",
+    "AppUserId": 16
+  },
+  {
     "Name": "Growth",
     "LastUpdated": "2021-03-19",
     "AppUserId": 17
@@ -27,6 +102,11 @@
   {
     "Name": "Dividend Growth",
     "LastUpdated": "2021-03-19",
-    "AppUserId": 17
+    "AppUserId": 18
+  },
+  {
+    "Name": "Michael's portfolio",
+    "LastUpdated": "2020-05-27",
+    "AppUserId": 19
   }
 ]

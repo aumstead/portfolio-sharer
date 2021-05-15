@@ -38,6 +38,7 @@ import { PercentPieModalComponent } from './views/user/username/portfolios/perce
 import { PortfolioChartsComponent } from './views/user/username/portfolios/portfolio-charts/portfolio-charts.component';
 import { CreatePortfolioComponent } from './views/user/username/portfolios/create-portfolio/create-portfolio.component';
 import { OverviewPortfolioComponent } from './views/user/username/portfolios/overview-portfolio/overview-portfolio.component';
+import { DividendsComponent } from './views/user/username/dividends/dividends.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +70,7 @@ import { OverviewPortfolioComponent } from './views/user/username/portfolios/ove
     PortfolioChartsComponent,
     CreatePortfolioComponent,
     OverviewPortfolioComponent,
+    DividendsComponent,
   ],
   imports: [
     BrowserModule,

@@ -9,6 +9,7 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AccountService } from '../../_services/account.service';
+import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 
 @Component({
   selector: 'app-register',
@@ -21,12 +22,18 @@ export class RegisterComponent implements OnInit {
   maxDate: Date = new Date();
   showEmailHelperText = false;
   showDateOfBirthHelperText = false;
+  datePickerConfig: Partial<BsDatepickerConfig>;
 
   constructor(
     private _accountService: AccountService,
     private _fb: FormBuilder,
     private _router: Router
-  ) {}
+  ) {
+    this.datePickerConfig = Object.assign(
+      {},
+      { containerClass: 'theme-dark-blue' }
+    );
+  }
 
   ngOnInit(): void {
     this.initializeForm();

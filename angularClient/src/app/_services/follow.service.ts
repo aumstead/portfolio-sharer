@@ -20,7 +20,6 @@ export class FollowService {
   getFollows(predicate: string) {
     if (predicate === 'following') {
       if (this.followingCache.length > 0) {
-        console.log('using cache');
         return of(this.followingCache);
       }
       return this._http
@@ -38,7 +37,7 @@ export class FollowService {
     }
   }
 
-  removeFollow(username: string) {
-    // this func gets called from banner
+  removeFollow(pageUserId: number) {
+    return this._http.delete(`${this.baseUrl}/follows/${pageUserId}`);
   }
 }

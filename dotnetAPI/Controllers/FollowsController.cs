@@ -53,5 +53,29 @@ namespace DotnetApi.Controllers
             var users = await _unitOfWork.FollowsRepository.GetUserFollows(predicate, User.GetUserId());
             return Ok(users);
         }
+
+        [HttpDelete("{id:int}")]
+        public async Task<ActionResult> DeleteFollow(int id)
+        {
+            if (id < 1)
+            {
+                return BadRequest("Error deleting. Invalid ID.");
+            }
+            var userId = User.GetUserId();
+            
+            var followFromDb = await _unitOfWork.FollowsRepository.GetUserFollow(userId, id);
+            if (followFromDb == null)
+            {
+                return BadRequest("Error deleting. Follow not found.");
+            }
+            if (userId != followFromDb.SourceUserId)
+            {
+                return Unauthorized("You are not authorized to delete this portfolio.");
+            }
+            _unitOfWork.FollowsRepository.RemoveFollow(followFromDb);
+            if (await _unitOfWork.Complete()) return Ok();
+
+            return BadRequest("Error deleting the portfolio.");
+        }
     }
 }

@@ -28,12 +28,6 @@ export class AccountService {
         if (user) {
           this.setCurrentUser(user);
           this._presence.createHubConnection(user);
-          // this._messageService
-          //   .getUnreadMessages()
-          //   .subscribe((messages: any) => {
-          //     if (messages.length > 0)
-          //       this._messageService.hasUnreadMessages = true;
-          //   });
         }
       })
     );

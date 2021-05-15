@@ -1,0 +1,29 @@
+.overview-wrapper {
+  margin-left: 0.75rem;
+}
+
+.total-heading {
+  font-size: 1rem;
+}
+
+.total {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+th {
+  font-size: 0.8rem;
+}
+
+.totals-row {
+  font-weight: bold;
+}
+
+.portfolio-link {
+  color: cornflowerblue;
+}
+
+.portfolio-link:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}

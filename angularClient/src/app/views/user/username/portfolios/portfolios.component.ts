@@ -9,6 +9,7 @@ import { AppUserService } from 'src/app/_services/app-user.service';
 import { PortfolioService } from 'src/app/_services/portfolio.service';
 import { PercentPieModalComponent } from './percent-pie-modal/percent-pie-modal.component';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { TabsetComponent } from 'ngx-bootstrap/tabs';
 
 @Component({
   selector: 'app-portfolios',
@@ -23,11 +24,13 @@ export class PortfoliosComponent implements OnInit {
   currentPortfolioId: number;
   currentPortfolioName: string;
   tabs: any[] = [];
+  @ViewChild('staticTabs', { static: false }) staticTabs: TabsetComponent;
   // a collection of portfolioObjects which contain details about each portfolio. Used to get currentPortfolioId and currentPortfolioName
   portfolioObjArr = [];
   portfolioTotalValues = [];
   // results is for pie chart data
   results = [];
+  // tableData is for table
   tableData = [];
   bsModalRef: BsModalRef;
 
@@ -48,7 +51,7 @@ export class PortfoliosComponent implements OnInit {
 
   loadUser() {
     this._appUserService
-      .getAppUser(this._route.snapshot.paramMap.get('username'))
+      .getAppUserPositions(this._route.snapshot.paramMap.get('username'))
       .subscribe((user) => {
         this.pageUser = user;
         // tabs methods. table data is handled in handlePortfolioData()
@@ -99,7 +102,9 @@ export class PortfoliosComponent implements OnInit {
     let overviewTab = {
       title: 'Overview',
     };
+
     this.tabs.push(overviewTab);
+    // this.staticTabs.tabs.push(overviewTab);
     this.pageUser.portfolios.forEach((portfolio) => {
       let tab = {
         title: portfolio.name,
@@ -123,12 +128,19 @@ export class PortfoliosComponent implements OnInit {
   calculatePortfolioTotals() {
     this.portfolioTotalValues = [];
     this.pageUser.portfolios.forEach((portfolio) => {
+      let portfolioObj = {
+        name: portfolio.name,
+        value: 0,
+      };
+
       let portfolioTotal = 0;
       portfolio.positions.forEach((p) => {
         portfolioTotal += p.costBasis;
       });
 
-      this.portfolioTotalValues.push(portfolioTotal);
+      portfolioObj.value = portfolioTotal;
+
+      this.portfolioTotalValues.push(portfolioObj);
     });
   }
 
@@ -149,7 +161,7 @@ export class PortfoliosComponent implements OnInit {
 
       portfolio.positions.forEach((p) => {
         let percentOfPortfolio = (
-          (p.costBasis / this.portfolioTotalValues[i]) *
+          (p.costBasis / this.portfolioTotalValues[i].value) *
           100
         ).toFixed(1);
 
@@ -193,7 +205,10 @@ export class PortfoliosComponent implements OnInit {
 
   goToAddPortfolio() {
     let addPortfolioIndex = this.tabs.length - 1;
-    // this.onSelect(addPortfolioIndex);
-    this.tabs[addPortfolioIndex].active = true;
+    this.staticTabs.tabs[addPortfolioIndex].active = true;
+  }
+
+  goToSelectedPortfolio(index: number) {
+    this.staticTabs.tabs[index + 1].active = true;
   }
 }

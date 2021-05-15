@@ -40,6 +40,11 @@ export class ProfileBannerComponent implements OnInit {
   }
 
   removeFollow(pageUser: AppUser) {
-    console.log('delete follow');
+    this._followService.removeFollow(pageUser.id).subscribe(() => {
+      this._toastr.success(`Unfollowed ${pageUser.username}`);
+      const idx = this._followService.followingCache.indexOf(pageUser.username);
+      this._followService.followingCache.splice(idx, 1);
+      this.isFollowing = false;
+    });
   }
 }

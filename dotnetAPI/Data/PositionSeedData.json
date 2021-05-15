@@ -35,9 +35,9 @@
     "PortfolioId": 1
   },
   {
-    "Ticker": "GHVI",
+    "Ticker": "SHOP",
     "Shares": 2,
-    "PricePerShare": 14.1,
+    "PricePerShare": 1050.55,
     "CommissionFee": 1.22,
     "PortfolioId": 1
   },
@@ -77,9 +77,9 @@
     "PortfolioId": 1
   },
   {
-    "Ticker": "MJ",
-    "Shares": 45,
-    "PricePerShare": 21,
+    "Ticker": "ABNB",
+    "Shares": 15,
+    "PricePerShare": 164,
     "CommissionFee": 1.22,
     "PortfolioId": 1
   },
@@ -124,13 +124,6 @@
     "PricePerShare": 60,
     "CommissionFee": 1.22,
     "PortfolioId": 1
-  },
-  {
-    "Ticker": "VZ",
-    "Shares": 20,
-    "PricePerShare": 60,
-    "CommissionFee": 1.22,
-    "PortfolioId": 2
   },
   {
     "Ticker": "T",
@@ -504,20 +497,6 @@
     "PortfolioId": 5
   },
   {
-    "Ticker": "RIOT",
-    "Shares": 90,
-    "PricePerShare": 56.22,
-    "CommissionFee": null,
-    "PortfolioId": 5
-  },
-  {
-    "Ticker": "SFT",
-    "Shares": 600,
-    "PricePerShare": 8.69,
-    "CommissionFee": null,
-    "PortfolioId": 5
-  },
-  {
     "Ticker": "SHOP",
     "Shares": 2,
     "PricePerShare": 1191.85,
@@ -556,13 +535,6 @@
     "Ticker": "TTCF",
     "Shares": 535,
     "PricePerShare": 21.96,
-    "CommissionFee": null,
-    "PortfolioId": 5
-  },
-  {
-    "Ticker": "XPEV",
-    "Shares": 100,
-    "PricePerShare": 41.8,
     "CommissionFee": null,
     "PortfolioId": 5
   },
@@ -630,13 +602,6 @@
     "PortfolioId": 6
   },
   {
-    "Ticker": "FRT",
-    "Shares": 10,
-    "PricePerShare": 101.03,
-    "CommissionFee": null,
-    "PortfolioId": 6
-  },
-  {
     "Ticker": "FXI",
     "Shares": 38,
     "PricePerShare": 48.46,
@@ -698,6 +663,1875 @@
     "PricePerShare": 40.91,
     "CommissionFee": null,
     "PortfolioId": 6
+  },
+  {
+    "Ticker": "MSFT",
+    "Shares": 20,
+    "PricePerShare": 198.2,
+    "CommissionFee": 1.22,
+    "PortfolioId": 7
+  },
+  {
+    "Ticker": "AAPL",
+    "Shares": 23,
+    "PricePerShare": 212.11,
+    "CommissionFee": 0.3,
+    "PortfolioId": 7
+  },
+  {
+    "Ticker": "PFE",
+    "Shares": 100,
+    "PricePerShare": 32.2,
+    "CommissionFee": 1.22,
+    "PortfolioId": 7
+  },
+  {
+    "Ticker": "AMZN",
+    "Shares": 1,
+    "PricePerShare": 2999,
+    "CommissionFee": 1,
+    "PortfolioId": 7
+  },
+  {
+    "Ticker": "JMIA",
+    "Shares": 33,
+    "PricePerShare": 52.12,
+    "CommissionFee": 0.22,
+    "PortfolioId": 7
+  },
+  {
+    "Ticker": "SHOP",
+    "Shares": 4,
+    "PricePerShare": 800.1,
+    "CommissionFee": 1.22,
+    "PortfolioId": 7
+  },
+  {
+    "Ticker": "LMND",
+    "Shares": 50,
+    "PricePerShare": 50.27,
+    "CommissionFee": 0.55,
+    "PortfolioId": 7
+  },
+  {
+    "Ticker": "ABBV",
+    "Shares": 20,
+    "PricePerShare": 102.2,
+    "CommissionFee": 1.22,
+    "PortfolioId": 7
+  },
+  {
+    "Ticker": "TSLA",
+    "Shares": 20,
+    "PricePerShare": 145.44,
+    "CommissionFee": 1.22,
+    "PortfolioId": 7
+  },
+  {
+    "Ticker": "GME",
+    "Shares": 32,
+    "PricePerShare": 45,
+    "CommissionFee": 1.22,
+    "PortfolioId": 7
+  },
+  {
+    "Ticker": "AMC",
+    "Shares": 100,
+    "PricePerShare": 5.5,
+    "CommissionFee": 1.22,
+    "PortfolioId": 7
+  },
+  {
+    "Ticker": "ABNB",
+    "Shares": 20,
+    "PricePerShare": 160,
+    "CommissionFee": 1.22,
+    "PortfolioId": 7
+  },
+  {
+    "Ticker": "SPG",
+    "Shares": 20,
+    "PricePerShare": 97,
+    "CommissionFee": 1.22,
+    "PortfolioId": 7
+  },
+  {
+    "Ticker": "DIS",
+    "Shares": 20,
+    "PricePerShare": 110.22,
+    "CommissionFee": 1.22,
+    "PortfolioId": 7
+  },
+  {
+    "Ticker": "O",
+    "Shares": 20,
+    "PricePerShare": 61,
+    "CommissionFee": 1.22,
+    "PortfolioId": 7
+  },
+  {
+    "Ticker": "PBCT",
+    "Shares": 20,
+    "PricePerShare": 15,
+    "CommissionFee": 1.22,
+    "PortfolioId": 7
+  },
+  {
+    "Ticker": "TTCF",
+    "Shares": 20,
+    "PricePerShare": 24,
+    "CommissionFee": 1.22,
+    "PortfolioId": 7
+  },
+  {
+    "Ticker": "VZ",
+    "Shares": 20,
+    "PricePerShare": 60,
+    "CommissionFee": 1.22,
+    "PortfolioId": 7
+  },
+  {
+    "Ticker": "VTI",
+    "Shares": 500,
+    "PricePerShare": 156.43,
+    "CommissionFee": 1.22,
+    "PortfolioId": 8
+  },
+  {
+    "Ticker": "VXUS",
+    "Shares": 300,
+    "PricePerShare": 43.89,
+    "CommissionFee": 1.22,
+    "PortfolioId": 8
+  },
+  {
+    "Ticker": "VWO",
+    "Shares": 200,
+    "PricePerShare": 30.11,
+    "CommissionFee": 1.22,
+    "PortfolioId": 8
+  },
+  {
+    "Ticker": "BND",
+    "Shares": 300,
+    "PricePerShare": 80.2,
+    "CommissionFee": 1.22,
+    "PortfolioId": 8
+  },
+  {
+    "Ticker": "MSFT",
+    "Shares": 20,
+    "PricePerShare": 198.2,
+    "CommissionFee": 1.22,
+    "PortfolioId": 9
+  },
+  {
+    "Ticker": "AAPL",
+    "Shares": 23,
+    "PricePerShare": 212.11,
+    "CommissionFee": 0.3,
+    "PortfolioId": 9
+  },
+  {
+    "Ticker": "PFE",
+    "Shares": 100,
+    "PricePerShare": 32.2,
+    "CommissionFee": 1.22,
+    "PortfolioId": 9
+  },
+  {
+    "Ticker": "MARA",
+    "Shares": 120,
+    "PricePerShare": 29,
+    "CommissionFee": 1,
+    "PortfolioId": 9
+  },
+  {
+    "Ticker": "JMIA",
+    "Shares": 33,
+    "PricePerShare": 52.12,
+    "CommissionFee": 0.22,
+    "PortfolioId": 9
+  },
+  {
+    "Ticker": "SHOP",
+    "Shares": 2,
+    "PricePerShare": 1050.55,
+    "CommissionFee": 1.22,
+    "PortfolioId": 9
+  },
+  {
+    "Ticker": "CLOV",
+    "Shares": 2,
+    "PricePerShare": 10.27,
+    "CommissionFee": 0.55,
+    "PortfolioId": 9
+  },
+  {
+    "Ticker": "ABBV",
+    "Shares": 20,
+    "PricePerShare": 102.2,
+    "CommissionFee": 1.22,
+    "PortfolioId": 9
+  },
+  {
+    "Ticker": "CCL",
+    "Shares": 20,
+    "PricePerShare": 21,
+    "CommissionFee": 1.22,
+    "PortfolioId": 9
+  },
+  {
+    "Ticker": "GME",
+    "Shares": 22,
+    "PricePerShare": 45,
+    "CommissionFee": 1.22,
+    "PortfolioId": 9
+  },
+  {
+    "Ticker": "AMC",
+    "Shares": 100,
+    "PricePerShare": 5.5,
+    "CommissionFee": 1.22,
+    "PortfolioId": 9
+  },
+  {
+    "Ticker": "ABNB",
+    "Shares": 20,
+    "PricePerShare": 160,
+    "CommissionFee": 1.22,
+    "PortfolioId": 9
+  },
+  {
+    "Ticker": "SPG",
+    "Shares": 20,
+    "PricePerShare": 97,
+    "CommissionFee": 1.22,
+    "PortfolioId": 9
+  },
+  {
+    "Ticker": "FRT",
+    "Shares": 20,
+    "PricePerShare": 96.22,
+    "CommissionFee": 1.22,
+    "PortfolioId": 9
+  },
+  {
+    "Ticker": "O",
+    "Shares": 20,
+    "PricePerShare": 61,
+    "CommissionFee": 1.22,
+    "PortfolioId": 9
+  },
+  {
+    "Ticker": "PBCT",
+    "Shares": 20,
+    "PricePerShare": 15,
+    "CommissionFee": 1.22,
+    "PortfolioId": 9
+  },
+  {
+    "Ticker": "TTCF",
+    "Shares": 20,
+    "PricePerShare": 24,
+    "CommissionFee": 1.22,
+    "PortfolioId": 9
+  },
+  {
+    "Ticker": "VZ",
+    "Shares": 20,
+    "PricePerShare": 60,
+    "CommissionFee": 1.22,
+    "PortfolioId": 9
+  },
+  {
+    "Ticker": "MSFT",
+    "Shares": 20,
+    "PricePerShare": 198.2,
+    "CommissionFee": 1.22,
+    "PortfolioId": 10
+  },
+  {
+    "Ticker": "AAPL",
+    "Shares": 23,
+    "PricePerShare": 212.11,
+    "CommissionFee": 0.3,
+    "PortfolioId": 10
+  },
+  {
+    "Ticker": "PFE",
+    "Shares": 100,
+    "PricePerShare": 32.2,
+    "CommissionFee": 1.22,
+    "PortfolioId": 10
+  },
+  {
+    "Ticker": "MARA",
+    "Shares": 120,
+    "PricePerShare": 29,
+    "CommissionFee": 1,
+    "PortfolioId": 10
+  },
+  {
+    "Ticker": "JMIA",
+    "Shares": 33,
+    "PricePerShare": 52.12,
+    "CommissionFee": 0.22,
+    "PortfolioId": 10
+  },
+  {
+    "Ticker": "SHOP",
+    "Shares": 2,
+    "PricePerShare": 1050.55,
+    "CommissionFee": 1.22,
+    "PortfolioId": 10
+  },
+  {
+    "Ticker": "CLOV",
+    "Shares": 2,
+    "PricePerShare": 10.27,
+    "CommissionFee": 0.55,
+    "PortfolioId": 10
+  },
+  {
+    "Ticker": "ABBV",
+    "Shares": 20,
+    "PricePerShare": 102.2,
+    "CommissionFee": 1.22,
+    "PortfolioId": 10
+  },
+  {
+    "Ticker": "CCL",
+    "Shares": 20,
+    "PricePerShare": 21,
+    "CommissionFee": 1.22,
+    "PortfolioId": 10
+  },
+  {
+    "Ticker": "GME",
+    "Shares": 22,
+    "PricePerShare": 45,
+    "CommissionFee": 1.22,
+    "PortfolioId": 10
+  },
+  {
+    "Ticker": "AMC",
+    "Shares": 100,
+    "PricePerShare": 5.5,
+    "CommissionFee": 1.22,
+    "PortfolioId": 10
+  },
+  {
+    "Ticker": "ABNB",
+    "Shares": 20,
+    "PricePerShare": 177,
+    "CommissionFee": 1.22,
+    "PortfolioId": 10
+  },
+  {
+    "Ticker": "SPG",
+    "Shares": 20,
+    "PricePerShare": 97,
+    "CommissionFee": 1.22,
+    "PortfolioId": 10
+  },
+  {
+    "Ticker": "FRT",
+    "Shares": 20,
+    "PricePerShare": 96.22,
+    "CommissionFee": 1.22,
+    "PortfolioId": 10
+  },
+  {
+    "Ticker": "O",
+    "Shares": 20,
+    "PricePerShare": 61,
+    "CommissionFee": 1.22,
+    "PortfolioId": 10
+  },
+  {
+    "Ticker": "PBCT",
+    "Shares": 20,
+    "PricePerShare": 15,
+    "CommissionFee": 1.22,
+    "PortfolioId": 10
+  },
+  {
+    "Ticker": "TTCF",
+    "Shares": 20,
+    "PricePerShare": 24,
+    "CommissionFee": 1.22,
+    "PortfolioId": 10
+  },
+  {
+    "Ticker": "VZ",
+    "Shares": 20,
+    "PricePerShare": 60,
+    "CommissionFee": 1.22,
+    "PortfolioId": 10
+  },
+  {
+    "Ticker": "MSFT",
+    "Shares": 20,
+    "PricePerShare": 198.2,
+    "CommissionFee": 1.22,
+    "PortfolioId": 11
+  },
+  {
+    "Ticker": "AAPL",
+    "Shares": 23,
+    "PricePerShare": 212.11,
+    "CommissionFee": 0.3,
+    "PortfolioId": 11
+  },
+  {
+    "Ticker": "PFE",
+    "Shares": 100,
+    "PricePerShare": 32.2,
+    "CommissionFee": 1.22,
+    "PortfolioId": 11
+  },
+  {
+    "Ticker": "MARA",
+    "Shares": 120,
+    "PricePerShare": 29,
+    "CommissionFee": 1,
+    "PortfolioId": 11
+  },
+  {
+    "Ticker": "JMIA",
+    "Shares": 33,
+    "PricePerShare": 52.12,
+    "CommissionFee": 0.22,
+    "PortfolioId": 11
+  },
+  {
+    "Ticker": "SHOP",
+    "Shares": 2,
+    "PricePerShare": 1050.55,
+    "CommissionFee": 1.22,
+    "PortfolioId": 11
+  },
+  {
+    "Ticker": "CLOV",
+    "Shares": 2,
+    "PricePerShare": 10.27,
+    "CommissionFee": 0.55,
+    "PortfolioId": 11
+  },
+  {
+    "Ticker": "ABBV",
+    "Shares": 20,
+    "PricePerShare": 102.2,
+    "CommissionFee": 1.22,
+    "PortfolioId": 11
+  },
+  {
+    "Ticker": "CCL",
+    "Shares": 20,
+    "PricePerShare": 21,
+    "CommissionFee": 1.22,
+    "PortfolioId": 11
+  },
+  {
+    "Ticker": "GME",
+    "Shares": 22,
+    "PricePerShare": 45,
+    "CommissionFee": 1.22,
+    "PortfolioId": 11
+  },
+  {
+    "Ticker": "AMC",
+    "Shares": 100,
+    "PricePerShare": 5.5,
+    "CommissionFee": 1.22,
+    "PortfolioId": 11
+  },
+  {
+    "Ticker": "ABNB",
+    "Shares": 20,
+    "PricePerShare": 177,
+    "CommissionFee": 1.22,
+    "PortfolioId": 11
+  },
+  {
+    "Ticker": "SPG",
+    "Shares": 20,
+    "PricePerShare": 97,
+    "CommissionFee": 1.22,
+    "PortfolioId": 11
+  },
+  {
+    "Ticker": "FRT",
+    "Shares": 20,
+    "PricePerShare": 96.22,
+    "CommissionFee": 1.22,
+    "PortfolioId": 11
+  },
+  {
+    "Ticker": "O",
+    "Shares": 20,
+    "PricePerShare": 61,
+    "CommissionFee": 1.22,
+    "PortfolioId": 11
+  },
+  {
+    "Ticker": "PBCT",
+    "Shares": 20,
+    "PricePerShare": 15,
+    "CommissionFee": 1.22,
+    "PortfolioId": 11
+  },
+  {
+    "Ticker": "TTCF",
+    "Shares": 20,
+    "PricePerShare": 24,
+    "CommissionFee": 1.22,
+    "PortfolioId": 11
+  },
+  {
+    "Ticker": "VZ",
+    "Shares": 20,
+    "PricePerShare": 60,
+    "CommissionFee": 1.22,
+    "PortfolioId": 11
+  },
+  {
+    "Ticker": "MSFT",
+    "Shares": 20,
+    "PricePerShare": 198.2,
+    "CommissionFee": 1.22,
+    "PortfolioId": 12
+  },
+  {
+    "Ticker": "AAPL",
+    "Shares": 23,
+    "PricePerShare": 212.11,
+    "CommissionFee": 0.3,
+    "PortfolioId": 12
+  },
+  {
+    "Ticker": "PFE",
+    "Shares": 100,
+    "PricePerShare": 32.2,
+    "CommissionFee": 1.22,
+    "PortfolioId": 12
+  },
+  {
+    "Ticker": "MARA",
+    "Shares": 120,
+    "PricePerShare": 29,
+    "CommissionFee": 1,
+    "PortfolioId": 12
+  },
+  {
+    "Ticker": "JMIA",
+    "Shares": 33,
+    "PricePerShare": 52.12,
+    "CommissionFee": 0.22,
+    "PortfolioId": 12
+  },
+  {
+    "Ticker": "SHOP",
+    "Shares": 2,
+    "PricePerShare": 1050.55,
+    "CommissionFee": 1.22,
+    "PortfolioId": 12
+  },
+  {
+    "Ticker": "CLOV",
+    "Shares": 2,
+    "PricePerShare": 10.27,
+    "CommissionFee": 0.55,
+    "PortfolioId": 12
+  },
+  {
+    "Ticker": "ABBV",
+    "Shares": 20,
+    "PricePerShare": 102.2,
+    "CommissionFee": 1.22,
+    "PortfolioId": 12
+  },
+  {
+    "Ticker": "CCL",
+    "Shares": 20,
+    "PricePerShare": 21,
+    "CommissionFee": 1.22,
+    "PortfolioId": 12
+  },
+  {
+    "Ticker": "GME",
+    "Shares": 22,
+    "PricePerShare": 45,
+    "CommissionFee": 1.22,
+    "PortfolioId": 12
+  },
+  {
+    "Ticker": "AMC",
+    "Shares": 100,
+    "PricePerShare": 5.5,
+    "CommissionFee": 1.22,
+    "PortfolioId": 12
+  },
+  {
+    "Ticker": "ABNB",
+    "Shares": 20,
+    "PricePerShare": 177,
+    "CommissionFee": 1.22,
+    "PortfolioId": 12
+  },
+  {
+    "Ticker": "SPG",
+    "Shares": 20,
+    "PricePerShare": 97,
+    "CommissionFee": 1.22,
+    "PortfolioId": 12
+  },
+  {
+    "Ticker": "FRT",
+    "Shares": 20,
+    "PricePerShare": 96.22,
+    "CommissionFee": 1.22,
+    "PortfolioId": 12
+  },
+  {
+    "Ticker": "O",
+    "Shares": 20,
+    "PricePerShare": 61,
+    "CommissionFee": 1.22,
+    "PortfolioId": 12
+  },
+  {
+    "Ticker": "PBCT",
+    "Shares": 20,
+    "PricePerShare": 15,
+    "CommissionFee": 1.22,
+    "PortfolioId": 12
+  },
+  {
+    "Ticker": "TTCF",
+    "Shares": 20,
+    "PricePerShare": 24,
+    "CommissionFee": 1.22,
+    "PortfolioId": 12
+  },
+  {
+    "Ticker": "VZ",
+    "Shares": 20,
+    "PricePerShare": 60,
+    "CommissionFee": 1.22,
+    "PortfolioId": 12
+  },
+  {
+    "Ticker": "MSFT",
+    "Shares": 20,
+    "PricePerShare": 198.2,
+    "CommissionFee": 1.22,
+    "PortfolioId": 13
+  },
+  {
+    "Ticker": "AAPL",
+    "Shares": 23,
+    "PricePerShare": 212.11,
+    "CommissionFee": 0.3,
+    "PortfolioId": 13
+  },
+  {
+    "Ticker": "PFE",
+    "Shares": 100,
+    "PricePerShare": 32.2,
+    "CommissionFee": 1.22,
+    "PortfolioId": 13
+  },
+  {
+    "Ticker": "MARA",
+    "Shares": 120,
+    "PricePerShare": 29,
+    "CommissionFee": 1,
+    "PortfolioId": 13
+  },
+  {
+    "Ticker": "JMIA",
+    "Shares": 33,
+    "PricePerShare": 52.12,
+    "CommissionFee": 0.22,
+    "PortfolioId": 13
+  },
+  {
+    "Ticker": "SHOP",
+    "Shares": 2,
+    "PricePerShare": 1050.55,
+    "CommissionFee": 1.22,
+    "PortfolioId": 13
+  },
+  {
+    "Ticker": "CLOV",
+    "Shares": 2,
+    "PricePerShare": 10.27,
+    "CommissionFee": 0.55,
+    "PortfolioId": 13
+  },
+  {
+    "Ticker": "ABBV",
+    "Shares": 20,
+    "PricePerShare": 102.2,
+    "CommissionFee": 1.22,
+    "PortfolioId": 13
+  },
+  {
+    "Ticker": "CCL",
+    "Shares": 20,
+    "PricePerShare": 21,
+    "CommissionFee": 1.22,
+    "PortfolioId": 13
+  },
+  {
+    "Ticker": "GME",
+    "Shares": 22,
+    "PricePerShare": 45,
+    "CommissionFee": 1.22,
+    "PortfolioId": 13
+  },
+  {
+    "Ticker": "AMC",
+    "Shares": 100,
+    "PricePerShare": 5.5,
+    "CommissionFee": 1.22,
+    "PortfolioId": 13
+  },
+  {
+    "Ticker": "ABNB",
+    "Shares": 20,
+    "PricePerShare": 177,
+    "CommissionFee": 1.22,
+    "PortfolioId": 13
+  },
+  {
+    "Ticker": "SPG",
+    "Shares": 20,
+    "PricePerShare": 97,
+    "CommissionFee": 1.22,
+    "PortfolioId": 13
+  },
+  {
+    "Ticker": "FRT",
+    "Shares": 20,
+    "PricePerShare": 96.22,
+    "CommissionFee": 1.22,
+    "PortfolioId": 13
+  },
+  {
+    "Ticker": "O",
+    "Shares": 20,
+    "PricePerShare": 61,
+    "CommissionFee": 1.22,
+    "PortfolioId": 13
+  },
+  {
+    "Ticker": "PBCT",
+    "Shares": 20,
+    "PricePerShare": 15,
+    "CommissionFee": 1.22,
+    "PortfolioId": 13
+  },
+  {
+    "Ticker": "TTCF",
+    "Shares": 20,
+    "PricePerShare": 24,
+    "CommissionFee": 1.22,
+    "PortfolioId": 13
+  },
+  {
+    "Ticker": "VZ",
+    "Shares": 20,
+    "PricePerShare": 60,
+    "CommissionFee": 1.22,
+    "PortfolioId": 13
+  },
+  {
+    "Ticker": "MSFT",
+    "Shares": 20,
+    "PricePerShare": 198.2,
+    "CommissionFee": 1.22,
+    "PortfolioId": 14
+  },
+  {
+    "Ticker": "AAPL",
+    "Shares": 23,
+    "PricePerShare": 212.11,
+    "CommissionFee": 0.3,
+    "PortfolioId": 14
+  },
+  {
+    "Ticker": "PFE",
+    "Shares": 100,
+    "PricePerShare": 32.2,
+    "CommissionFee": 1.22,
+    "PortfolioId": 14
+  },
+  {
+    "Ticker": "MARA",
+    "Shares": 120,
+    "PricePerShare": 29,
+    "CommissionFee": 1,
+    "PortfolioId": 14
+  },
+  {
+    "Ticker": "JMIA",
+    "Shares": 33,
+    "PricePerShare": 52.12,
+    "CommissionFee": 0.22,
+    "PortfolioId": 14
+  },
+  {
+    "Ticker": "SHOP",
+    "Shares": 2,
+    "PricePerShare": 1050.55,
+    "CommissionFee": 1.22,
+    "PortfolioId": 14
+  },
+  {
+    "Ticker": "CLOV",
+    "Shares": 2,
+    "PricePerShare": 10.27,
+    "CommissionFee": 0.55,
+    "PortfolioId": 14
+  },
+  {
+    "Ticker": "ABBV",
+    "Shares": 20,
+    "PricePerShare": 102.2,
+    "CommissionFee": 1.22,
+    "PortfolioId": 14
+  },
+  {
+    "Ticker": "CCL",
+    "Shares": 20,
+    "PricePerShare": 21,
+    "CommissionFee": 1.22,
+    "PortfolioId": 14
+  },
+  {
+    "Ticker": "GME",
+    "Shares": 22,
+    "PricePerShare": 45,
+    "CommissionFee": 1.22,
+    "PortfolioId": 14
+  },
+  {
+    "Ticker": "AMC",
+    "Shares": 100,
+    "PricePerShare": 5.5,
+    "CommissionFee": 1.22,
+    "PortfolioId": 14
+  },
+  {
+    "Ticker": "ABNB",
+    "Shares": 20,
+    "PricePerShare": 177,
+    "CommissionFee": 1.22,
+    "PortfolioId": 14
+  },
+  {
+    "Ticker": "SPG",
+    "Shares": 20,
+    "PricePerShare": 97,
+    "CommissionFee": 1.22,
+    "PortfolioId": 14
+  },
+  {
+    "Ticker": "FRT",
+    "Shares": 20,
+    "PricePerShare": 96.22,
+    "CommissionFee": 1.22,
+    "PortfolioId": 14
+  },
+  {
+    "Ticker": "O",
+    "Shares": 20,
+    "PricePerShare": 61,
+    "CommissionFee": 1.22,
+    "PortfolioId": 14
+  },
+  {
+    "Ticker": "PBCT",
+    "Shares": 20,
+    "PricePerShare": 15,
+    "CommissionFee": 1.22,
+    "PortfolioId": 14
+  },
+  {
+    "Ticker": "TTCF",
+    "Shares": 20,
+    "PricePerShare": 24,
+    "CommissionFee": 1.22,
+    "PortfolioId": 14
+  },
+  {
+    "Ticker": "VZ",
+    "Shares": 20,
+    "PricePerShare": 60,
+    "CommissionFee": 1.22,
+    "PortfolioId": 14
+  },
+  {
+    "Ticker": "MSFT",
+    "Shares": 20,
+    "PricePerShare": 198.2,
+    "CommissionFee": 1.22,
+    "PortfolioId": 15
+  },
+  {
+    "Ticker": "AAPL",
+    "Shares": 23,
+    "PricePerShare": 212.11,
+    "CommissionFee": 0.3,
+    "PortfolioId": 15
+  },
+  {
+    "Ticker": "PFE",
+    "Shares": 100,
+    "PricePerShare": 32.2,
+    "CommissionFee": 1.22,
+    "PortfolioId": 15
+  },
+  {
+    "Ticker": "AMZN",
+    "Shares": 3,
+    "PricePerShare": 2955,
+    "CommissionFee": 1,
+    "PortfolioId": 15
+  },
+  {
+    "Ticker": "JMIA",
+    "Shares": 33,
+    "PricePerShare": 52.12,
+    "CommissionFee": 0.22,
+    "PortfolioId": 15
+  },
+  {
+    "Ticker": "GOOG",
+    "Shares": 2,
+    "PricePerShare": 1500.27,
+    "CommissionFee": 0.55,
+    "PortfolioId": 15
+  },
+  {
+    "Ticker": "ABBV",
+    "Shares": 20,
+    "PricePerShare": 102.2,
+    "CommissionFee": 1.22,
+    "PortfolioId": 15
+  },
+  {
+    "Ticker": "CCL",
+    "Shares": 20,
+    "PricePerShare": 21,
+    "CommissionFee": 1.22,
+    "PortfolioId": 15
+  },
+  {
+    "Ticker": "GME",
+    "Shares": 22,
+    "PricePerShare": 45,
+    "CommissionFee": 1.22,
+    "PortfolioId": 15
+  },
+  {
+    "Ticker": "AMC",
+    "Shares": 100,
+    "PricePerShare": 5.5,
+    "CommissionFee": 1.22,
+    "PortfolioId": 15
+  },
+  {
+    "Ticker": "MDB",
+    "Shares": 45,
+    "PricePerShare": 21,
+    "CommissionFee": 1.22,
+    "PortfolioId": 15
+  },
+  {
+    "Ticker": "SPG",
+    "Shares": 20,
+    "PricePerShare": 97,
+    "CommissionFee": 1.22,
+    "PortfolioId": 15
+  },
+  {
+    "Ticker": "ETSY",
+    "Shares": 20,
+    "PricePerShare": 96.22,
+    "CommissionFee": 1.22,
+    "PortfolioId": 15
+  },
+  {
+    "Ticker": "O",
+    "Shares": 20,
+    "PricePerShare": 61,
+    "CommissionFee": 1.22,
+    "PortfolioId": 15
+  },
+  {
+    "Ticker": "PBCT",
+    "Shares": 20,
+    "PricePerShare": 15,
+    "CommissionFee": 1.22,
+    "PortfolioId": 15
+  },
+  {
+    "Ticker": "TTCF",
+    "Shares": 20,
+    "PricePerShare": 24,
+    "CommissionFee": 1.22,
+    "PortfolioId": 15
+  },
+  {
+    "Ticker": "VZ",
+    "Shares": 20,
+    "PricePerShare": 60,
+    "CommissionFee": 1.22,
+    "PortfolioId": 15
+  },
+  {
+    "Ticker": "MSFT",
+    "Shares": 20,
+    "PricePerShare": 198.2,
+    "CommissionFee": 1.22,
+    "PortfolioId": 16
+  },
+  {
+    "Ticker": "AAPL",
+    "Shares": 23,
+    "PricePerShare": 212.11,
+    "CommissionFee": 0.3,
+    "PortfolioId": 16
+  },
+  {
+    "Ticker": "PFE",
+    "Shares": 100,
+    "PricePerShare": 32.2,
+    "CommissionFee": 1.22,
+    "PortfolioId": 16
+  },
+  {
+    "Ticker": "AMZN",
+    "Shares": 3,
+    "PricePerShare": 2955,
+    "CommissionFee": 1,
+    "PortfolioId": 16
+  },
+  {
+    "Ticker": "JMIA",
+    "Shares": 33,
+    "PricePerShare": 52.12,
+    "CommissionFee": 0.22,
+    "PortfolioId": 16
+  },
+  {
+    "Ticker": "GOOG",
+    "Shares": 2,
+    "PricePerShare": 1500.27,
+    "CommissionFee": 0.55,
+    "PortfolioId": 16
+  },
+  {
+    "Ticker": "ABBV",
+    "Shares": 20,
+    "PricePerShare": 102.2,
+    "CommissionFee": 1.22,
+    "PortfolioId": 16
+  },
+  {
+    "Ticker": "CCL",
+    "Shares": 20,
+    "PricePerShare": 21,
+    "CommissionFee": 1.22,
+    "PortfolioId": 16
+  },
+  {
+    "Ticker": "GME",
+    "Shares": 22,
+    "PricePerShare": 45,
+    "CommissionFee": 1.22,
+    "PortfolioId": 16
+  },
+  {
+    "Ticker": "AMC",
+    "Shares": 100,
+    "PricePerShare": 5.5,
+    "CommissionFee": 1.22,
+    "PortfolioId": 16
+  },
+  {
+    "Ticker": "MDB",
+    "Shares": 45,
+    "PricePerShare": 21,
+    "CommissionFee": 1.22,
+    "PortfolioId": 16
+  },
+  {
+    "Ticker": "SPG",
+    "Shares": 20,
+    "PricePerShare": 97,
+    "CommissionFee": 1.22,
+    "PortfolioId": 16
+  },
+  {
+    "Ticker": "ETSY",
+    "Shares": 20,
+    "PricePerShare": 96.22,
+    "CommissionFee": 1.22,
+    "PortfolioId": 16
+  },
+  {
+    "Ticker": "O",
+    "Shares": 20,
+    "PricePerShare": 61,
+    "CommissionFee": 1.22,
+    "PortfolioId": 16
+  },
+  {
+    "Ticker": "PBCT",
+    "Shares": 20,
+    "PricePerShare": 15,
+    "CommissionFee": 1.22,
+    "PortfolioId": 16
+  },
+  {
+    "Ticker": "TTCF",
+    "Shares": 20,
+    "PricePerShare": 24,
+    "CommissionFee": 1.22,
+    "PortfolioId": 16
+  },
+  {
+    "Ticker": "VZ",
+    "Shares": 20,
+    "PricePerShare": 60,
+    "CommissionFee": 1.22,
+    "PortfolioId": 16
+  },
+  {
+    "Ticker": "MSFT",
+    "Shares": 20,
+    "PricePerShare": 198.2,
+    "CommissionFee": 1.22,
+    "PortfolioId": 17
+  },
+  {
+    "Ticker": "AAPL",
+    "Shares": 23,
+    "PricePerShare": 212.11,
+    "CommissionFee": 0.3,
+    "PortfolioId": 17
+  },
+  {
+    "Ticker": "PFE",
+    "Shares": 100,
+    "PricePerShare": 32.2,
+    "CommissionFee": 1.22,
+    "PortfolioId": 17
+  },
+  {
+    "Ticker": "AMZN",
+    "Shares": 3,
+    "PricePerShare": 2955,
+    "CommissionFee": 1,
+    "PortfolioId": 17
+  },
+  {
+    "Ticker": "JMIA",
+    "Shares": 33,
+    "PricePerShare": 52.12,
+    "CommissionFee": 0.22,
+    "PortfolioId": 17
+  },
+  {
+    "Ticker": "GOOG",
+    "Shares": 2,
+    "PricePerShare": 1500.27,
+    "CommissionFee": 0.55,
+    "PortfolioId": 17
+  },
+  {
+    "Ticker": "ABBV",
+    "Shares": 20,
+    "PricePerShare": 102.2,
+    "CommissionFee": 1.22,
+    "PortfolioId": 17
+  },
+  {
+    "Ticker": "CCL",
+    "Shares": 20,
+    "PricePerShare": 21,
+    "CommissionFee": 1.22,
+    "PortfolioId": 17
+  },
+  {
+    "Ticker": "GME",
+    "Shares": 22,
+    "PricePerShare": 45,
+    "CommissionFee": 1.22,
+    "PortfolioId": 17
+  },
+  {
+    "Ticker": "AMC",
+    "Shares": 100,
+    "PricePerShare": 5.5,
+    "CommissionFee": 1.22,
+    "PortfolioId": 17
+  },
+  {
+    "Ticker": "MDB",
+    "Shares": 45,
+    "PricePerShare": 21,
+    "CommissionFee": 1.22,
+    "PortfolioId": 17
+  },
+  {
+    "Ticker": "SPG",
+    "Shares": 20,
+    "PricePerShare": 97,
+    "CommissionFee": 1.22,
+    "PortfolioId": 17
+  },
+  {
+    "Ticker": "ETSY",
+    "Shares": 20,
+    "PricePerShare": 96.22,
+    "CommissionFee": 1.22,
+    "PortfolioId": 17
+  },
+  {
+    "Ticker": "O",
+    "Shares": 20,
+    "PricePerShare": 61,
+    "CommissionFee": 1.22,
+    "PortfolioId": 17
+  },
+  {
+    "Ticker": "PBCT",
+    "Shares": 20,
+    "PricePerShare": 15,
+    "CommissionFee": 1.22,
+    "PortfolioId": 17
+  },
+  {
+    "Ticker": "TTCF",
+    "Shares": 20,
+    "PricePerShare": 24,
+    "CommissionFee": 1.22,
+    "PortfolioId": 17
+  },
+  {
+    "Ticker": "VZ",
+    "Shares": 20,
+    "PricePerShare": 60,
+    "CommissionFee": 1.22,
+    "PortfolioId": 17
+  },
+  {
+    "Ticker": "MSFT",
+    "Shares": 20,
+    "PricePerShare": 198.2,
+    "CommissionFee": 1.22,
+    "PortfolioId": 18
+  },
+  {
+    "Ticker": "AAPL",
+    "Shares": 23,
+    "PricePerShare": 212.11,
+    "CommissionFee": 0.3,
+    "PortfolioId": 18
+  },
+  {
+    "Ticker": "PFE",
+    "Shares": 100,
+    "PricePerShare": 32.2,
+    "CommissionFee": 1.22,
+    "PortfolioId": 18
+  },
+  {
+    "Ticker": "AMZN",
+    "Shares": 3,
+    "PricePerShare": 2955,
+    "CommissionFee": 1,
+    "PortfolioId": 18
+  },
+  {
+    "Ticker": "JMIA",
+    "Shares": 33,
+    "PricePerShare": 52.12,
+    "CommissionFee": 0.22,
+    "PortfolioId": 18
+  },
+  {
+    "Ticker": "GOOG",
+    "Shares": 2,
+    "PricePerShare": 1500.27,
+    "CommissionFee": 0.55,
+    "PortfolioId": 18
+  },
+  {
+    "Ticker": "ABBV",
+    "Shares": 20,
+    "PricePerShare": 102.2,
+    "CommissionFee": 1.22,
+    "PortfolioId": 18
+  },
+  {
+    "Ticker": "CCL",
+    "Shares": 20,
+    "PricePerShare": 21,
+    "CommissionFee": 1.22,
+    "PortfolioId": 18
+  },
+  {
+    "Ticker": "GME",
+    "Shares": 22,
+    "PricePerShare": 45,
+    "CommissionFee": 1.22,
+    "PortfolioId": 18
+  },
+  {
+    "Ticker": "AMC",
+    "Shares": 100,
+    "PricePerShare": 5.5,
+    "CommissionFee": 1.22,
+    "PortfolioId": 18
+  },
+  {
+    "Ticker": "MDB",
+    "Shares": 45,
+    "PricePerShare": 21,
+    "CommissionFee": 1.22,
+    "PortfolioId": 18
+  },
+  {
+    "Ticker": "SPG",
+    "Shares": 20,
+    "PricePerShare": 97,
+    "CommissionFee": 1.22,
+    "PortfolioId": 18
+  },
+  {
+    "Ticker": "ETSY",
+    "Shares": 20,
+    "PricePerShare": 96.22,
+    "CommissionFee": 1.22,
+    "PortfolioId": 18
+  },
+  {
+    "Ticker": "O",
+    "Shares": 20,
+    "PricePerShare": 61,
+    "CommissionFee": 1.22,
+    "PortfolioId": 18
+  },
+  {
+    "Ticker": "PBCT",
+    "Shares": 20,
+    "PricePerShare": 15,
+    "CommissionFee": 1.22,
+    "PortfolioId": 18
+  },
+  {
+    "Ticker": "TTCF",
+    "Shares": 20,
+    "PricePerShare": 24,
+    "CommissionFee": 1.22,
+    "PortfolioId": 18
+  },
+  {
+    "Ticker": "VZ",
+    "Shares": 20,
+    "PricePerShare": 60,
+    "CommissionFee": 1.22,
+    "PortfolioId": 18
+  },
+  {
+    "Ticker": "MSFT",
+    "Shares": 20,
+    "PricePerShare": 198.2,
+    "CommissionFee": 1.22,
+    "PortfolioId": 19
+  },
+  {
+    "Ticker": "AAPL",
+    "Shares": 23,
+    "PricePerShare": 212.11,
+    "CommissionFee": 0.3,
+    "PortfolioId": 19
+  },
+  {
+    "Ticker": "PFE",
+    "Shares": 100,
+    "PricePerShare": 32.2,
+    "CommissionFee": 1.22,
+    "PortfolioId": 19
+  },
+  {
+    "Ticker": "AMZN",
+    "Shares": 3,
+    "PricePerShare": 2955,
+    "CommissionFee": 1,
+    "PortfolioId": 19
+  },
+  {
+    "Ticker": "JMIA",
+    "Shares": 33,
+    "PricePerShare": 52.12,
+    "CommissionFee": 0.22,
+    "PortfolioId": 19
+  },
+  {
+    "Ticker": "GOOG",
+    "Shares": 2,
+    "PricePerShare": 1500.27,
+    "CommissionFee": 0.55,
+    "PortfolioId": 19
+  },
+  {
+    "Ticker": "ABBV",
+    "Shares": 20,
+    "PricePerShare": 102.2,
+    "CommissionFee": 1.22,
+    "PortfolioId": 19
+  },
+  {
+    "Ticker": "CCL",
+    "Shares": 20,
+    "PricePerShare": 21,
+    "CommissionFee": 1.22,
+    "PortfolioId": 19
+  },
+  {
+    "Ticker": "GME",
+    "Shares": 22,
+    "PricePerShare": 45,
+    "CommissionFee": 1.22,
+    "PortfolioId": 19
+  },
+  {
+    "Ticker": "AMC",
+    "Shares": 100,
+    "PricePerShare": 5.5,
+    "CommissionFee": 1.22,
+    "PortfolioId": 19
+  },
+  {
+    "Ticker": "MDB",
+    "Shares": 45,
+    "PricePerShare": 21,
+    "CommissionFee": 1.22,
+    "PortfolioId": 19
+  },
+  {
+    "Ticker": "SPG",
+    "Shares": 20,
+    "PricePerShare": 97,
+    "CommissionFee": 1.22,
+    "PortfolioId": 19
+  },
+  {
+    "Ticker": "ETSY",
+    "Shares": 20,
+    "PricePerShare": 96.22,
+    "CommissionFee": 1.22,
+    "PortfolioId": 19
+  },
+  {
+    "Ticker": "O",
+    "Shares": 20,
+    "PricePerShare": 61,
+    "CommissionFee": 1.22,
+    "PortfolioId": 19
+  },
+  {
+    "Ticker": "PBCT",
+    "Shares": 20,
+    "PricePerShare": 15,
+    "CommissionFee": 1.22,
+    "PortfolioId": 19
+  },
+  {
+    "Ticker": "TTCF",
+    "Shares": 20,
+    "PricePerShare": 24,
+    "CommissionFee": 1.22,
+    "PortfolioId": 19
+  },
+  {
+    "Ticker": "VZ",
+    "Shares": 20,
+    "PricePerShare": 60,
+    "CommissionFee": 1.22,
+    "PortfolioId": 19
+  },
+  {
+    "Ticker": "MSFT",
+    "Shares": 20,
+    "PricePerShare": 198.2,
+    "CommissionFee": 1.22,
+    "PortfolioId": 20
+  },
+  {
+    "Ticker": "AAPL",
+    "Shares": 23,
+    "PricePerShare": 212.11,
+    "CommissionFee": 0.3,
+    "PortfolioId": 20
+  },
+  {
+    "Ticker": "PFE",
+    "Shares": 100,
+    "PricePerShare": 32.2,
+    "CommissionFee": 1.22,
+    "PortfolioId": 20
+  },
+  {
+    "Ticker": "AMZN",
+    "Shares": 3,
+    "PricePerShare": 2955,
+    "CommissionFee": 1,
+    "PortfolioId": 20
+  },
+  {
+    "Ticker": "JMIA",
+    "Shares": 33,
+    "PricePerShare": 52.12,
+    "CommissionFee": 0.22,
+    "PortfolioId": 20
+  },
+  {
+    "Ticker": "GOOG",
+    "Shares": 2,
+    "PricePerShare": 1500.27,
+    "CommissionFee": 0.55,
+    "PortfolioId": 20
+  },
+  {
+    "Ticker": "ABBV",
+    "Shares": 20,
+    "PricePerShare": 102.2,
+    "CommissionFee": 1.22,
+    "PortfolioId": 20
+  },
+  {
+    "Ticker": "CCL",
+    "Shares": 20,
+    "PricePerShare": 21,
+    "CommissionFee": 1.22,
+    "PortfolioId": 20
+  },
+  {
+    "Ticker": "GME",
+    "Shares": 22,
+    "PricePerShare": 45,
+    "CommissionFee": 1.22,
+    "PortfolioId": 20
+  },
+  {
+    "Ticker": "AMC",
+    "Shares": 100,
+    "PricePerShare": 5.5,
+    "CommissionFee": 1.22,
+    "PortfolioId": 20
+  },
+  {
+    "Ticker": "MDB",
+    "Shares": 45,
+    "PricePerShare": 21,
+    "CommissionFee": 1.22,
+    "PortfolioId": 20
+  },
+  {
+    "Ticker": "SPG",
+    "Shares": 20,
+    "PricePerShare": 97,
+    "CommissionFee": 1.22,
+    "PortfolioId": 20
+  },
+  {
+    "Ticker": "ETSY",
+    "Shares": 20,
+    "PricePerShare": 96.22,
+    "CommissionFee": 1.22,
+    "PortfolioId": 20
+  },
+  {
+    "Ticker": "O",
+    "Shares": 20,
+    "PricePerShare": 61,
+    "CommissionFee": 1.22,
+    "PortfolioId": 20
+  },
+  {
+    "Ticker": "PBCT",
+    "Shares": 20,
+    "PricePerShare": 15,
+    "CommissionFee": 1.22,
+    "PortfolioId": 20
+  },
+  {
+    "Ticker": "TTCF",
+    "Shares": 20,
+    "PricePerShare": 24,
+    "CommissionFee": 1.22,
+    "PortfolioId": 20
+  },
+  {
+    "Ticker": "VZ",
+    "Shares": 20,
+    "PricePerShare": 60,
+    "CommissionFee": 1.22,
+    "PortfolioId": 20
+  },
+  {
+    "Ticker": "MSFT",
+    "Shares": 20,
+    "PricePerShare": 198.2,
+    "CommissionFee": 1.22,
+    "PortfolioId": 21
+  },
+  {
+    "Ticker": "AAPL",
+    "Shares": 23,
+    "PricePerShare": 212.11,
+    "CommissionFee": 0.3,
+    "PortfolioId": 21
+  },
+  {
+    "Ticker": "PFE",
+    "Shares": 100,
+    "PricePerShare": 32.2,
+    "CommissionFee": 1.22,
+    "PortfolioId": 21
+  },
+  {
+    "Ticker": "AMZN",
+    "Shares": 3,
+    "PricePerShare": 2955,
+    "CommissionFee": 1,
+    "PortfolioId": 21
+  },
+  {
+    "Ticker": "JMIA",
+    "Shares": 33,
+    "PricePerShare": 52.12,
+    "CommissionFee": 0.22,
+    "PortfolioId": 21
+  },
+  {
+    "Ticker": "GOOG",
+    "Shares": 2,
+    "PricePerShare": 1500.27,
+    "CommissionFee": 0.55,
+    "PortfolioId": 21
+  },
+  {
+    "Ticker": "ABBV",
+    "Shares": 20,
+    "PricePerShare": 102.2,
+    "CommissionFee": 1.22,
+    "PortfolioId": 21
+  },
+  {
+    "Ticker": "CCL",
+    "Shares": 20,
+    "PricePerShare": 21,
+    "CommissionFee": 1.22,
+    "PortfolioId": 21
+  },
+  {
+    "Ticker": "GME",
+    "Shares": 22,
+    "PricePerShare": 45,
+    "CommissionFee": 1.22,
+    "PortfolioId": 21
+  },
+  {
+    "Ticker": "AMC",
+    "Shares": 100,
+    "PricePerShare": 5.5,
+    "CommissionFee": 1.22,
+    "PortfolioId": 21
+  },
+  {
+    "Ticker": "MDB",
+    "Shares": 45,
+    "PricePerShare": 21,
+    "CommissionFee": 1.22,
+    "PortfolioId": 21
+  },
+  {
+    "Ticker": "SPG",
+    "Shares": 20,
+    "PricePerShare": 97,
+    "CommissionFee": 1.22,
+    "PortfolioId": 21
+  },
+  {
+    "Ticker": "ETSY",
+    "Shares": 20,
+    "PricePerShare": 96.22,
+    "CommissionFee": 1.22,
+    "PortfolioId": 21
+  },
+  {
+    "Ticker": "O",
+    "Shares": 20,
+    "PricePerShare": 61,
+    "CommissionFee": 1.22,
+    "PortfolioId": 21
+  },
+  {
+    "Ticker": "PBCT",
+    "Shares": 20,
+    "PricePerShare": 15,
+    "CommissionFee": 1.22,
+    "PortfolioId": 21
+  },
+  {
+    "Ticker": "TTCF",
+    "Shares": 20,
+    "PricePerShare": 24,
+    "CommissionFee": 1.22,
+    "PortfolioId": 21
+  },
+  {
+    "Ticker": "VZ",
+    "Shares": 20,
+    "PricePerShare": 60,
+    "CommissionFee": 1.22,
+    "PortfolioId": 21
+  },
+  {
+    "Ticker": "MSFT",
+    "Shares": 20,
+    "PricePerShare": 198.2,
+    "CommissionFee": 1.22,
+    "PortfolioId": 22
+  },
+  {
+    "Ticker": "AAPL",
+    "Shares": 23,
+    "PricePerShare": 212.11,
+    "CommissionFee": 0.3,
+    "PortfolioId": 22
+  },
+  {
+    "Ticker": "PFE",
+    "Shares": 100,
+    "PricePerShare": 32.2,
+    "CommissionFee": 1.22,
+    "PortfolioId": 22
+  },
+  {
+    "Ticker": "MARA",
+    "Shares": 120,
+    "PricePerShare": 29,
+    "CommissionFee": 1,
+    "PortfolioId": 22
+  },
+  {
+    "Ticker": "JMIA",
+    "Shares": 33,
+    "PricePerShare": 52.12,
+    "CommissionFee": 0.22,
+    "PortfolioId": 22
+  },
+  {
+    "Ticker": "GHVI",
+    "Shares": 2,
+    "PricePerShare": 14.1,
+    "CommissionFee": 1.22,
+    "PortfolioId": 22
+  },
+  {
+    "Ticker": "CLOV",
+    "Shares": 2,
+    "PricePerShare": 10.27,
+    "CommissionFee": 0.55,
+    "PortfolioId": 22
+  },
+  {
+    "Ticker": "ABBV",
+    "Shares": 20,
+    "PricePerShare": 102.2,
+    "CommissionFee": 1.22,
+    "PortfolioId": 22
+  },
+  {
+    "Ticker": "CCL",
+    "Shares": 20,
+    "PricePerShare": 21,
+    "CommissionFee": 1.22,
+    "PortfolioId": 22
+  },
+  {
+    "Ticker": "GME",
+    "Shares": 22,
+    "PricePerShare": 45,
+    "CommissionFee": 1.22,
+    "PortfolioId": 22
+  },
+  {
+    "Ticker": "AMC",
+    "Shares": 100,
+    "PricePerShare": 5.5,
+    "CommissionFee": 1.22,
+    "PortfolioId": 22
+  },
+  {
+    "Ticker": "ABNB",
+    "Shares": 20,
+    "PricePerShare": 163,
+    "CommissionFee": 1.22,
+    "PortfolioId": 22
+  },
+  {
+    "Ticker": "SPG",
+    "Shares": 20,
+    "PricePerShare": 97,
+    "CommissionFee": 1.22,
+    "PortfolioId": 22
+  },
+  {
+    "Ticker": "FRT",
+    "Shares": 20,
+    "PricePerShare": 96.22,
+    "CommissionFee": 1.22,
+    "PortfolioId": 22
+  },
+  {
+    "Ticker": "O",
+    "Shares": 20,
+    "PricePerShare": 61,
+    "CommissionFee": 1.22,
+    "PortfolioId": 22
+  },
+  {
+    "Ticker": "PBCT",
+    "Shares": 20,
+    "PricePerShare": 15,
+    "CommissionFee": 1.22,
+    "PortfolioId": 22
+  },
+  {
+    "Ticker": "TTCF",
+    "Shares": 20,
+    "PricePerShare": 24,
+    "CommissionFee": 1.22,
+    "PortfolioId": 22
+  },
+  {
+    "Ticker": "VZ",
+    "Shares": 20,
+    "PricePerShare": 60,
+    "CommissionFee": 1.22,
+    "PortfolioId": 22
   }
 
 

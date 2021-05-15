@@ -13,7 +13,7 @@
     <div class="col-2"></div>
 
     <div class="col-10 main">
-      <tabset class="mb-3">
+      <tabset #staticTabs class="mb-3">
         <tab
           *ngFor="let tab of tabs; let i = index"
           [heading]="tab.title"
@@ -23,7 +23,12 @@
           [disabled]="tab.disabled"
         >
           <div *ngIf="tab.title === 'Overview'">
-            <app-overview-portfolio></app-overview-portfolio>
+            <app-overview-portfolio
+              [portfolioTotalValues]="portfolioTotalValues"
+              [pageUser]="pageUser"
+              (selectedPortfolioIndex)="goToSelectedPortfolio($event)"
+              [portfolioObjArr]="portfolioObjArr"
+            ></app-overview-portfolio>
           </div>
 
           <div

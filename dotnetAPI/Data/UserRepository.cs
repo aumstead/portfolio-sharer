@@ -29,12 +29,18 @@ namespace DotnetApi.Controllers
             return await _context.Users.FindAsync(id);
         }
 
-        public async Task<AppUser> GetUserByUsernameAsync(string username)
+        public async Task<AppUser> GetUserPositionsAsync(string username)
         {
             return await _context.Users
                 .Include(u => u.Photo)
                 .Include(u => u.Portfolios)
                     .ThenInclude(p => p.Positions)
+                .SingleOrDefaultAsync(u => u.UserName == username);
+        }
+
+        public async Task<AppUser> GetUserByUsernameAsync(string username)
+        {
+            return await _context.Users.Include(u=>u.Photo)
                 .SingleOrDefaultAsync(u => u.UserName == username);
         }
 

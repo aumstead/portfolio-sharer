@@ -57,5 +57,10 @@ namespace DotnetApi.Data
                 .Include(x => x.Following)
                 .FirstOrDefaultAsync(u => u.Id == userId);
         }
+
+        public void RemoveFollow(UserFollow userFollow)
+        {
+            _context.Follows.Remove(userFollow);
+        }
     }
 }

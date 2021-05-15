@@ -149,6 +149,7 @@
           [maxDate]="maxDate"
           placeholder="MM-DD-YYYY"
           bsDatepicker
+          [bsConfig]="datePickerConfig"
           formControlName="dateOfBirth"
           (focus)="dateOfBirthFocus()"
           (focusout)="(dateOfBirthFocusOut)"
@@ -174,7 +175,7 @@
       <div class="form-group text-center mt-5">
         <button
           [disabled]="!registerForm.valid"
-          class="btn btn-success btn-block"
+          class="btn btn-primary btn-block"
           type="submit"
         >
           Register

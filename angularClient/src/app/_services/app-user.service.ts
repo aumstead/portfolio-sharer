@@ -66,13 +66,15 @@ export class AppUserService {
     );
   }
 
-  getAppUser(username: string) {
+  getAppUserPositions(username: string) {
     let appUser = [...this.appUserCache.values()]
       .reduce((arr, elem) => arr.concat(elem.result), [])
       .find((appUser: AppUser) => appUser.username === username);
     if (appUser) return of(appUser);
 
-    return this._http.get<AppUser>(`${this.baseUrl}/users/${username}`);
+    return this._http.get<AppUser>(
+      `${this.baseUrl}/users/positions/${username}`
+    );
   }
 
   updateAppUser(appUser) {

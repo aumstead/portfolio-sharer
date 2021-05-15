@@ -1,7 +1,7 @@
 <div class="card mb-4">
   <div class="card-body">
     <div class="d-flex align-items-center justify-content-between">
-      <h4 class="card-title">{{ appUser.username }}</h4>
+      <h4 class="card-title">{{ appUser.username | titlecase }}</h4>
       <img
         class="user-photo"
         [src]="appUser.photo.url || './assets/default-user.png'"
@@ -13,9 +13,11 @@
       Some quick example text to build on the card title and make up the bulk of
       the card's content.
     </p>
-    <a routerLink="/user/{{ appUser.username }}/portfolios" class="card-link"
+    <a
+      routerLink="/user/{{ appUser.username }}/portfolios"
+      class="card-link color-info"
       >View profile</a
     >
-    <a href="#" class="card-link">Another link</a>
+    <a href="#" class="card-link color-info">Another link</a>
   </div>
 </div>

@@ -4,3 +4,10 @@
   border-radius: 30px;
   object-fit: cover;
 }
+
+.color-info {
+  color: var(--color-info);
+}
+.color-info:hover {
+  color: #1d95c6;
+}

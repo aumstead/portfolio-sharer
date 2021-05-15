@@ -120,7 +120,7 @@ export class EditProfileComponent implements OnInit {
 
   loadPageUser() {
     this._appUserService
-      .getAppUser(this.loggedInUser.username)
+      .getAppUserPositions(this.loggedInUser.username)
       .subscribe((user) => {
         this.pageUser = user;
         this.initializeUploader();

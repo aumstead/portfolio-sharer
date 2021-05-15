@@ -5,7 +5,7 @@
     [alt]="pageUser.username + ' profile image'"
   />
 
-  <h2 class="username">{{ pageUser.username }}</h2>
+  <h2 class="username">{{ pageUser.username | titlecase }}</h2>
 </div>
 
 <div *ngIf="pageUser.username !== loggedInUser.username" class="mb-3">
@@ -42,7 +42,10 @@
 
 <h5 class="banner-h5">Views</h5>
 <div class="d-flex flex-column mb-3">
-  <a class="banner-link" href="#"
+  <a
+    class="banner-link"
+    routerLink="/user/{{ pageUser.username }}/portfolios"
+    routerLinkActive="banner-link-active"
     ><svg-icon
       src="assets/svg/portfolio.svg"
       [svgStyle]="{
@@ -54,19 +57,11 @@
     ></svg-icon
     >Portfolios</a
   >
-  <a class="banner-link" href="#"
-    ><svg-icon
-      src="assets/svg/trades.svg"
-      [svgStyle]="{
-        'width.px': 15,
-        'height.px': 15,
-        'margin-top.px': -5,
-        'margin-right.px': 4
-      }"
-    ></svg-icon
-    >Trades</a
-  >
-  <a class="banner-link" href="#"
+
+  <a
+    class="banner-link"
+    routerLink="/user/{{ pageUser.username }}/dividends"
+    routerLinkActive="banner-link-active"
     ><svg-icon
       src="assets/svg/dividends.svg"
       [svgStyle]="{
@@ -78,7 +73,19 @@
     ></svg-icon
     >Dividends</a
   >
-  <a class="banner-link" href="#">
+  <a class="banner-link disable-pointer-events" href="#"
+    ><svg-icon
+      src="assets/svg/trades.svg"
+      [svgStyle]="{
+        'width.px': 15,
+        'height.px': 15,
+        'margin-top.px': -5,
+        'margin-right.px': 4
+      }"
+    ></svg-icon
+    >Trades</a
+  >
+  <a class="banner-link disable-pointer-events" href="#">
     <svg-icon
       src="assets/svg/options1.svg"
       [svgStyle]="{

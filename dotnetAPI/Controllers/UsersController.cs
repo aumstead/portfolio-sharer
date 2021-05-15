@@ -42,12 +42,27 @@ namespace API.Controllers
             return Ok(usersToReturn);
         }
 
-        [HttpGet("{username}", Name = "GetUser")]
-        public async Task<ActionResult<AppUserDto>>GetUser(string username)
+        [HttpGet("positions/{username}", Name = "GetUserPositions")]
+        public async Task<ActionResult<AppUserDto>>GetUserPositions(string username)
         {
-            var user = await _unitOfWork.UserRepository.GetUserByUsernameAsync(username);
+            //var symbols = new List<string>();
+            var user = await _unitOfWork.UserRepository.GetUserPositionsAsync(username);
+            //foreach (var portfolio in user.Portfolios)
+            //{
+            //    foreach (var position in portfolio.Positions)
+            //    {
+            //        symbols.Add(position.Ticker);
+            //    }
+            //}
             return _mapper.Map<AppUserDto>(user);
         }
+
+        //[HttpGet("{username/dividends}", Name = "GetUserDividends")]
+        //public async Task<ActionResult<AppUserDto>> GetUserDividends(string username)
+        //{
+        //    var user = await _unitOfWork.UserRepository.GetUserDividendsAsync(username);
+        //    return _mapper.Map<AppUserDto>(user);
+        //}
 
         [HttpPut]
         public async Task<ActionResult> UpdateUser(AppUserUpdateDto appUserUpdateDto)

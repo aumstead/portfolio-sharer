@@ -14,6 +14,7 @@ import { EditProfileComponent } from './views/user/edit-profile/edit-profile.com
 import { PreventUnsavedChangesGuard } from './_guards/prevent-unsaved-changes.guard';
 import { MessagesComponent } from './views/user/messages/messages.component';
 import { ThreadComponent } from './views/user/messages/thread/thread.component';
+import { DividendsComponent } from './views/user/username/dividends/dividends.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -45,6 +46,7 @@ const routes: Routes = [
     ],
   },
   { path: 'user/:username/portfolios', component: PortfoliosComponent },
+  { path: 'user/:username/dividends', component: DividendsComponent },
   { path: '**', component: NotFoundComponent, pathMatch: 'full' },
 ];
 
