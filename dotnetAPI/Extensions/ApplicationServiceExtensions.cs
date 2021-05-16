@@ -21,7 +21,7 @@ namespace DotnetApi.Extensions
         public static IServiceCollection AddApplicationServices(this IServiceCollection services, IConfiguration config)
         {
             services.AddDbContext<DataContext>(
-                options => options.UseSqlServer(config.GetConnectionString("DefaultConnection")));
+                options => options.UseNpgsql(config.GetConnectionString("DefaultConnection")));
             services.AddScoped<ITokenService, TokenService>();
             services.AddScoped<IPhotoService, PhotoService>();
             services.AddScoped<IPortfolioRepository, PortfolioRepository>();

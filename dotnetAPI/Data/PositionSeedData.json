@@ -1449,128 +1449,30 @@
     "PortfolioId": 13
   },
   {
-    "Ticker": "MSFT",
-    "Shares": 20,
-    "PricePerShare": 198.2,
+    "Ticker": "VTI",
+    "Shares": 500,
+    "PricePerShare": 156.43,
     "CommissionFee": 1.22,
     "PortfolioId": 14
   },
   {
-    "Ticker": "AAPL",
-    "Shares": 23,
-    "PricePerShare": 212.11,
-    "CommissionFee": 0.3,
-    "PortfolioId": 14
-  },
-  {
-    "Ticker": "PFE",
-    "Shares": 100,
-    "PricePerShare": 32.2,
+    "Ticker": "VXUS",
+    "Shares": 300,
+    "PricePerShare": 43.89,
     "CommissionFee": 1.22,
     "PortfolioId": 14
   },
   {
-    "Ticker": "MARA",
-    "Shares": 120,
-    "PricePerShare": 29,
-    "CommissionFee": 1,
-    "PortfolioId": 14
-  },
-  {
-    "Ticker": "JMIA",
-    "Shares": 33,
-    "PricePerShare": 52.12,
-    "CommissionFee": 0.22,
-    "PortfolioId": 14
-  },
-  {
-    "Ticker": "SHOP",
-    "Shares": 2,
-    "PricePerShare": 1050.55,
+    "Ticker": "VWO",
+    "Shares": 200,
+    "PricePerShare": 30.11,
     "CommissionFee": 1.22,
     "PortfolioId": 14
   },
   {
-    "Ticker": "CLOV",
-    "Shares": 2,
-    "PricePerShare": 10.27,
-    "CommissionFee": 0.55,
-    "PortfolioId": 14
-  },
-  {
-    "Ticker": "ABBV",
-    "Shares": 20,
-    "PricePerShare": 102.2,
-    "CommissionFee": 1.22,
-    "PortfolioId": 14
-  },
-  {
-    "Ticker": "CCL",
-    "Shares": 20,
-    "PricePerShare": 21,
-    "CommissionFee": 1.22,
-    "PortfolioId": 14
-  },
-  {
-    "Ticker": "GME",
-    "Shares": 22,
-    "PricePerShare": 45,
-    "CommissionFee": 1.22,
-    "PortfolioId": 14
-  },
-  {
-    "Ticker": "AMC",
-    "Shares": 100,
-    "PricePerShare": 5.5,
-    "CommissionFee": 1.22,
-    "PortfolioId": 14
-  },
-  {
-    "Ticker": "ABNB",
-    "Shares": 20,
-    "PricePerShare": 177,
-    "CommissionFee": 1.22,
-    "PortfolioId": 14
-  },
-  {
-    "Ticker": "SPG",
-    "Shares": 20,
-    "PricePerShare": 97,
-    "CommissionFee": 1.22,
-    "PortfolioId": 14
-  },
-  {
-    "Ticker": "FRT",
-    "Shares": 20,
-    "PricePerShare": 96.22,
-    "CommissionFee": 1.22,
-    "PortfolioId": 14
-  },
-  {
-    "Ticker": "O",
-    "Shares": 20,
-    "PricePerShare": 61,
-    "CommissionFee": 1.22,
-    "PortfolioId": 14
-  },
-  {
-    "Ticker": "PBCT",
-    "Shares": 20,
-    "PricePerShare": 15,
-    "CommissionFee": 1.22,
-    "PortfolioId": 14
-  },
-  {
-    "Ticker": "TTCF",
-    "Shares": 20,
-    "PricePerShare": 24,
-    "CommissionFee": 1.22,
-    "PortfolioId": 14
-  },
-  {
-    "Ticker": "VZ",
-    "Shares": 20,
-    "PricePerShare": 60,
+    "Ticker": "BND",
+    "Shares": 300,
+    "PricePerShare": 80.2,
     "CommissionFee": 1.22,
     "PortfolioId": 14
   },
