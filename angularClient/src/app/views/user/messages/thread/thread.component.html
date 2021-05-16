@@ -1,7 +1,13 @@
 <app-navbar></app-navbar>
 <ngx-spinner></ngx-spinner>
 
-<div class="container m-nav">
+<div class="container m-nav" *ngIf="_messageService.connectingToHub">
+  <div class="col-10 margin-auto">
+    <h5>Connecting to chat...</h5>
+  </div>
+</div>
+
+<div class="container m-nav" *ngIf="!_messageService.connectingToHub">
   <div class="row" *ngIf="_messageService.messageThread$ | async">
     <div class="col-10 margin-auto">
       <div class="row d-flex flex-column">
@@ -75,7 +81,7 @@
             rows="3"
           ></textarea>
           <button
-            [disabled]="!messageForm.valid"
+            [disabled]="!messageForm.valid || loading"
             class="btn btn-primary mt-3"
             type="submit"
           >

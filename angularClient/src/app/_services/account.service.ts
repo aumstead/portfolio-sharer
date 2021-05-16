@@ -4,6 +4,7 @@ import { ReplaySubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { LoggedInUser } from '../_models/loggedInUser';
+import { AppUserService } from './app-user.service';
 import { MessageService } from './message.service';
 import { PresenceService } from './presence.service';
 
@@ -18,7 +19,8 @@ export class AccountService {
   constructor(
     private _http: HttpClient,
     private _presence: PresenceService,
-    private _messageService: MessageService
+    private _messageService: MessageService,
+    private _appUserService: AppUserService
   ) {}
 
   login(model: any) {
@@ -56,6 +58,7 @@ export class AccountService {
 
   logout() {
     localStorage.removeItem('user');
+    this._appUserService.appUserCache = new Map();
     this.currentUserSource.next(null);
     this._presence.stopHubConnection();
     this._messageService.numberOfUnreadMessages = 0;

@@ -6,7 +6,6 @@ import { environment } from 'src/environments/environment';
 import { AppUser } from '../_models/appUser';
 import { AppUserParams } from '../_models/appUserParams';
 import { PaginatedResult } from '../_models/pagination';
-import { AccountService } from './account.service';
 import { getPaginatedResult, getPaginationHeaders } from './paginationHelper';
 
 @Injectable({
@@ -18,10 +17,7 @@ export class AppUserService {
   appUserCache = new Map();
   appUserParams: AppUserParams = new AppUserParams();
 
-  constructor(
-    private _http: HttpClient,
-    private _accountService: AccountService
-  ) {}
+  constructor(private _http: HttpClient) {}
 
   getAppUserParams() {
     return this.appUserParams;

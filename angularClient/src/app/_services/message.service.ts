@@ -10,6 +10,7 @@ import { LoggedInUser } from '../_models/loggedInUser';
 import { take } from 'rxjs/operators';
 import { PresenceService } from './presence.service';
 import { Group } from '../_models/group';
+import { LoadingService } from './loading.service';
 
 @Injectable({
   providedIn: 'root',
@@ -21,11 +22,16 @@ export class MessageService {
   private messageThreadSource = new BehaviorSubject<Message[]>([]);
   messageThread$ = this.messageThreadSource.asObservable();
   numberOfUnreadMessages: number;
+  connectingToHub = false;
 
-  constructor(private _http: HttpClient) {}
+  constructor(
+    private _http: HttpClient,
+    private _loadingService: LoadingService
+  ) {}
 
   createHubConnection(loggedInUser: LoggedInUser, otherUsername: string) {
-    // this.busyService.busy();
+    this._loadingService.loading();
+    this.connectingToHub = true;
     this.hubConnection = new HubConnectionBuilder()
       .withUrl(`${this.hubUrl}/message?user=${otherUsername}`, {
         accessTokenFactory: () => loggedInUser.token,
@@ -33,8 +39,13 @@ export class MessageService {
       .withAutomaticReconnect()
       .build();
 
-    this.hubConnection.start().catch((error) => console.log(error));
-    // .finally(() => this.busyService.idle());
+    this.hubConnection
+      .start()
+      .catch((error) => console.log(error))
+      .finally(() => {
+        this._loadingService.idle();
+        this.connectingToHub = false;
+      });
 
     this.hubConnection.on('ReceiveMessageThread', (messages) => {
       this.messageThreadSource.next(messages);
@@ -62,7 +73,7 @@ export class MessageService {
 
   stopHubConnection() {
     if (this.hubConnection) {
-      // this.messageThreadSource.next([]);
+      this.messageThreadSource.next([]);
       this.hubConnection.stop();
     }
   }

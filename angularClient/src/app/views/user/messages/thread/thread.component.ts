@@ -7,6 +7,7 @@ import {
 } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { BehaviorSubject } from 'rxjs';
 import { take } from 'rxjs/operators';
 import { LoggedInUser } from 'src/app/_models/loggedInUser';
 import { Message } from 'src/app/_models/message';
@@ -25,6 +26,7 @@ export class ThreadComponent implements OnInit, OnDestroy {
   messageContent;
   @ViewChild('messageForm') messageForm: NgForm;
   loggedInUser: LoggedInUser;
+  loading = false;
 
   constructor(
     public _messageService: MessageService,
@@ -54,10 +56,12 @@ export class ThreadComponent implements OnInit, OnDestroy {
   // }
 
   sendMessage() {
+    this.loading = true;
     this._messageService
       .sendChatMessage(this.username, this.messageContent)
       .then(() => {
         this.messageForm.reset();
-      });
+      })
+      .finally(() => (this.loading = false));
   }
 }
