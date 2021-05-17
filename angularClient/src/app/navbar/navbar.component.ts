@@ -43,7 +43,6 @@ export class NavbarComponent implements OnInit {
   // }
 
   reloadPage() {
-    console.log('reload page');
     location.reload();
   }
 }

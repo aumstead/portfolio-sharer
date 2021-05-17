@@ -2,7 +2,7 @@
   <h2>Portfolios</h2>
   <!-- <span class="total">{{ totalSumOfPortfolios | currency }}</span> -->
 
-  <table class="table table-sm col-6 mt-4">
+  <table class="table table-sm col col-lg-6 mt-4">
     <thead>
       <tr>
         <th>Name</th>
@@ -39,20 +39,22 @@
     </li>
   </ul> -->
 
-  <h3 class="mt-5">Charts</h3>
+  <div class="d-none d-lg-block">
+    <h3 class="mt-5">Charts</h3>
 
-  <div class="col-6">
-    <ngx-charts-pie-chart
-      [results]="breakdownResults"
-      [view]="[400, 250]"
-      [labels]="true"
-      [legend]="false"
-      [legendPosition]="'right'"
-      [arcWidth]="0.5"
-      [animations]="false"
-      [tooltipText]="formatTooltip"
-      [doughnut]="true"
-    >
-    </ngx-charts-pie-chart>
+    <div class="col col-lg-2">
+      <ngx-charts-pie-chart
+        [view]="[400, 250]"
+        [results]="breakdownResults"
+        [labels]="true"
+        [legend]="false"
+        [legendPosition]="'right'"
+        [arcWidth]="0.5"
+        [animations]="false"
+        [tooltipText]="formatTooltip"
+        [doughnut]="true"
+      >
+      </ngx-charts-pie-chart>
+    </div>
   </div>
 </div>

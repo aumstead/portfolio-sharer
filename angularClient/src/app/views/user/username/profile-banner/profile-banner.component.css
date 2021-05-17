@@ -35,7 +35,7 @@
 .banner-link {
   color: cornflowerblue;
   font-size: 0.95rem;
-  width: min-content;
+  width: 6rem;
   display: flex;
 }
 
@@ -52,4 +52,17 @@
 
 .disable-pointer-events {
   pointer-events: none;
+}
+
+@media only screen and (max-width: 991px) {
+  .banner-h5 {
+    margin-top: 0rem;
+  }
+}
+
+/* mobile first media query */
+@media only screen and (min-width: 991px) {
+  .banner-link {
+    width: min-content;
+  }
 }

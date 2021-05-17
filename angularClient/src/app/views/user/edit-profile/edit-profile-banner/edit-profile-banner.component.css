@@ -12,3 +12,17 @@
 .user-info-ul {
   list-style: none;
 }
+
+.banner-link {
+  color: cornflowerblue;
+  font-size: 0.95rem;
+  width: 6rem;
+  display: flex;
+}
+
+/* mobile first media query */
+@media only screen and (min-width: 991px) {
+  .banner-link {
+    width: min-content;
+  }
+}

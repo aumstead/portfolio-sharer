@@ -11,3 +11,9 @@
 .color-info:hover {
   color: #1d95c6;
 }
+
+.strategy-div {
+  min-height: 3rem;
+  max-height: 3rem;
+  overflow: hidden;
+}

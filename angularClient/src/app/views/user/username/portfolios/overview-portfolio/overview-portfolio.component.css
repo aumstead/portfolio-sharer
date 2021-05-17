@@ -1,7 +1,3 @@
-.overview-wrapper {
-  margin-left: 0.75rem;
-}
-
 .total-heading {
   font-size: 1rem;
 }
@@ -26,4 +22,10 @@ th {
 .portfolio-link:hover {
   text-decoration: underline;
   cursor: pointer;
+}
+
+@media only screen and (min-width: 991px) {
+  .overview-wrapper {
+    margin-left: 0.75rem;
+  }
 }

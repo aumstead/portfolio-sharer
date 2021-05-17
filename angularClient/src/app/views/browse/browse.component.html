@@ -120,8 +120,8 @@
     </ul>
   </div>
 
-  <div class="row mt-3">
-    <div *ngFor="let appUser of appUsers" class="col-3">
+  <div class="row mt-3 flex-column flex-md-row">
+    <div *ngFor="let appUser of appUsers" class="col col-md-6 col-lg-3">
       <app-user-card [appUser]="appUser"></app-user-card>
     </div>
   </div>

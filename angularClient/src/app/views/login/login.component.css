@@ -13,3 +13,9 @@
   margin-top: 0.25rem;
   width: 100%;
 }
+
+@media only screen and (max-width: 767px) {
+  .row-custom-container {
+    width: unset;
+  }
+}

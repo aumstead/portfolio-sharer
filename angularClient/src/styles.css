@@ -80,12 +80,17 @@ label {
 } */
 
 /* overwriting ngx-bootstrap */
-ul.nav.nav-tabs {
-  margin-left: 1rem;
+
+@media only screen and (min-width: 991px) {
+  ul.nav.nav-tabs {
+    margin-left: 1rem;
+  }
 }
 
-.tab-content {
-  margin-left: 1rem;
+@media only screen and (min-width: 991px) {
+  .tab-content {
+    margin-left: 1rem;
+  }
 }
 
 /* overwriting ngx-toastr */

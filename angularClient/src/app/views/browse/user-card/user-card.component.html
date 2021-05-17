@@ -9,15 +9,25 @@
       />
     </div>
     <h6 class="card-subtitle mb-2 text-muted">Age: {{ appUser.age }}</h6>
-    <p class="card-text">
-      Some quick example text to build on the card title and make up the bulk of
-      the card's content.
-    </p>
+    <h6 class="card-subtitle mb-2 text-muted">City: {{ appUser.city }}</h6>
+
+    <h6 class="card-subtitle mb-2 text-muted">
+      Total Amount Invested: ${{ totalAmountInvested | number: "1.2-2" }}
+    </h6>
+
+    <h6 class="card-subtitle mb-2 text-muted strategy-div">
+      Strategy: {{ appUser.investingStrategySummary }}
+    </h6>
+
     <a
       routerLink="/user/{{ appUser.username }}/portfolios"
       class="card-link color-info"
       >View profile</a
     >
-    <a href="#" class="card-link color-info">Another link</a>
+    <a
+      [routerLink]="['/user/messages/' + appUser.username]"
+      class="card-link color-info"
+      >Message</a
+    >
   </div>
 </div>

@@ -3,17 +3,17 @@
 
 <div class="container-xl m-nav" *ngIf="pageUser">
   <div class="row">
-    <div class="col-2 banner">
+    <div class="col-lg-2 banner">
       <!-- <app-profile-banner [pageUser]="pageUser"></app-profile-banner> -->
       <app-edit-profile-banner [pageUser]="pageUser"></app-edit-profile-banner>
     </div>
 
-    <div class="col-2"></div>
+    <div class="col-lg-2"></div>
 
-    <div class="col-10">
+    <div class="col col-lg-10">
       <tabset>
         <tab heading="Edit profile">
-          <div class="col-4 main mt-4">
+          <div class="col col-lg-4 main mt-4">
             <form #editForm="ngForm" (ngSubmit)="updateProfile()">
               <h2>Your profile details</h2>
               <div class="form-group mt-3">
@@ -75,7 +75,7 @@
               <button
                 [disabled]="!editForm.dirty"
                 type="submit"
-                class="btn btn-success btn-block mt-5"
+                class="btn btn-primary btn-block mt-5"
               >
                 Save changes
               </button>

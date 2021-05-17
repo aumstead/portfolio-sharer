@@ -3,16 +3,16 @@
 
 <div class="container-xl m-nav">
   <div class="row" *ngIf="pageUser">
-    <div class="col-2 banner">
+    <div class="col-lg-2 banner">
       <app-profile-banner
         [loggedInUser]="loggedInUser"
         [pageUser]="pageUser"
       ></app-profile-banner>
     </div>
 
-    <div class="col-2"></div>
+    <div class="d-none d-lg-block col-lg-2"></div>
 
-    <div class="col-10 main">
+    <div class="col col-lg-10 main">
       <tabset #staticTabs class="mb-3">
         <tab
           *ngFor="let tab of tabs; let i = index"

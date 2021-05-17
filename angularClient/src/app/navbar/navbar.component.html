@@ -2,7 +2,7 @@
   <div class="container-xl">
     <a class="navbar-brand" routerLink="/">Portfolio Sharer</a>
     <button
-      class="navbar-toggler"
+      class="navbar-toggler collapsed"
       type="button"
       data-toggle="collapse"
       data-target="#navbarCollapse"
@@ -30,6 +30,37 @@
             >Browse</a
           >
         </li>
+        <ng-container *ngIf="_accountService.currentUser$ | async as user">
+          <li class="nav-item">
+            <a
+              class="nav-link d-md-none"
+              routerLink="/user/{{ user.username }}/portfolios"
+              routerLinkActive="router-link-active"
+              >My Portfolios</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link d-md-none"
+              [routerLink]="['/user/messages']"
+              routerLinkActive="router-link-active"
+              >Messages</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link d-md-none"
+              routerLink="/user/edit-profile"
+              routerLinkActive="router-link-active"
+              >Edit Profile</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link d-md-none cursor-pointer" (click)="logout()"
+              >Logout</a
+            >
+          </li>
+        </ng-container>
       </ul>
 
       <div
@@ -37,7 +68,9 @@
         *ngIf="_accountService.currentUser$ | async as user"
         dropdown
       >
-        <a class="dropdown-toggle text-light" dropdownToggle>My portfolios</a>
+        <a class="dropdown-toggle text-light mobile-nav-hide" dropdownToggle
+          >My portfolios</a
+        >
         <div class="mt-2 dropdown-menu dropdown-menu-left" *dropdownMenu>
           <a
             routerLink="/user/{{ user.username }}/portfolios"
@@ -49,7 +82,29 @@
         </div>
       </div>
 
-      <ul class="navbar-nav mr-4 align-items-center">
+      <ul
+        *ngIf="!(_accountService.currentUser$ | async)"
+        class="navbar-nav d-md-none"
+      >
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [routerLink]="['/register']"
+            routerLinkActive="router-link-active"
+            >Register</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [routerLink]="['/login']"
+            routerLinkActive="router-link-active"
+            >Login</a
+          >
+        </li>
+      </ul>
+
+      <ul class="navbar-nav mr-4 align-items-center mobile-nav-hide">
         <!-- <li class="nav-item">
           <a
             class="nav-link"
@@ -99,12 +154,13 @@
         </li>
       </ul>
       <img
+        class="mobile-nav-hide"
         *ngIf="_accountService.currentUser$ | async as user"
         src="{{ user.photoUrl }}"
         alt="{{user.username}"
       />
       <div
-        class="dropdown"
+        class="dropdown mobile-nav-hide"
         *ngIf="_accountService.currentUser$ | async as user"
         dropdown
         placement="bottom left"

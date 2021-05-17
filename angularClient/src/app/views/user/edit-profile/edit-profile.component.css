@@ -51,3 +51,15 @@ input[type="file"] {
   border-color: #d9534f;
   color: #fff;
 }
+
+@media only screen and (max-width: 991px) {
+  .banner {
+    position: unset;
+    height: unset;
+    border-right: unset;
+  }
+
+  form {
+    margin-left: unset;
+  }
+}
